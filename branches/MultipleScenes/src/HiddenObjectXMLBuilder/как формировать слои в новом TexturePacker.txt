@@ -1,4 +1,0 @@
-1. pick		- was, sase,smas
-2. active_zone	- dtsi, mas, smas
-3. background	- 
-4. other		- mas, smas
