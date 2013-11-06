@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4246AF85-ACB9-4C7B-8090-1FA59305CD81}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HiddenObjectStudio.Core</RootNamespace>
+    <AssemblyName>HiddenObjectStudio.Core</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\Config.cs" />
+    <Compile Include="Forms\ResourceManager\AddContainerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddContainerForm.designer.cs">
+      <DependentUpon>AddContainerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddModelForm.Designer.cs">
+      <DependentUpon>AddModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddNewItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddNewItemForm.Designer.cs">
+      <DependentUpon>AddNewItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddParticlesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddParticlesForm.designer.cs">
+      <DependentUpon>AddParticlesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddShaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddShaderForm.Designer.cs">
+      <DependentUpon>AddShaderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddTexturePackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\AddTexturePackForm.Designer.cs">
+      <DependentUpon>AddTexturePackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\ResourcesManagerMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResourceManager\ResourcesManagerMainForm.Designer.cs">
+      <DependentUpon>ResourcesManagerMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoriesManagement\InventoryItem.cs" />
+    <Compile Include="InventoriesManagement\Inventories.cs" />
+    <Compile Include="LocationManagement\Location.cs" />
+    <Compile Include="LocationManagement\LocationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LocationManagement\SceneInfo.cs" />
+    <Compile Include="ResoucesManager\Container.cs" />
+    <Compile Include="ResoucesManager\Model.cs" />
+    <Compile Include="ResoucesManager\Particles.cs" />
+    <Compile Include="ResoucesManager\ResourcesData.cs" />
+    <Compile Include="ResoucesManager\Shader.cs" />
+    <Compile Include="ResoucesManager\TexturePack.cs" />
+    <Compile Include="SceneManagement\Animation.cs" />
+    <Compile Include="SceneManagement\Collections\Animations.cs" />
+    <Compile Include="SceneManagement\Collections\Layers.cs" />
+    <Compile Include="SceneManagement\Collections\Maps.cs" />
+    <Compile Include="SceneManagement\IXmlSerializable.cs" />
+    <Compile Include="SceneManagement\Layer.cs" />
+    <Compile Include="SceneManagement\Map.cs" />
+    <Compile Include="SceneManagement\Scene.cs" />
+    <Compile Include="SceneManagement\SubAnimation.cs" />
+    <Compile Include="SceneManagement\Subscription.cs" />
+    <Compile Include="Tools\Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SceneManagement\SubAnimations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\ResourceManager\AddContainerForm.resx">
+      <DependentUpon>AddContainerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResourceManager\AddModelForm.resx">
+      <DependentUpon>AddModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResourceManager\AddNewItemForm.resx">
+      <DependentUpon>AddNewItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResourceManager\AddParticlesForm.resx">
+      <DependentUpon>AddParticlesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResourceManager\AddShaderForm.resx">
+      <DependentUpon>AddShaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResourceManager\AddTexturePackForm.resx">
+      <DependentUpon>AddTexturePackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResourceManager\ResourcesManagerMainForm.resx">
+      <DependentUpon>ResourcesManagerMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
