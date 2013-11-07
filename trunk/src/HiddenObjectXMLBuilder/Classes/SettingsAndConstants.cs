@@ -33,6 +33,7 @@ namespace HiddenObjectsXMLBuilder
 		public static string DstScenesInGamePath;
 		public static string TextFileInGamePath;
         public static string LevelsFilePath;
+        public static string UserName;
 
 		public static bool RebuildTP;
 		public static bool ActiveZonesVisible;
@@ -113,6 +114,7 @@ namespace HiddenObjectsXMLBuilder
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "DstScenesInGamePath", DstScenesInGamePath);
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "TextFileInGamePath", TextFileInGamePath);
             HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "LevelsFileInGamePath", LevelsFilePath);
+            HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "UserName", UserName);
 
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "RebuildTP", RebuildTP);
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "ActiveZonesVisible", ActiveZonesVisible);
@@ -138,7 +140,8 @@ namespace HiddenObjectsXMLBuilder
 			SourcePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "SourcePath", "data\\");
 			DstScenesInGamePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "DstScenesInGamePath", "..\\bin\\data\\gameplay\\main\\scenes\\");
 			TextFileInGamePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "TextFileInGamePath", "..\\bin\\data\\texts\\texts.xml");
-            LevelsFilePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "LevelsFileInGamePath", "..\\bin\\data\\levels\\levels.xml"); 
+            LevelsFilePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "LevelsFileInGamePath", "..\\bin\\data\\levels\\levels.xml");
+            UserName = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "UserName", System.Environment.UserName); 
 
 			RebuildTP = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "RebuildTP", true);
 			ActiveZonesVisible = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "ActiveZonesVisible", true);

@@ -18,6 +18,7 @@ namespace HiddenObjectsXMLBuilder
         public string textXmlFileName;
         public string levelsXmlFileName;
 		public string sceneName;
+        public string UserName;
 
 		public bool rebuildScene;
         public bool rebuildLevels;

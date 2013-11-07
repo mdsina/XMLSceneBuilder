@@ -42,6 +42,11 @@ namespace HiddenObjectsXMLBuilder
             return false;
         }
 
+        private bool IsMinigameScene(string sceneName)
+        {
+            return (sceneName.Contains("_mg") || sceneName.Contains("_minigame") || sceneName.Contains("_mini_game") || sceneName.Contains("_puzzle"));
+        }
+
 		public Scene(BuilderConfig builderConfig, BuildOptions buildOptions)
 		{
 			_builderConfig = builderConfig;
@@ -176,6 +181,11 @@ namespace HiddenObjectsXMLBuilder
 				AddCloseButton();	
 			}
 
+            if (IsMinigameScene(_buildOptions.sceneName))
+            {
+                AddMinigameNode();
+            }
+
             if (_buildOptions.hummingBird)
             {
 				AddHummingBird();
@@ -191,6 +201,32 @@ namespace HiddenObjectsXMLBuilder
 
 			_sceneXmlDoc.Save(_xmlFileName);
 		}
+
+        public void AddMinigameNode()
+        {
+            if (!FoundParentNode("minigame", _layersNode))
+            {
+                XmlElement minigameNode = _sceneXmlDoc.CreateElement("minigame");
+
+                minigameNode.SetAttribute("mini_game_name", _buildOptions.sceneName);
+                minigameNode.SetAttribute("maps", "minigame");
+                minigameNode.SetAttribute("enabled", "0");
+
+                _layersNode.AppendChild(minigameNode);
+            }
+
+            if (!FoundParentNode("reset_button", _layersNode))
+            {
+                XmlElement resetNode = _sceneXmlDoc.CreateElement("reset_button");
+
+                resetNode.SetAttribute("position", "272 622");
+                resetNode.SetAttribute("alpha", "0");
+                resetNode.SetAttribute("template", "mini_games_common:mini_game_reset_button");
+
+                _layersNode.AppendChild(resetNode);
+
+            }
+        }
 
 		public void AddAnimationsNodeIfNeeded()
 		{
@@ -220,6 +256,10 @@ namespace HiddenObjectsXMLBuilder
                 if (_buildOptions.morfing)
                 {
                     includes += ";morfing";
+                }
+                if (IsMinigameScene(_buildOptions.sceneName))
+                {
+                    includes += ";mini_games_common";
                 }
 				_animationsNode.SetAttribute("include", includes);
 			}
@@ -251,6 +291,10 @@ namespace HiddenObjectsXMLBuilder
                 {
                     includeScripts += "<include file_name=\"..\\common\\ncux_fade_animation.lua\"/>";
                 }
+                if (IsMinigameScene(_buildOptions.sceneName))
+                {
+                    includeScripts += "<include file_name=\"..\\common\\mini_games_common.lua\"/>";
+                }
                 if (includeScripts.Length != 0)
                 {
                     _scriptsNode.FirstChild.InnerXml = includeScripts;
@@ -264,10 +308,28 @@ namespace HiddenObjectsXMLBuilder
 			if (_mapsNode == null)
 			{
 				_mapsNode = _sceneXmlDoc.CreateElement(MapsNodeName);
+                if (IsMinigameScene(_buildOptions.sceneName))
+                {
+                    XmlElement _mgNode = _sceneXmlDoc.CreateElement("minigame");
+                    XmlElement _mgNode_subscribe_show = _sceneXmlDoc.CreateElement("subscribe");
+
+                    _mgNode_subscribe_show.SetAttribute("event", "show_reset_button");
+                    _mgNode_subscribe_show.SetAttribute("animation", "instant_show");
+
+                    _mgNode.AppendChild(_mgNode_subscribe_show);
+
+                    XmlElement _mgNode_subscribe_hide = _sceneXmlDoc.CreateElement("subscribe");
+
+                    _mgNode_subscribe_hide.SetAttribute("event", "hide_reset_button");
+                    _mgNode_subscribe_hide.SetAttribute("animation", "instant_hide");
+
+                    _mgNode.AppendChild(_mgNode_subscribe_hide);
+
+                    _mapsNode.AppendChild(_mgNode);
+                    
+                }
 				_sceneRoot.AppendChild(_mapsNode);
 			}
-
-
 
 			if (!_mapsNode.HasAttribute("include"))
 			{
@@ -288,6 +350,10 @@ namespace HiddenObjectsXMLBuilder
                 if (_buildOptions.morfing)
                 {
                     includes += ";morfing";
+                }
+                if (IsMinigameScene(_buildOptions.sceneName))
+                {
+                    includes += ";mini_games_common";
                 }
 				_mapsNode.SetAttribute("include", includes);
 			}
@@ -378,6 +444,10 @@ namespace HiddenObjectsXMLBuilder
                 {
                     includesSection += @"<morfing file_name=""..\common\morfing.xml"" />";
                 }
+                if (IsMinigameScene(_buildOptions.sceneName))
+                {
+                    includesSection += @"<mini_games_common file_name=""..\common\mini_games_common.xml"" />";
+                }
 				includesSection += @"</include_files>";
 				includesXml.InnerXml = includesSection;
 
@@ -413,8 +483,22 @@ namespace HiddenObjectsXMLBuilder
                 {
                     sw.WriteLine("\tee:update()");
                 }
+                if (IsMinigameScene(_buildOptions.sceneName))
+                {
+                    sw.WriteLine();
+                    sw.WriteLine("\tif scene:is_button_pushed(\"reset_button\") then");
+                    sw.WriteLine("\tend");
+                }
 
 				sw.WriteLine(@"end");
+
+                if (IsMinigameScene(_buildOptions.sceneName))
+                {
+                    sw.WriteLine();
+                    sw.WriteLine(@"function ON_MINI_GAME_COMPLETE_"+_buildOptions.sceneName+"(scene)");
+                    sw.WriteLine("\tscene:fire_event(\"hide_reset_button\")");
+                    sw.WriteLine(@"end");
+                }
 
 				sw.Close();
 			}
@@ -433,9 +517,12 @@ namespace HiddenObjectsXMLBuilder
 
 		private void AddHummingBird()
 		{
-			XmlElement hummingBirdsNode = _sceneXmlDoc.CreateElement("humming_birds");
-			hummingBirdsNode.SetAttribute("template", "humming_birds:");
-			_layersNode.AppendChild(hummingBirdsNode);
+            if (!FoundParentNode("humming_birds", _layersNode))
+            {
+                XmlElement hummingBirdsNode = _sceneXmlDoc.CreateElement("humming_birds");
+                hummingBirdsNode.SetAttribute("template", "humming_birds:");
+                _layersNode.AppendChild(hummingBirdsNode);
+            }
 		}
 
         private void AddMorfingObject()

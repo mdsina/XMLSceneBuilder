@@ -65,6 +65,8 @@
             this.buttonLevelsXmlBrowse = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxLevelsXmlLocation = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -135,7 +137,7 @@
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.Size = new System.Drawing.Size(481, 77);
+            this.textBoxLog.Size = new System.Drawing.Size(481, 40);
             this.textBoxLog.TabIndex = 7;
             this.textBoxLog.Text = "Log";
             this.textBoxLog.WordWrap = false;
@@ -145,7 +147,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(8, 142);
+            this.splitContainer1.Location = new System.Drawing.Point(8, 198);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -158,14 +160,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLog);
-            this.splitContainer1.Size = new System.Drawing.Size(487, 316);
-            this.splitContainer1.SplitterDistance = 229;
+            this.splitContainer1.Size = new System.Drawing.Size(487, 257);
+            this.splitContainer1.SplitterDistance = 207;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonClearAll
             // 
             this.buttonClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonClearAll.Location = new System.Drawing.Point(88, 202);
+            this.buttonClearAll.Location = new System.Drawing.Point(88, 180);
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
             this.buttonClearAll.TabIndex = 2;
@@ -176,7 +178,7 @@
             // buttonSelectAll
             // 
             this.buttonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSelectAll.Location = new System.Drawing.Point(7, 202);
+            this.buttonSelectAll.Location = new System.Drawing.Point(7, 180);
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectAll.TabIndex = 1;
@@ -195,7 +197,7 @@
             this.listViewScenes.GridLines = true;
             this.listViewScenes.Location = new System.Drawing.Point(3, 3);
             this.listViewScenes.Name = "listViewScenes";
-            this.listViewScenes.Size = new System.Drawing.Size(481, 193);
+            this.listViewScenes.Size = new System.Drawing.Size(481, 171);
             this.listViewScenes.TabIndex = 0;
             this.listViewScenes.UseCompatibleStateImageBehavior = false;
             this.listViewScenes.View = System.Windows.Forms.View.Details;
@@ -504,12 +506,33 @@
             this.textBoxLevelsXmlLocation.TabIndex = 19;
             this.textBoxLevelsXmlLocation.TextChanged += new System.EventHandler(this.textBoxLevelsXmlLocation_TextChanged);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(287, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Имя или фамилия ( будет прописано напротив уровня )";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxName.Location = new System.Drawing.Point(305, 152);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(190, 20);
+            this.textBoxName.TabIndex = 23;
+            this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 733);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonLevelsXmlBrowse);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxLevelsXmlLocation);
@@ -588,5 +611,7 @@
         private System.Windows.Forms.Button buttonLevelsXmlBrowse;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxLevelsXmlLocation;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxName;
     }
 }

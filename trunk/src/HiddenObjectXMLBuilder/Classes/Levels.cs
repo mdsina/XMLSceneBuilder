@@ -249,7 +249,7 @@ namespace HiddenObjectsXMLBuilder
                         layerNode.SetAttribute("glints_file", GlintsFile);
                         layerNode.SetAttribute("playlist", DefaultPlaylist);
                         layerNode.SetAttribute("game_pos", DefaultGamePos);
-                        layerNode.SetAttribute("gdd_name", DefaultGDDNumber + _buildOptions.sceneName + " (" + System.Environment.UserName + ")");
+                        layerNode.SetAttribute("gdd_name", DefaultGDDNumber + _buildOptions.sceneName + " (" + _buildOptions.UserName + ")");
 
                         XmlElement levelResources;
                         levelResources = _sceneXmlDoc.CreateElement(LevelNodeResource);

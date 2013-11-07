@@ -39,6 +39,12 @@ namespace HiddenObjectsXMLBuilder
             get { return textBoxLevelsXmlLocation.Text; }
             set { textBoxLevelsXmlLocation.Text = value; }
         }
+
+        private string UserName
+        {
+            get { return textBoxName.Text; }
+            set { textBoxName.Text = value; }
+        }
     
         public MainForm()
         {
@@ -69,6 +75,7 @@ namespace HiddenObjectsXMLBuilder
 			DstRoot = SettingsAndConstants.DstScenesInGamePath;
 			TextsXmlFileName = SettingsAndConstants.TextFileInGamePath;
             LevelsXmlFileName = SettingsAndConstants.LevelsFilePath;
+            UserName = SettingsAndConstants.UserName;
 			
 
 			FillScenesList();
@@ -106,6 +113,7 @@ namespace HiddenObjectsXMLBuilder
 			SettingsAndConstants.DstScenesInGamePath = DstRoot;
 			SettingsAndConstants.TextFileInGamePath = TextsXmlFileName;
             SettingsAndConstants.LevelsFilePath = LevelsXmlFileName;
+            SettingsAndConstants.UserName = UserName;
 		}
 
 		private void FillScenesList()
@@ -238,6 +246,7 @@ namespace HiddenObjectsXMLBuilder
 			string dstFolder = Path.Combine(DstRoot, item.SceneName);
 			string textsXmlFileName = textBoxTextsXmlLocation.Text;
             string levelsXmlFileName = textBoxLevelsXmlLocation.Text;
+            string UserName = textBoxName.Text;
 
 			if (Directory.Exists(dstFolder))
 			{
@@ -271,6 +280,7 @@ namespace HiddenObjectsXMLBuilder
 
 			options.textXmlFileName = textsXmlFileName;
             options.levelsXmlFileName = levelsXmlFileName;
+            options.UserName = UserName;
 
 			options.sceneName = item.SceneName;
 
