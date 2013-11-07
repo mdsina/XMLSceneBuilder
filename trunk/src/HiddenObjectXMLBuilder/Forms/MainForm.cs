@@ -131,11 +131,11 @@ namespace HiddenObjectsXMLBuilder
                 k++;
 			}
 
-            if (!File.Exists(TextsXmlFileName))
+            if (!Directory.Exists(TextsXmlFileName))
             {
                 if (k == 0) listViewScenes.Items.Clear();
                 listViewScenes.CheckBoxes = false;
-                listViewScenes.Items.Add(new ListViewItem("Не найден исходный файл levels.xml: " + TextsXmlFileName));
+                listViewScenes.Items.Add(new ListViewItem("Не найдена исходная папка texts: " + TextsXmlFileName));
                 buttonStart.Enabled = false;
                 k++;
             }
@@ -173,8 +173,6 @@ namespace HiddenObjectsXMLBuilder
 					string dstPath = DstRoot + "\\" + di.Name;
 
 					if (di.Name.ToLower().Contains(".svn")) continue;
-
-					
 
 					SceneBuildInfo sceneBuildInfo = new SceneBuildInfo();
 					sceneBuildInfo.SceneName = di.Name;
@@ -396,18 +394,16 @@ namespace HiddenObjectsXMLBuilder
 		
 		private void buttonTextsXmlBrowse_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog dialog = new OpenFileDialog();
-			dialog.Filter = "Texts.xml|texts.xml|Xml files|*.xml|All files|*.*";
-			
-			FileInfo fi = new FileInfo(TextsXmlFileName);
-			
-			dialog.InitialDirectory = fi.DirectoryName;
-			dialog.CheckPathExists = true;
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
 
-			if (DialogResult.OK == dialog.ShowDialog())
-			{
-				textBoxTextsXmlLocation.Text = dialog.FileName;
-			}
+            DirectoryInfo di = new DirectoryInfo(SrcRoot);
+            dialog.SelectedPath = di.FullName;
+
+            if (DialogResult.OK == dialog.ShowDialog())
+            {
+                textBoxTextsXmlLocation.Text = dialog.SelectedPath;
+                FillScenesList();
+            }
 		}
 
 		private void textBoxSrcPath_TextChanged(object sender, EventArgs e)

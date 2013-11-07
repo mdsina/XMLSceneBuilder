@@ -74,6 +74,9 @@ namespace HiddenObjectsXMLBuilder
 
 		private XmlDocument _textsXmlDoc;
 		private XmlElement _hoItemsNode;
+        public String _TextsSE = null;
+        public String _TextsCE = null;
+        public String _TextsFH = null;
 
 		private Dictionary<string, HoSet> _hoSets;		
 
@@ -87,20 +90,45 @@ namespace HiddenObjectsXMLBuilder
 
 			_hoSets = new Dictionary<string, HoSet>();
 
-			if (File.Exists(_buildOptions.textXmlFileName))
+            if (File.Exists(_buildOptions.textXmlFileName + "texts_config.xml"))
 			{
-				_textsXmlDoc.Load(_buildOptions.textXmlFileName);
-				_hoItemsNode  = (XmlElement)_textsXmlDoc.DocumentElement.SelectSingleNode(HO_ITEMS_PATH);
+                _textsXmlDoc.Load(_buildOptions.textXmlFileName + "texts_config.xml");
+				//_hoItemsNode  = (XmlElement)_textsXmlDoc.DocumentElement.SelectSingleNode(HO_ITEMS_PATH);
 
-				if (_hoItemsNode == null)
-				{
-					throw new Exception("Не могу найти ноду '" + HO_ITEMS_PATH + "' в файле с текстами '" + _buildOptions.textXmlFileName + "'");
-				}
+                for (int i = 0; i < _textsXmlDoc.ChildNodes.Count; i++)
+                {
+                    
+                    if (_textsXmlDoc.ChildNodes[i].Attributes != null)
+                    {
+                        switch (_textsXmlDoc.ChildNodes[i].Attributes["file_name"].Value)
+                        {
+                            case "texts_first_hour.xml" : _TextsFH = "texts_first_hour.xml"; break;
+                            case "texts_se.xml"         : _TextsSE = "texts_se.xml"; break;
+                            case "texts_ce.xml"         : _TextsCE = "texts_ce.xml"; break;
+                        }
+
+                    }
+                }
+
+                    if (_hoItemsNode == null)
+                    {
+                        throw new Exception("Не могу найти ноду '" + HO_ITEMS_PATH + "' в файле с текстами '" + _buildOptions.textXmlFileName + "'");
+                    }
 			}
-			else
-			{
-				throw new Exception("Не могу найти файл с текстами '" + _buildOptions.textXmlFileName + "'");
-			}
+            else if (File.Exists(_buildOptions.textXmlFileName + "texts.xml"))
+            {
+                _textsXmlDoc.Load(_buildOptions.textXmlFileName + "texts.xml");
+                _hoItemsNode = (XmlElement)_textsXmlDoc.DocumentElement.SelectSingleNode(HO_ITEMS_PATH);
+
+                if (_hoItemsNode == null)
+                {
+                    throw new Exception("Не могу найти ноду '" + HO_ITEMS_PATH + "' в файле с текстами '" + _buildOptions.textXmlFileName + "'");
+                }
+            }
+            else
+            {
+                throw new Exception("Не могу найти файл с текстами '" + _buildOptions.textXmlFileName + "'");
+            }
 		}
 
 		public void AddGroup(FileName fn)

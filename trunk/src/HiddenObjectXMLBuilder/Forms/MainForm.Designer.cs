@@ -80,7 +80,7 @@
             this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonStart.ImageKey = "(none)";
-            this.buttonStart.Location = new System.Drawing.Point(380, 689);
+            this.buttonStart.Location = new System.Drawing.Point(372, 669);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(115, 32);
             this.buttonStart.TabIndex = 1;
@@ -95,7 +95,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSrcPath.Location = new System.Drawing.Point(173, 6);
             this.textBoxSrcPath.Name = "textBoxSrcPath";
-            this.textBoxSrcPath.Size = new System.Drawing.Size(286, 20);
+            this.textBoxSrcPath.Size = new System.Drawing.Size(278, 20);
             this.textBoxSrcPath.TabIndex = 4;
             this.textBoxSrcPath.TextChanged += new System.EventHandler(this.textBoxSrcPath_TextChanged);
             // 
@@ -114,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDstPath.Location = new System.Drawing.Point(173, 41);
             this.textBoxDstPath.Name = "textBoxDstPath";
-            this.textBoxDstPath.Size = new System.Drawing.Size(286, 20);
+            this.textBoxDstPath.Size = new System.Drawing.Size(278, 20);
             this.textBoxDstPath.TabIndex = 5;
             this.textBoxDstPath.TextChanged += new System.EventHandler(this.textBoxDstPath_TextChanged);
             // 
@@ -137,7 +137,7 @@
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.Size = new System.Drawing.Size(481, 40);
+            this.textBoxLog.Size = new System.Drawing.Size(473, 37);
             this.textBoxLog.TabIndex = 7;
             this.textBoxLog.Text = "Log";
             this.textBoxLog.WordWrap = false;
@@ -160,14 +160,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLog);
-            this.splitContainer1.Size = new System.Drawing.Size(487, 257);
-            this.splitContainer1.SplitterDistance = 207;
+            this.splitContainer1.Size = new System.Drawing.Size(479, 237);
+            this.splitContainer1.SplitterDistance = 190;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonClearAll
             // 
             this.buttonClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonClearAll.Location = new System.Drawing.Point(88, 180);
+            this.buttonClearAll.Location = new System.Drawing.Point(88, 163);
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
             this.buttonClearAll.TabIndex = 2;
@@ -178,7 +178,7 @@
             // buttonSelectAll
             // 
             this.buttonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSelectAll.Location = new System.Drawing.Point(7, 180);
+            this.buttonSelectAll.Location = new System.Drawing.Point(7, 163);
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectAll.TabIndex = 1;
@@ -197,7 +197,7 @@
             this.listViewScenes.GridLines = true;
             this.listViewScenes.Location = new System.Drawing.Point(3, 3);
             this.listViewScenes.Name = "listViewScenes";
-            this.listViewScenes.Size = new System.Drawing.Size(481, 171);
+            this.listViewScenes.Size = new System.Drawing.Size(473, 154);
             this.listViewScenes.TabIndex = 0;
             this.listViewScenes.UseCompatibleStateImageBehavior = false;
             this.listViewScenes.View = System.Windows.Forms.View.Details;
@@ -211,7 +211,7 @@
             // buttonBrowseSourcePath
             // 
             this.buttonBrowseSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseSourcePath.Location = new System.Drawing.Point(465, 4);
+            this.buttonBrowseSourcePath.Location = new System.Drawing.Point(457, 4);
             this.buttonBrowseSourcePath.Name = "buttonBrowseSourcePath";
             this.buttonBrowseSourcePath.Size = new System.Drawing.Size(30, 23);
             this.buttonBrowseSourcePath.TabIndex = 10;
@@ -222,7 +222,7 @@
             // buttonBrowseDstPath
             // 
             this.buttonBrowseDstPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseDstPath.Location = new System.Drawing.Point(465, 39);
+            this.buttonBrowseDstPath.Location = new System.Drawing.Point(457, 39);
             this.buttonBrowseDstPath.Name = "buttonBrowseDstPath";
             this.buttonBrowseDstPath.Size = new System.Drawing.Size(30, 23);
             this.buttonBrowseDstPath.TabIndex = 11;
@@ -236,7 +236,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTextsXmlLocation.Location = new System.Drawing.Point(173, 78);
             this.textBoxTextsXmlLocation.Name = "textBoxTextsXmlLocation";
-            this.textBoxTextsXmlLocation.Size = new System.Drawing.Size(286, 20);
+            this.textBoxTextsXmlLocation.Size = new System.Drawing.Size(278, 20);
             this.textBoxTextsXmlLocation.TabIndex = 6;
             this.textBoxTextsXmlLocation.TextChanged += new System.EventHandler(this.textBoxTextsXmlLocation_TextChanged);
             // 
@@ -245,14 +245,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.Size = new System.Drawing.Size(139, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Где лежит Texts.xml:";
+            this.label1.Text = "Путь до папки с текстами";
             // 
             // buttonTextsXmlBrowse
             // 
             this.buttonTextsXmlBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTextsXmlBrowse.Location = new System.Drawing.Point(465, 76);
+            this.buttonTextsXmlBrowse.Location = new System.Drawing.Point(457, 76);
             this.buttonTextsXmlBrowse.Name = "buttonTextsXmlBrowse";
             this.buttonTextsXmlBrowse.Size = new System.Drawing.Size(30, 23);
             this.buttonTextsXmlBrowse.TabIndex = 14;
@@ -266,7 +266,7 @@
             this.checkBoxRebuildTexts.AutoSize = true;
             this.checkBoxRebuildTexts.Checked = true;
             this.checkBoxRebuildTexts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 698);
+            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 678);
             this.checkBoxRebuildTexts.Name = "checkBoxRebuildTexts";
             this.checkBoxRebuildTexts.Size = new System.Drawing.Size(130, 17);
             this.checkBoxRebuildTexts.TabIndex = 3;
@@ -324,9 +324,9 @@
             this.groupBox1.Controls.Add(this.checkBoxRebuildTP);
             this.groupBox1.Controls.Add(this.checkBoxBuildAlphaSelection);
             this.groupBox1.Controls.Add(this.checkBoxActiveZonesVisible);
-            this.groupBox1.Location = new System.Drawing.Point(8, 461);
+            this.groupBox1.Location = new System.Drawing.Point(8, 441);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 127);
+            this.groupBox1.Size = new System.Drawing.Size(269, 127);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ресурсы";
@@ -352,9 +352,9 @@
             this.groupBox2.Controls.Add(this.checkBoxRebuildHints);
             this.groupBox2.Controls.Add(this.checkBoxRebuildScene);
             this.groupBox2.Controls.Add(this.checkBoxRebuildItems);
-            this.groupBox2.Location = new System.Drawing.Point(8, 594);
+            this.groupBox2.Location = new System.Drawing.Point(8, 574);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(487, 89);
+            this.groupBox2.Size = new System.Drawing.Size(479, 89);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Сцена";
@@ -413,7 +413,7 @@
             this.groupBox3.Controls.Add(this.checkBoxHummingBirds);
             this.groupBox3.Controls.Add(this.checkBoxSomeFuncs);
             this.groupBox3.Controls.Add(this.checkBoxEE);
-            this.groupBox3.Location = new System.Drawing.Point(291, 461);
+            this.groupBox3.Location = new System.Drawing.Point(283, 441);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(203, 127);
             this.groupBox3.TabIndex = 15;
@@ -479,7 +479,7 @@
             // buttonLevelsXmlBrowse
             // 
             this.buttonLevelsXmlBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLevelsXmlBrowse.Location = new System.Drawing.Point(465, 113);
+            this.buttonLevelsXmlBrowse.Location = new System.Drawing.Point(457, 113);
             this.buttonLevelsXmlBrowse.Name = "buttonLevelsXmlBrowse";
             this.buttonLevelsXmlBrowse.Size = new System.Drawing.Size(30, 23);
             this.buttonLevelsXmlBrowse.TabIndex = 21;
@@ -502,7 +502,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxLevelsXmlLocation.Location = new System.Drawing.Point(173, 115);
             this.textBoxLevelsXmlLocation.Name = "textBoxLevelsXmlLocation";
-            this.textBoxLevelsXmlLocation.Size = new System.Drawing.Size(286, 20);
+            this.textBoxLevelsXmlLocation.Size = new System.Drawing.Size(278, 20);
             this.textBoxLevelsXmlLocation.TabIndex = 19;
             this.textBoxLevelsXmlLocation.TextChanged += new System.EventHandler(this.textBoxLevelsXmlLocation_TextChanged);
             // 
@@ -521,7 +521,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(305, 152);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(190, 20);
+            this.textBoxName.Size = new System.Drawing.Size(182, 20);
             this.textBoxName.TabIndex = 23;
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -530,7 +530,7 @@
             this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 733);
+            this.ClientSize = new System.Drawing.Size(499, 713);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonLevelsXmlBrowse);
