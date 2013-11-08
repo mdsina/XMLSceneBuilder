@@ -68,15 +68,25 @@ namespace HiddenObjectsXMLBuilder
 	class Texts
 	{
 		static public string HO_ITEMS_PATH = "gameplay/ho_items";
+        static public string MINIGAME_DESC_PATH = "gameplay/mini_games_descriptions";
 
 		private BuilderConfig _builderConfig;
 		private BuildOptions _buildOptions;
 
 		private XmlDocument _textsXmlDoc;
 		private XmlElement _hoItemsNode;
+
         public String _TextsSE = null;
+        public XmlDocument _TextsSENode;
+
         public String _TextsCE = null;
+        public XmlDocument _TextsCENode;
+
         public String _TextsFH = null;
+        public XmlDocument _TextsFHNode;
+        public XmlDocument t_Document;
+
+        public String _pDocName = null;
 
 		private Dictionary<string, HoSet> _hoSets;		
 
@@ -87,47 +97,116 @@ namespace HiddenObjectsXMLBuilder
 			_buildOptions = buildOptions;
 
 			_textsXmlDoc = new XmlDocument();
+            _TextsCENode = new XmlDocument();
+            _TextsSENode = new XmlDocument();
+            _TextsFHNode = new XmlDocument();
 
 			_hoSets = new Dictionary<string, HoSet>();
 
-            if (File.Exists(_buildOptions.textXmlFileName + "texts_config.xml"))
+            if (File.Exists(_buildOptions.textXmlFileName + "\\texts_config.xml"))
 			{
-                _textsXmlDoc.Load(_buildOptions.textXmlFileName + "texts_config.xml");
+                _textsXmlDoc.Load(_buildOptions.textXmlFileName + "\\texts_config.xml");
 				//_hoItemsNode  = (XmlElement)_textsXmlDoc.DocumentElement.SelectSingleNode(HO_ITEMS_PATH);
-
-                for (int i = 0; i < _textsXmlDoc.ChildNodes.Count; i++)
-                {
                     
-                    if (_textsXmlDoc.ChildNodes[i].Attributes != null)
+                    if (_textsXmlDoc.ChildNodes[0] != null)
                     {
-                        switch (_textsXmlDoc.ChildNodes[i].Attributes["file_name"].Value)
+                        for (int i = 0; i < _textsXmlDoc.ChildNodes[0].ChildNodes.Count; i++)
                         {
-                            case "texts_first_hour.xml" : _TextsFH = "texts_first_hour.xml"; break;
-                            case "texts_se.xml"         : _TextsSE = "texts_se.xml"; break;
-                            case "texts_ce.xml"         : _TextsCE = "texts_ce.xml"; break;
-                        }
+                            switch (_textsXmlDoc.ChildNodes[0].ChildNodes[i].Attributes["file_name"].Value)
+                            {
+                                case "texts_first_hour.xml":
+                                    _TextsFH = "\\texts_first_hour.xml";
+                                    _TextsFHNode.Load(_buildOptions.textXmlFileName + _TextsFH);
+                                    break;
+                                case "texts_se.xml":
+                                    _TextsSE = "\\texts_se.xml";
+                                    _TextsSENode.Load(_buildOptions.textXmlFileName + _TextsSE);
+                                    break;
+                                case "texts_ce.xml":
+                                    _TextsCE = "\\texts_ce.xml";
+                                    _TextsCENode.Load(_buildOptions.textXmlFileName + _TextsCE);
+                                    break;
+                            }
 
+                        }
+                    }
+
+                if (_buildOptions.sceneName.Contains("ce_"))
+                {
+                    if (_TextsCENode != null)
+                    {
+                        t_Document = _TextsCENode;
+                        _pDocName = _TextsCE;
                     }
                 }
+                else
+                {
+                    if (_TextsFHNode != null)
+                    {
+                        t_Document = _TextsFHNode;
+                        _pDocName = _TextsFH;
+                    }
+                }
+
+                if (t_Document != null)
+                {
+                    String t_Desc = null;
+                    String t_Desc2 = null;
+                    if (_buildOptions.IsMinigameScene(_buildOptions.sceneName))
+                    {
+                        t_Desc = MINIGAME_DESC_PATH;
+                        t_Desc2 = "mini_games_descriptions";
+                    }
+                    else
+                    {
+                        t_Desc = HO_ITEMS_PATH;
+                        t_Desc2 = "ho_items";
+                    }
+
+                    _hoItemsNode = (XmlElement)t_Document.DocumentElement.SelectSingleNode(t_Desc);
+                    XmlElement _t_NodeGameplay = (XmlElement)t_Document.DocumentElement.SelectSingleNode("gameplay");
 
                     if (_hoItemsNode == null)
                     {
-                        throw new Exception("Не могу найти ноду '" + HO_ITEMS_PATH + "' в файле с текстами '" + _buildOptions.textXmlFileName + "'");
+                        XmlElement t_hoItem = t_Document.CreateElement(t_Desc2);
+                        _t_NodeGameplay.AppendChild(t_hoItem);
+                        _hoItemsNode = t_hoItem;
                     }
+                }
 			}
-            else if (File.Exists(_buildOptions.textXmlFileName + "texts.xml"))
+            else if (File.Exists(_buildOptions.textXmlFileName + "\\texts.xml"))
             {
-                _textsXmlDoc.Load(_buildOptions.textXmlFileName + "texts.xml");
-                _hoItemsNode = (XmlElement)_textsXmlDoc.DocumentElement.SelectSingleNode(HO_ITEMS_PATH);
+                _textsXmlDoc.Load(_buildOptions.textXmlFileName + "\\texts.xml");
+                _pDocName = "texts.xml";
+
+                String t_Desc = null;
+                String t_Desc2 = null;
+                if (_buildOptions.IsMinigameScene(_buildOptions.sceneName))
+                {
+                    t_Desc = MINIGAME_DESC_PATH;
+                    t_Desc2 = "mini_games_descriptions";
+                }
+                else
+                {
+                    t_Desc = HO_ITEMS_PATH;
+                    t_Desc2 = "ho_items";
+                }
+
+                _hoItemsNode = (XmlElement)_textsXmlDoc.DocumentElement.SelectSingleNode(t_Desc);
+                XmlElement _t_NodeGameplay = (XmlElement)_textsXmlDoc.DocumentElement.SelectSingleNode("gameplay");
 
                 if (_hoItemsNode == null)
                 {
-                    throw new Exception("Не могу найти ноду '" + HO_ITEMS_PATH + "' в файле с текстами '" + _buildOptions.textXmlFileName + "'");
+                    XmlElement t_hoItem = _textsXmlDoc.CreateElement(t_Desc2);
+                    _t_NodeGameplay.AppendChild(t_hoItem);
+                    _hoItemsNode = t_hoItem;
                 }
+
+                t_Document = _textsXmlDoc;
             }
             else
             {
-                throw new Exception("Не могу найти файл с текстами '" + _buildOptions.textXmlFileName + "'");
+                throw new Exception("Не могу найти файл с текстами '" + _buildOptions.textXmlFileName + "texts.xml" + "'");
             }
 		}
 
@@ -155,32 +234,45 @@ namespace HiddenObjectsXMLBuilder
 
 		public void Save()
 		{
-			foreach (string hoSetName in _hoSets.Keys)
+            if (_buildOptions.IsMinigameScene(_buildOptions.sceneName))
 			{
-				XmlElement hoSetTextsNode = (XmlElement)_hoItemsNode.SelectSingleNode(hoSetName);
+                XmlElement t_mg = t_Document.CreateElement(_buildOptions.sceneName);
+                t_mg.SetAttribute("text", "TEST_ " + _buildOptions.sceneName + " description");
 
-				if (hoSetTextsNode == null)
-				{
-					hoSetTextsNode = _hoItemsNode.OwnerDocument.CreateElement(hoSetName);
-					_hoItemsNode.AppendChild(hoSetTextsNode);
-				}
+                if (!_buildOptions.FoundParentNode(_buildOptions.sceneName, _hoItemsNode))
+                {
+                    _hoItemsNode.AppendChild(t_mg);
+                }
+                
+            }
+            else
+            {
+                foreach (string hoSetName in _hoSets.Keys)
+                {
+                    XmlElement hoSetTextsNode = (XmlElement)_hoItemsNode.SelectSingleNode(hoSetName);
 
-				_hoSets[hoSetName].SaveToXml(hoSetTextsNode);
-			}
+                    if (hoSetTextsNode == null)
+                    {
+                        hoSetTextsNode = _hoItemsNode.OwnerDocument.CreateElement(hoSetName);
+                        _hoItemsNode.AppendChild(hoSetTextsNode);
+                    }
 
-	
+                    _hoSets[hoSetName].SaveToXml(hoSetTextsNode);
+                }
+            }
+
 			//////////////////////////////////////////////////////////////////////////
 			/// Save texts xml
 			//textsNode.AppendChild(textsSceneNode);
-			FileInfo fi = new FileInfo(_buildOptions.textXmlFileName);
+			FileInfo fi = new FileInfo(_buildOptions.textXmlFileName +_pDocName);
 
 			if (!Directory.Exists(fi.DirectoryName))
 			{
 				Directory.CreateDirectory(fi.DirectoryName);
 			}
 
-			XmlWriter textsWriter = new XmlTextWriter(_buildOptions.textXmlFileName, Encoding.GetEncoding("unicode"));
-			_textsXmlDoc.Save(textsWriter);
+            XmlWriter textsWriter = new XmlTextWriter(_buildOptions.textXmlFileName + _pDocName, Encoding.GetEncoding("unicode"));
+            t_Document.Save(textsWriter);
 			textsWriter.Close();
 
 

@@ -43,6 +43,23 @@ namespace HiddenObjectsXMLBuilder
         public bool hummingBird;
         public bool fadeAnimation;
         public bool morfing;
+
+        public bool FoundParentNode(string _nodeName, XmlNode _tNode)
+        {
+            for (int i = 0; i < _tNode.ChildNodes.Count; i++)
+            {
+                if (_tNode.ChildNodes[i].Name == _nodeName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool IsMinigameScene(string sceneName)
+        {
+            return (sceneName.Contains("_mg") || sceneName.Contains("_minigame") || sceneName.Contains("_mini_game") || sceneName.Contains("_puzzle"));
+        }
 	}
 
 	struct BuilderConfig
@@ -88,6 +105,10 @@ namespace HiddenObjectsXMLBuilder
             _levels = null;
 		}
 
+        public bool IsMinigameScene(string sceneName)
+        {
+            return (sceneName.Contains("_mg") || sceneName.Contains("_minigame") || sceneName.Contains("_mini_game") || sceneName.Contains("_puzzle"));
+        }
 	
 		public bool Build2(BuildOptions options)
 		{
