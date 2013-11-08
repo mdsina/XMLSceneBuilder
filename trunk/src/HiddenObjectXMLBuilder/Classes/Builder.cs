@@ -56,10 +56,6 @@ namespace HiddenObjectsXMLBuilder
             return false;
         }
 
-        public bool IsMinigameScene(string sceneName)
-        {
-            return (sceneName.Contains("_mg") || sceneName.Contains("_minigame") || sceneName.Contains("_mini_game") || sceneName.Contains("_puzzle"));
-        }
 	}
 
 	struct BuilderConfig
@@ -104,11 +100,6 @@ namespace HiddenObjectsXMLBuilder
 			_items = null;
             _levels = null;
 		}
-
-        public bool IsMinigameScene(string sceneName)
-        {
-            return (sceneName.Contains("_mg") || sceneName.Contains("_minigame") || sceneName.Contains("_mini_game") || sceneName.Contains("_puzzle"));
-        }
 	
 		public bool Build2(BuildOptions options)
 		{

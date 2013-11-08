@@ -42,11 +42,6 @@ namespace HiddenObjectsXMLBuilder
             return false;
         }
 
-        private bool IsMinigameScene(string sceneName)
-        {
-            return (sceneName.Contains("_mg") || sceneName.Contains("_minigame") || sceneName.Contains("_mini_game") || sceneName.Contains("_puzzle"));
-        }
-
 		public Scene(BuilderConfig builderConfig, BuildOptions buildOptions)
 		{
 			_builderConfig = builderConfig;
@@ -181,7 +176,7 @@ namespace HiddenObjectsXMLBuilder
 				AddCloseButton();	
 			}
 
-            if (IsMinigameScene(_buildOptions.sceneName))
+            if (_buildOptions.isMinigame)
             {
                 AddMinigameNode();
             }
@@ -257,7 +252,7 @@ namespace HiddenObjectsXMLBuilder
                 {
                     includes += ";morfing";
                 }
-                if (IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     includes += ";mini_games_common";
                 }
@@ -291,7 +286,7 @@ namespace HiddenObjectsXMLBuilder
                 {
                     includeScripts += "<include file_name=\"..\\common\\ncux_fade_animation.lua\"/>";
                 }
-                if (IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     includeScripts += "<include file_name=\"..\\common\\mini_games_common.lua\"/>";
                 }
@@ -308,7 +303,7 @@ namespace HiddenObjectsXMLBuilder
 			if (_mapsNode == null)
 			{
 				_mapsNode = _sceneXmlDoc.CreateElement(MapsNodeName);
-                if (IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     XmlElement _mgNode = _sceneXmlDoc.CreateElement("minigame");
                     XmlElement _mgNode_subscribe_show = _sceneXmlDoc.CreateElement("subscribe");
@@ -351,7 +346,7 @@ namespace HiddenObjectsXMLBuilder
                 {
                     includes += ";morfing";
                 }
-                if (IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     includes += ";mini_games_common";
                 }
@@ -444,7 +439,7 @@ namespace HiddenObjectsXMLBuilder
                 {
                     includesSection += @"<morfing file_name=""..\common\morfing.xml"" />";
                 }
-                if (IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     includesSection += @"<mini_games_common file_name=""..\common\mini_games_common.xml"" />";
                 }
@@ -483,7 +478,7 @@ namespace HiddenObjectsXMLBuilder
                 {
                     sw.WriteLine("\tee:update()");
                 }
-                if (IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     sw.WriteLine();
                     sw.WriteLine("\tif scene:is_button_pushed(\"reset_button\") then");
@@ -492,7 +487,7 @@ namespace HiddenObjectsXMLBuilder
 
 				sw.WriteLine(@"end");
 
-                if (IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     sw.WriteLine();
                     sw.WriteLine(@"function ON_MINI_GAME_COMPLETE_"+_buildOptions.sceneName+"(scene)");

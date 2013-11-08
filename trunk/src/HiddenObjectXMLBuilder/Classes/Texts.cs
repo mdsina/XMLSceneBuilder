@@ -152,7 +152,7 @@ namespace HiddenObjectsXMLBuilder
                 {
                     String t_Desc = null;
                     String t_Desc2 = null;
-                    if (_buildOptions.IsMinigameScene(_buildOptions.sceneName))
+                    if (_buildOptions.isMinigame)
                     {
                         t_Desc = MINIGAME_DESC_PATH;
                         t_Desc2 = "mini_games_descriptions";
@@ -181,7 +181,7 @@ namespace HiddenObjectsXMLBuilder
 
                 String t_Desc = null;
                 String t_Desc2 = null;
-                if (_buildOptions.IsMinigameScene(_buildOptions.sceneName))
+                if (_buildOptions.isMinigame)
                 {
                     t_Desc = MINIGAME_DESC_PATH;
                     t_Desc2 = "mini_games_descriptions";
@@ -234,7 +234,7 @@ namespace HiddenObjectsXMLBuilder
 
 		public void Save()
 		{
-            if (_buildOptions.IsMinigameScene(_buildOptions.sceneName))
+            if (_buildOptions.isMinigame)
 			{
                 XmlElement t_mg = t_Document.CreateElement(_buildOptions.sceneName);
                 t_mg.SetAttribute("text", "TEST_ " + _buildOptions.sceneName + " description");
@@ -283,7 +283,7 @@ namespace HiddenObjectsXMLBuilder
 		{
 			Process p = new Process();
 			p.StartInfo.FileName = HiddenObjectStudio.Core.Tools.AppendSlashIfNeeded(_builderConfig.ElefunToolsPath) + "FormatedXML.exe";
-			p.StartInfo.Arguments = (new FileInfo(_buildOptions.textXmlFileName)).FullName;
+            p.StartInfo.Arguments = (new FileInfo(_buildOptions.textXmlFileName + _pDocName)).FullName;
 			p.Start();
 			p.WaitForExit();
 		}

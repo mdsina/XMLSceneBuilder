@@ -40,6 +40,12 @@ namespace HiddenObjectsXMLBuilder
             set { textBoxLevelsXmlLocation.Text = value; }
         }
 
+        private string NavigationSystemPath
+        {
+            get { return textBoxNavigation.Text; }
+            set { textBoxNavigation.Text = value; }
+        }
+
         private string UserName
         {
             get { return textBoxName.Text; }
@@ -68,6 +74,8 @@ namespace HiddenObjectsXMLBuilder
 			checkBoxRebuildHints.Checked = SettingsAndConstants.RebuildHints;
 			checkBoxRebuildScene.Checked = SettingsAndConstants.RebuildScene;
             checkBoxRebuildLevels.Checked = SettingsAndConstants.RebuildLevels;
+            checkBoxNavigation.Checked = SettingsAndConstants.RebuildNavigation;
+            
 			checkBoxRebuildResources.Checked = SettingsAndConstants.RebuildResources;
             checkBoxGlints.Checked = SettingsAndConstants.RebuildGlints;
 
@@ -75,6 +83,7 @@ namespace HiddenObjectsXMLBuilder
 			DstRoot = SettingsAndConstants.DstScenesInGamePath;
 			TextsXmlFileName = SettingsAndConstants.TextFileInGamePath;
             LevelsXmlFileName = SettingsAndConstants.LevelsFilePath;
+           
             UserName = SettingsAndConstants.UserName;
 			
 
@@ -131,7 +140,7 @@ namespace HiddenObjectsXMLBuilder
                 k++;
 			}
 
-            if (!Directory.Exists(TextsXmlFileName))
+            if (!Directory.Exists(TextsXmlFileName) && checkBoxRebuildTexts.Checked)
             {
                 if (k == 0) listViewScenes.Items.Clear();
                 listViewScenes.CheckBoxes = false;
@@ -140,7 +149,7 @@ namespace HiddenObjectsXMLBuilder
                 k++;
             }
 
-            if (!File.Exists(LevelsXmlFileName))
+            if (!File.Exists(LevelsXmlFileName) && checkBoxRebuildLevels.Checked)
             {
                 if (k == 0)  listViewScenes.Items.Clear();
                 listViewScenes.CheckBoxes = false;
@@ -202,6 +211,7 @@ namespace HiddenObjectsXMLBuilder
 
                                 if (IsMinigameScene(di.Name))
                                 {
+                                    sceneBuildInfo.isMinigame = true;
                                     item.Text += "-мини-игра";
                                     item.ForeColor = Color.DarkRed;
                                 }
@@ -490,6 +500,40 @@ namespace HiddenObjectsXMLBuilder
         }
 
         private void textBoxLevelsXmlLocation_TextChanged(object sender, EventArgs e)
+        {
+            FillScenesList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+            DirectoryInfo di = new DirectoryInfo(SrcRoot);
+            dialog.SelectedPath = di.FullName;
+
+            if (DialogResult.OK == dialog.ShowDialog())
+            {
+                textBoxNavigation.Text = dialog.SelectedPath;
+                FillScenesList();
+            }
+        }
+
+        private void textBoxNavigation_TextChanged(object sender, EventArgs e)
+        {
+            FillScenesList();
+        }
+
+        private void checkBoxRebuildLevels_CheckedChanged(object sender, EventArgs e)
+        {
+            FillScenesList();
+        }
+
+        private void checkBoxRebuildTexts_CheckedChanged(object sender, EventArgs e)
+        {
+            FillScenesList();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             FillScenesList();
         }

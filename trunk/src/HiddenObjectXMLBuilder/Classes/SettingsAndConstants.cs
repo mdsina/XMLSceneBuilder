@@ -34,6 +34,7 @@ namespace HiddenObjectsXMLBuilder
 		public static string TextFileInGamePath;
         public static string LevelsFilePath;
         public static string UserName;
+        public static string NavigationFilePath;
 
 		public static bool RebuildTP;
 		public static bool ActiveZonesVisible;
@@ -45,6 +46,7 @@ namespace HiddenObjectsXMLBuilder
 		public static bool RebuildScene;
         public static bool RebuildLevels;
 		public static bool RebuildResources;
+        public static bool RebuildNavigation;
 
         public static string DefaultColor;
         public static string InteractiveColor;
@@ -114,6 +116,7 @@ namespace HiddenObjectsXMLBuilder
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "DstScenesInGamePath", DstScenesInGamePath);
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "TextFileInGamePath", TextFileInGamePath);
             HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "LevelsFileInGamePath", LevelsFilePath);
+            HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "NavigationFilePath", NavigationFilePath);
             HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "UserName", UserName);
 
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "RebuildTP", RebuildTP);
@@ -126,6 +129,7 @@ namespace HiddenObjectsXMLBuilder
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "RebuildScene", RebuildScene);
             HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "RebuildLevels", RebuildLevels);
 			HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "RebuildResources", RebuildResources);
+            HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "RebuildNavigation", RebuildNavigation);
 
             HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "DefaultColor", DefaultColor);
             HiddenObjectStudio.Core.Tools.SetParameterToReg(versionedRegKey, "InteractiveColor", InteractiveColor);
@@ -141,6 +145,7 @@ namespace HiddenObjectsXMLBuilder
 			DstScenesInGamePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "DstScenesInGamePath", "..\\bin\\data\\gameplay\\main\\scenes\\");
 			TextFileInGamePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "TextFileInGamePath", "..\\bin\\data\\texts\\texts.xml");
             LevelsFilePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "LevelsFileInGamePath", "..\\bin\\data\\levels\\levels.xml");
+            NavigationFilePath = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "NavigationFilePath", "..\\bin\\data\\hint_system\\");
             UserName = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "UserName", System.Environment.UserName); 
 
 			RebuildTP = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "RebuildTP", true);
@@ -153,6 +158,7 @@ namespace HiddenObjectsXMLBuilder
 			RebuildScene = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "RebuildScene", true);
             RebuildLevels = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "RebuildLevels", true);
 			RebuildResources = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "RebuildResources", true);
+            RebuildNavigation = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "RebuildNavigation", true);
 
             DefaultColor = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "DefaultColor", "1 1 1 1");
             InteractiveColor = HiddenObjectStudio.Core.Tools.GetParameterFromReg(versionedRegKey, "InteractiveColor", "1 1 1 1");
