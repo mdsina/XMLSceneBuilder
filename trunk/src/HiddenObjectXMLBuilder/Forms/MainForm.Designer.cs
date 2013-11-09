@@ -84,7 +84,7 @@
             this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonStart.ImageKey = "(none)";
-            this.buttonStart.Location = new System.Drawing.Point(372, 726);
+            this.buttonStart.Location = new System.Drawing.Point(372, 705);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(115, 32);
             this.buttonStart.TabIndex = 1;
@@ -141,7 +141,7 @@
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.Size = new System.Drawing.Size(473, 44);
+            this.textBoxLog.Size = new System.Drawing.Size(473, 41);
             this.textBoxLog.TabIndex = 7;
             this.textBoxLog.Text = "Log";
             this.textBoxLog.WordWrap = false;
@@ -164,14 +164,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLog);
-            this.splitContainer1.Size = new System.Drawing.Size(479, 268);
-            this.splitContainer1.SplitterDistance = 214;
+            this.splitContainer1.Size = new System.Drawing.Size(479, 247);
+            this.splitContainer1.SplitterDistance = 196;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonClearAll
             // 
             this.buttonClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonClearAll.Location = new System.Drawing.Point(88, 187);
+            this.buttonClearAll.Location = new System.Drawing.Point(88, 169);
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
             this.buttonClearAll.TabIndex = 2;
@@ -182,7 +182,7 @@
             // buttonSelectAll
             // 
             this.buttonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSelectAll.Location = new System.Drawing.Point(7, 187);
+            this.buttonSelectAll.Location = new System.Drawing.Point(7, 169);
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectAll.TabIndex = 1;
@@ -201,7 +201,7 @@
             this.listViewScenes.GridLines = true;
             this.listViewScenes.Location = new System.Drawing.Point(3, 3);
             this.listViewScenes.Name = "listViewScenes";
-            this.listViewScenes.Size = new System.Drawing.Size(473, 178);
+            this.listViewScenes.Size = new System.Drawing.Size(473, 160);
             this.listViewScenes.TabIndex = 0;
             this.listViewScenes.UseCompatibleStateImageBehavior = false;
             this.listViewScenes.View = System.Windows.Forms.View.Details;
@@ -270,7 +270,7 @@
             this.checkBoxRebuildTexts.AutoSize = true;
             this.checkBoxRebuildTexts.Checked = true;
             this.checkBoxRebuildTexts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 735);
+            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 714);
             this.checkBoxRebuildTexts.Name = "checkBoxRebuildTexts";
             this.checkBoxRebuildTexts.Size = new System.Drawing.Size(130, 17);
             this.checkBoxRebuildTexts.TabIndex = 3;
@@ -329,7 +329,7 @@
             this.groupBox1.Controls.Add(this.checkBoxRebuildTP);
             this.groupBox1.Controls.Add(this.checkBoxBuildAlphaSelection);
             this.groupBox1.Controls.Add(this.checkBoxActiveZonesVisible);
-            this.groupBox1.Location = new System.Drawing.Point(8, 498);
+            this.groupBox1.Location = new System.Drawing.Point(8, 477);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(269, 127);
             this.groupBox1.TabIndex = 1;
@@ -358,7 +358,7 @@
             this.groupBox2.Controls.Add(this.checkBoxRebuildHints);
             this.groupBox2.Controls.Add(this.checkBoxRebuildScene);
             this.groupBox2.Controls.Add(this.checkBoxRebuildItems);
-            this.groupBox2.Location = new System.Drawing.Point(8, 631);
+            this.groupBox2.Location = new System.Drawing.Point(8, 610);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(479, 89);
             this.groupBox2.TabIndex = 2;
@@ -433,7 +433,7 @@
             this.groupBox3.Controls.Add(this.checkBoxHummingBirds);
             this.groupBox3.Controls.Add(this.checkBoxSomeFuncs);
             this.groupBox3.Controls.Add(this.checkBoxEE);
-            this.groupBox3.Location = new System.Drawing.Point(283, 498);
+            this.groupBox3.Location = new System.Drawing.Point(283, 477);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(203, 127);
             this.groupBox3.TabIndex = 15;
@@ -580,7 +580,7 @@
             this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 770);
+            this.ClientSize = new System.Drawing.Size(499, 749);
             this.Controls.Add(this.buttonNavigation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxNavigation);

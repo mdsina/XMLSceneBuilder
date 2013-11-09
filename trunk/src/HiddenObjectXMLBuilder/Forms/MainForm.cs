@@ -83,6 +83,7 @@ namespace HiddenObjectsXMLBuilder
 			DstRoot = SettingsAndConstants.DstScenesInGamePath;
 			TextsXmlFileName = SettingsAndConstants.TextFileInGamePath;
             LevelsXmlFileName = SettingsAndConstants.LevelsFilePath;
+            NavigationSystemPath = SettingsAndConstants.NavigationFilePath;
            
             UserName = SettingsAndConstants.UserName;
 			
@@ -117,11 +118,13 @@ namespace HiddenObjectsXMLBuilder
 			SettingsAndConstants.RebuildScene = checkBoxRebuildScene.Checked;
             SettingsAndConstants.RebuildLevels = checkBoxRebuildLevels.Checked;
 			SettingsAndConstants.RebuildResources = checkBoxRebuildResources.Checked;
+            SettingsAndConstants.RebuildNavigation = checkBoxNavigation.Checked;
 
 			SettingsAndConstants.SourcePath = SrcRoot;
 			SettingsAndConstants.DstScenesInGamePath = DstRoot;
 			SettingsAndConstants.TextFileInGamePath = TextsXmlFileName;
             SettingsAndConstants.LevelsFilePath = LevelsXmlFileName;
+            SettingsAndConstants.NavigationFilePath = NavigationSystemPath;
             SettingsAndConstants.UserName = UserName;
 		}
 
@@ -145,6 +148,15 @@ namespace HiddenObjectsXMLBuilder
                 if (k == 0) listViewScenes.Items.Clear();
                 listViewScenes.CheckBoxes = false;
                 listViewScenes.Items.Add(new ListViewItem("Не найдена исходная папка texts: " + TextsXmlFileName));
+                buttonStart.Enabled = false;
+                k++;
+            }
+
+            if (!Directory.Exists(NavigationSystemPath) && checkBoxNavigation.Checked)
+            {
+                if (k == 0) listViewScenes.Items.Clear();
+                listViewScenes.CheckBoxes = false;
+                listViewScenes.Items.Add(new ListViewItem("Не найдена папка hint_system: " + NavigationSystemPath));
                 buttonStart.Enabled = false;
                 k++;
             }
