@@ -17,6 +17,7 @@ namespace HiddenObjectsXMLBuilder
         public string dstFolder; 
         public string textXmlFileName;
         public string levelsXmlFileName;
+        public string navigationFilePath;
 		public string sceneName;
         public string UserName;
 
@@ -32,6 +33,7 @@ namespace HiddenObjectsXMLBuilder
 
 		public bool rebuildResourcesFile;
         public bool rebuildGlintsFile;
+        public bool rebuildNavigation;
 
 		public bool isSubscreen;
         public bool isMinigame;

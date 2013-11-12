@@ -86,10 +86,8 @@ namespace HiddenObjectsXMLBuilder
             NavigationSystemPath = SettingsAndConstants.NavigationFilePath;
            
             UserName = SettingsAndConstants.UserName;
-			
 
 			FillScenesList();
-
 
 			RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\EleFun Tools");
 
@@ -266,6 +264,7 @@ namespace HiddenObjectsXMLBuilder
 			string dstFolder = Path.Combine(DstRoot, item.SceneName);
 			string textsXmlFileName = textBoxTextsXmlLocation.Text;
             string levelsXmlFileName = textBoxLevelsXmlLocation.Text;
+            string navigationFilePath = textBoxNavigation.Text;
             string UserName = textBoxName.Text;
 
 			if (Directory.Exists(dstFolder))
@@ -300,6 +299,7 @@ namespace HiddenObjectsXMLBuilder
 
 			options.textXmlFileName = textsXmlFileName;
             options.levelsXmlFileName = levelsXmlFileName;
+            options.navigationFilePath = navigationFilePath;
             options.UserName = UserName;
 
 			options.sceneName = item.SceneName;
@@ -315,6 +315,7 @@ namespace HiddenObjectsXMLBuilder
 
 			options.rebuildTexts = checkBoxRebuildTexts.Checked;
             options.rebuildLevels = checkBoxRebuildLevels.Checked;
+            options.rebuildNavigation = checkBoxNavigation.Checked;
 
 			options.rebuildResourcesFile = checkBoxRebuildResources.Checked;
 
@@ -508,12 +509,14 @@ namespace HiddenObjectsXMLBuilder
 
         private void textBoxTextsXmlLocation_TextChanged(object sender, EventArgs e)
         {
-            FillScenesList();
+            if (checkBoxRebuildTexts.Checked)
+                FillScenesList();
         }
 
         private void textBoxLevelsXmlLocation_TextChanged(object sender, EventArgs e)
         {
-            FillScenesList();
+            if (checkBoxRebuildLevels.Checked)
+                FillScenesList();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -532,12 +535,14 @@ namespace HiddenObjectsXMLBuilder
 
         private void textBoxNavigation_TextChanged(object sender, EventArgs e)
         {
-            FillScenesList();
+            if (checkBoxRebuildTexts.Checked)
+                FillScenesList();
         }
 
         private void checkBoxRebuildLevels_CheckedChanged(object sender, EventArgs e)
         {
-            FillScenesList();
+            
+                FillScenesList();
         }
 
         private void checkBoxRebuildTexts_CheckedChanged(object sender, EventArgs e)
