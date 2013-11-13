@@ -16,6 +16,12 @@ namespace HiddenObjectsXMLBuilder
 
         private BuilderConfig _builderConfig;
 		private BuildOptions _buildOptions;
+        string _NavFileName;
+        string _QuestsFileName;
+        XmlElement _navRoot;
+        XmlElement _questRoot;
+        bool hasChildNodeNav = false;
+        bool hasChildNodeQuest = false;
 
         public Navigation(BuilderConfig builderConfig, BuildOptions buildOptions)
 		{
@@ -25,8 +31,8 @@ namespace HiddenObjectsXMLBuilder
             NavigationsXML = new XmlDocument();
             QuestsXML = new XmlDocument();
 
-            string _NavFileName = null;
-            string _QuestsFileName = null;
+            _NavFileName = null;
+            _QuestsFileName = null;
 
             if (_buildOptions.rebuildNavigation)
 
@@ -34,30 +40,144 @@ namespace HiddenObjectsXMLBuilder
             {
                 _NavFileName = "\\navigation_ce.xml";
 
-                if (File.Exists(_buildOptions.navigationFilePath + _NavFileName))
-                    NavigationsXML.Load(_buildOptions.navigationFilePath + _NavFileName);
-                else
+                if (!File.Exists(_buildOptions.navigationFilePath + _NavFileName))
                 {
                     _NavFileName = "\\navigation.xml";
-                    if (File.Exists(_buildOptions.navigationFilePath + _NavFileName))
-                        NavigationsXML.Load(_buildOptions.navigationFilePath + _NavFileName);
-                    else
+
+                    if (!File.Exists(_buildOptions.navigationFilePath + _NavFileName))
                         _NavFileName = null;
                 }
 
-
                 _QuestsFileName = "\\quest_ce.xml";
 
+                if (!File.Exists(_buildOptions.navigationFilePath + _QuestsFileName))
+                {
+                    _QuestsFileName = "\\quest.xml";
 
-                QuestsXML.Load();
+                    if (!File.Exists(_buildOptions.navigationFilePath + _QuestsFileName))
+                        _QuestsFileName = null;
+                }
 
             } 
             else 
             {
-                _NavFileName = "\\navigation.xml";
-                _QuestsFileName = "\\quest_ce.xml";
+                _NavFileName = "\\navigation_se.xml";
+
+                if (!File.Exists(_buildOptions.navigationFilePath + _NavFileName))
+                {
+                    _NavFileName = "\\navigation.xml";
+
+                    if (!File.Exists(_buildOptions.navigationFilePath + _NavFileName))
+                        _NavFileName = null;
+                }
+
+                _QuestsFileName = "\\quest_se.xml";
+
+                if (!File.Exists(_buildOptions.navigationFilePath + _QuestsFileName))
+                {
+                    _QuestsFileName = "\\quest.xml";
+
+                    if (!File.Exists(_buildOptions.navigationFilePath + _QuestsFileName))
+                        _QuestsFileName = null;
+                }
+            }// end main if
+
+            if (_NavFileName != null)
+            {
+                NavigationsXML.Load(_buildOptions.navigationFilePath + _NavFileName);
+
+                _navRoot = (XmlElement)NavigationsXML.FirstChild;
+                
+
+                for (int i = 0; i < _navRoot.ChildNodes.Count; i++ )
+                {
+                    if (_navRoot.ChildNodes[i].Name == _buildOptions.sceneName)
+                    {
+                        hasChildNodeNav = true;
+                        break;
+                    }
+                }
+
+            }// end Navigation file
+
+            if (_QuestsFileName != null)
+            {
+                QuestsXML.Load(_buildOptions.navigationFilePath + _QuestsFileName);
+
+                _questRoot = (XmlElement)QuestsXML.FirstChild;
+
+                for (int i = 0; i < _questRoot.ChildNodes.Count; i++)
+                {
+                    if (_questRoot.ChildNodes[i].Name == _buildOptions.sceneName)
+                    {
+                        hasChildNodeQuest = true;
+                        break;
+                    }
+                }
+                
+            }// end quests file
+        }//end constructor
+
+        public void Processing()
+        {
+            if (!hasChildNodeNav)
+            {
+                XmlElement _rootChild = NavigationsXML.CreateElement(_buildOptions.sceneName);
+
+                if (!_buildOptions.isMinigame && !_buildOptions.isSubscreen)
+                {
+                    _rootChild.SetAttribute("map_location", _buildOptions.sceneName);
+                }
+                else
+                {
+                    XmlElement SceneFoundedNode = null;
+                    for (int i = 0; i < _navRoot.ChildNodes.Count; i++)
+                    {
+                        if (_buildOptions.sceneName.Contains(_navRoot.ChildNodes[i].Name))
+                        {
+                            SceneFoundedNode = (XmlElement)_navRoot.ChildNodes[i];
+                            break;
+                        }
+                    }
+
+                    if (SceneFoundedNode != null)
+                    {
+                        _rootChild.SetAttribute("map_location", SceneFoundedNode.Name);
+
+                        if (_buildOptions.isSubscreen)
+                        {
+                            XmlElement _layerNode = NavigationsXML.CreateElement(SceneFoundedNode.Name);
+                            _layerNode.SetAttribute("layer", "close_button");
+                            _rootChild.AppendChild(_layerNode);
+                        }
+
+                    }
+                }
+
+                _navRoot.AppendChild(_rootChild);
             }
 
+            if (!hasChildNodeQuest)
+            {
+                XmlElement _rootChild = QuestsXML.CreateElement(_buildOptions.sceneName);
+
+                _questRoot.AppendChild(_rootChild);
+            }
+        } // end Processing
+
+        public void Save()
+        {
+            if (_NavFileName != null)
+            {
+                NavigationsXML.Save(_buildOptions.navigationFilePath + _NavFileName);
+            }
+            if (_QuestsFileName != null)
+            {
+                QuestsXML.Save(_buildOptions.navigationFilePath + _QuestsFileName);
+            }
+            
         }
     }
+
+
 }

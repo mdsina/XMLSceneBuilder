@@ -80,6 +80,7 @@ namespace HiddenObjectsXMLBuilder
 		private Texts _texts;
         private Items _items;
         private Levels _levels;
+        private Navigation _navigation;
  
 
 		public Builder()
@@ -101,6 +102,7 @@ namespace HiddenObjectsXMLBuilder
 			_texts = null;
 			_items = null;
             _levels = null;
+            _navigation = null;
 		}
 	
 		public bool Build2(BuildOptions options)
@@ -154,6 +156,14 @@ namespace HiddenObjectsXMLBuilder
 				}
 
                 //////////////////////////////////////////////////////////////////////////
+                /// Create navigation header
+
+                if (options.rebuildNavigation)
+                {
+                    _navigation = new Navigation(_config, options);
+                }
+
+                //////////////////////////////////////////////////////////////////////////
                 /// Initialize levels
 
                 if (options.rebuildLevels)
@@ -188,10 +198,7 @@ namespace HiddenObjectsXMLBuilder
 						_scene.ProcessNode(fn);
 					}
 
-                    if (options.rebuildLevels)
-                    {
-                        _levels.ProcessNormalTextureNode(fn);
-                    }
+                    
 
 					//////////////////////////////////////////////////////////////////////////
 					/// Create item node
@@ -217,7 +224,15 @@ namespace HiddenObjectsXMLBuilder
 
 				} // main loop
 
+                if (options.rebuildLevels)
+                {
+                    _levels.ProcessNormalTextureNode();
+                }
 
+                if (options.rebuildNavigation)
+                {
+                    _navigation.Processing();
+                }
 				//////////////////////////////////////////////////////////////////////////
 				/// Create texts node
 
@@ -234,6 +249,14 @@ namespace HiddenObjectsXMLBuilder
 				{
 					_scene.Save();
 				}
+
+                //////////////////////////////////////////////////////////////////////////
+                /// Save navigation xml
+
+                if (options.rebuildNavigation)
+                {
+                    _navigation.Save();
+                }
 
                 //////////////////////////////////////////////////////////////////////////
                 /// Save levels xml

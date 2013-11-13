@@ -136,7 +136,7 @@ namespace HiddenObjectsXMLBuilder
             }
         }
 
-        public void ProcessNormalTextureNode(FileName fn)
+        public void ProcessNormalTextureNode()
         {
             try
             {
@@ -276,7 +276,7 @@ namespace HiddenObjectsXMLBuilder
             
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка на " + fn.FullFileName);
+                MessageBox.Show(ex.Message, "Ошибка на " + _buildOptions.sceneName);
 
                 throw ex;
             }
