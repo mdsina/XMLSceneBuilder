@@ -71,12 +71,18 @@
             this.buttonNavigation = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxNavigation = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemProjects = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonStart
@@ -84,7 +90,7 @@
             this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonStart.ImageKey = "(none)";
-            this.buttonStart.Location = new System.Drawing.Point(372, 705);
+            this.buttonStart.Location = new System.Drawing.Point(372, 688);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(115, 32);
             this.buttonStart.TabIndex = 1;
@@ -97,7 +103,7 @@
             // 
             this.textBoxSrcPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSrcPath.Location = new System.Drawing.Point(173, 6);
+            this.textBoxSrcPath.Location = new System.Drawing.Point(173, 36);
             this.textBoxSrcPath.Name = "textBoxSrcPath";
             this.textBoxSrcPath.Size = new System.Drawing.Size(278, 20);
             this.textBoxSrcPath.TabIndex = 4;
@@ -106,7 +112,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(12, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 13);
             this.label2.TabIndex = 4;
@@ -116,7 +122,7 @@
             // 
             this.textBoxDstPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDstPath.Location = new System.Drawing.Point(173, 41);
+            this.textBoxDstPath.Location = new System.Drawing.Point(173, 71);
             this.textBoxDstPath.Name = "textBoxDstPath";
             this.textBoxDstPath.Size = new System.Drawing.Size(278, 20);
             this.textBoxDstPath.TabIndex = 5;
@@ -125,7 +131,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 44);
+            this.label3.Location = new System.Drawing.Point(12, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 13);
             this.label3.TabIndex = 6;
@@ -141,7 +147,7 @@
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.Size = new System.Drawing.Size(473, 45);
+            this.textBoxLog.Size = new System.Drawing.Size(473, 35);
             this.textBoxLog.TabIndex = 7;
             this.textBoxLog.Text = "Log";
             this.textBoxLog.WordWrap = false;
@@ -151,7 +157,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(8, 224);
+            this.splitContainer1.Location = new System.Drawing.Point(8, 258);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -164,14 +170,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLog);
-            this.splitContainer1.Size = new System.Drawing.Size(479, 264);
-            this.splitContainer1.SplitterDistance = 209;
+            this.splitContainer1.Size = new System.Drawing.Size(479, 213);
+            this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonClearAll
             // 
             this.buttonClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonClearAll.Location = new System.Drawing.Point(88, 182);
+            this.buttonClearAll.Location = new System.Drawing.Point(88, 141);
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
             this.buttonClearAll.TabIndex = 2;
@@ -182,7 +188,7 @@
             // buttonSelectAll
             // 
             this.buttonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSelectAll.Location = new System.Drawing.Point(7, 182);
+            this.buttonSelectAll.Location = new System.Drawing.Point(7, 141);
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectAll.TabIndex = 1;
@@ -201,7 +207,7 @@
             this.listViewScenes.GridLines = true;
             this.listViewScenes.Location = new System.Drawing.Point(3, 3);
             this.listViewScenes.Name = "listViewScenes";
-            this.listViewScenes.Size = new System.Drawing.Size(473, 173);
+            this.listViewScenes.Size = new System.Drawing.Size(473, 132);
             this.listViewScenes.TabIndex = 0;
             this.listViewScenes.UseCompatibleStateImageBehavior = false;
             this.listViewScenes.View = System.Windows.Forms.View.Details;
@@ -215,7 +221,7 @@
             // buttonBrowseSourcePath
             // 
             this.buttonBrowseSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseSourcePath.Location = new System.Drawing.Point(457, 4);
+            this.buttonBrowseSourcePath.Location = new System.Drawing.Point(457, 34);
             this.buttonBrowseSourcePath.Name = "buttonBrowseSourcePath";
             this.buttonBrowseSourcePath.Size = new System.Drawing.Size(30, 23);
             this.buttonBrowseSourcePath.TabIndex = 10;
@@ -226,7 +232,7 @@
             // buttonBrowseDstPath
             // 
             this.buttonBrowseDstPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseDstPath.Location = new System.Drawing.Point(457, 39);
+            this.buttonBrowseDstPath.Location = new System.Drawing.Point(457, 69);
             this.buttonBrowseDstPath.Name = "buttonBrowseDstPath";
             this.buttonBrowseDstPath.Size = new System.Drawing.Size(30, 23);
             this.buttonBrowseDstPath.TabIndex = 11;
@@ -238,7 +244,7 @@
             // 
             this.textBoxTextsXmlLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTextsXmlLocation.Location = new System.Drawing.Point(173, 78);
+            this.textBoxTextsXmlLocation.Location = new System.Drawing.Point(173, 108);
             this.textBoxTextsXmlLocation.Name = "textBoxTextsXmlLocation";
             this.textBoxTextsXmlLocation.Size = new System.Drawing.Size(278, 20);
             this.textBoxTextsXmlLocation.TabIndex = 6;
@@ -247,7 +253,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 81);
+            this.label1.Location = new System.Drawing.Point(12, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 13);
             this.label1.TabIndex = 13;
@@ -256,7 +262,7 @@
             // buttonTextsXmlBrowse
             // 
             this.buttonTextsXmlBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTextsXmlBrowse.Location = new System.Drawing.Point(457, 76);
+            this.buttonTextsXmlBrowse.Location = new System.Drawing.Point(457, 106);
             this.buttonTextsXmlBrowse.Name = "buttonTextsXmlBrowse";
             this.buttonTextsXmlBrowse.Size = new System.Drawing.Size(30, 23);
             this.buttonTextsXmlBrowse.TabIndex = 14;
@@ -270,7 +276,7 @@
             this.checkBoxRebuildTexts.AutoSize = true;
             this.checkBoxRebuildTexts.Checked = true;
             this.checkBoxRebuildTexts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 714);
+            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 697);
             this.checkBoxRebuildTexts.Name = "checkBoxRebuildTexts";
             this.checkBoxRebuildTexts.Size = new System.Drawing.Size(130, 17);
             this.checkBoxRebuildTexts.TabIndex = 3;
@@ -329,7 +335,7 @@
             this.groupBox1.Controls.Add(this.checkBoxRebuildTP);
             this.groupBox1.Controls.Add(this.checkBoxBuildAlphaSelection);
             this.groupBox1.Controls.Add(this.checkBoxActiveZonesVisible);
-            this.groupBox1.Location = new System.Drawing.Point(8, 494);
+            this.groupBox1.Location = new System.Drawing.Point(8, 477);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(269, 110);
             this.groupBox1.TabIndex = 1;
@@ -358,7 +364,7 @@
             this.groupBox2.Controls.Add(this.checkBoxRebuildHints);
             this.groupBox2.Controls.Add(this.checkBoxRebuildScene);
             this.groupBox2.Controls.Add(this.checkBoxRebuildItems);
-            this.groupBox2.Location = new System.Drawing.Point(8, 610);
+            this.groupBox2.Location = new System.Drawing.Point(8, 593);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(479, 89);
             this.groupBox2.TabIndex = 2;
@@ -436,7 +442,7 @@
             this.groupBox3.Controls.Add(this.checkBoxHummingBirds);
             this.groupBox3.Controls.Add(this.checkBoxSomeFuncs);
             this.groupBox3.Controls.Add(this.checkBoxEE);
-            this.groupBox3.Location = new System.Drawing.Point(283, 494);
+            this.groupBox3.Location = new System.Drawing.Point(283, 477);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(203, 110);
             this.groupBox3.TabIndex = 15;
@@ -502,7 +508,7 @@
             // buttonLevelsXmlBrowse
             // 
             this.buttonLevelsXmlBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLevelsXmlBrowse.Location = new System.Drawing.Point(457, 149);
+            this.buttonLevelsXmlBrowse.Location = new System.Drawing.Point(457, 179);
             this.buttonLevelsXmlBrowse.Name = "buttonLevelsXmlBrowse";
             this.buttonLevelsXmlBrowse.Size = new System.Drawing.Size(30, 23);
             this.buttonLevelsXmlBrowse.TabIndex = 21;
@@ -513,7 +519,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 154);
+            this.label4.Location = new System.Drawing.Point(12, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 20;
@@ -523,7 +529,7 @@
             // 
             this.textBoxLevelsXmlLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLevelsXmlLocation.Location = new System.Drawing.Point(173, 151);
+            this.textBoxLevelsXmlLocation.Location = new System.Drawing.Point(173, 181);
             this.textBoxLevelsXmlLocation.Name = "textBoxLevelsXmlLocation";
             this.textBoxLevelsXmlLocation.Size = new System.Drawing.Size(278, 20);
             this.textBoxLevelsXmlLocation.TabIndex = 19;
@@ -532,7 +538,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 189);
+            this.label5.Location = new System.Drawing.Point(12, 219);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(287, 13);
             this.label5.TabIndex = 22;
@@ -542,7 +548,7 @@
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Location = new System.Drawing.Point(305, 186);
+            this.textBoxName.Location = new System.Drawing.Point(305, 216);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(182, 20);
             this.textBoxName.TabIndex = 23;
@@ -551,7 +557,7 @@
             // buttonNavigation
             // 
             this.buttonNavigation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNavigation.Location = new System.Drawing.Point(457, 113);
+            this.buttonNavigation.Location = new System.Drawing.Point(457, 143);
             this.buttonNavigation.Name = "buttonNavigation";
             this.buttonNavigation.Size = new System.Drawing.Size(30, 23);
             this.buttonNavigation.TabIndex = 26;
@@ -562,7 +568,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 118);
+            this.label6.Location = new System.Drawing.Point(12, 148);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(137, 13);
             this.label6.TabIndex = 25;
@@ -572,18 +578,58 @@
             // 
             this.textBoxNavigation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNavigation.Location = new System.Drawing.Point(173, 115);
+            this.textBoxNavigation.Location = new System.Drawing.Point(173, 145);
             this.textBoxNavigation.Name = "textBoxNavigation";
             this.textBoxNavigation.Size = new System.Drawing.Size(278, 20);
             this.textBoxNavigation.TabIndex = 24;
             this.textBoxNavigation.TextChanged += new System.EventHandler(this.textBoxNavigation_TextChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemFile,
+            this.toolStripMenuItemProjects});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(499, 24);
+            this.menuStrip1.TabIndex = 27;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItemFile
+            // 
+            this.toolStripMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemExit});
+            this.toolStripMenuItemFile.Name = "toolStripMenuItemFile";
+            this.toolStripMenuItemFile.Size = new System.Drawing.Size(48, 20);
+            this.toolStripMenuItemFile.Text = "Файл";
+            // 
+            // toolStripMenuItemProjects
+            // 
+            this.toolStripMenuItemProjects.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAdd});
+            this.toolStripMenuItemProjects.Name = "toolStripMenuItemProjects";
+            this.toolStripMenuItemProjects.Size = new System.Drawing.Size(68, 20);
+            this.toolStripMenuItemProjects.Text = "Проекты";
+            // 
+            // toolStripMenuItemExit
+            // 
+            this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(108, 22);
+            this.toolStripMenuItemExit.Text = "Выход";
+            this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripMenuItemAdd
+            // 
+            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
+            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(167, 22);
+            this.toolStripMenuItemAdd.Text = "Добавить проект";
             // 
             // MainForm
             // 
             this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 749);
+            this.ClientSize = new System.Drawing.Size(499, 732);
             this.Controls.Add(this.buttonNavigation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxNavigation);
@@ -607,6 +653,8 @@
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1500, 1030);
             this.MinimumSize = new System.Drawing.Size(515, 689);
             this.Name = "MainForm";
@@ -623,6 +671,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -673,5 +723,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxNavigation;
         private System.Windows.Forms.CheckBox checkBoxNavigation;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFile;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjects;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAdd;
     }
 }

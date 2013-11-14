@@ -46,6 +46,11 @@ namespace HiddenObjectsXMLBuilder
             return false;
         }
 
+        public string GetHoSetName(string itemsIndex)
+        {
+            return _buildOptions.sceneName + "_" + itemsIndex;
+        }
+
         private bool FoundParentAttribute(string _attrName, string _placeName, XmlNode _tNode)
         {
             for (int i = 0; i < _tNode.ChildNodes.Count; i++)
