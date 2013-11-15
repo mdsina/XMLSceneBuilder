@@ -13,9 +13,20 @@ using HiddenObjectStudio.Core;
 
 namespace HiddenObjectsXMLBuilder
 {
+    public struct Parameters
+        {
+            public string ItemName;
+            public string pngPath;
+            public string hintPath;
+            public string scenesPath;
+            public string textsPath;
+            public string LevelsFilePath;
+        }
 	
     public partial class MainForm : Form
     {
+        List<Parameters> BuilderParametresPath = new List<Parameters>();
+
 		private string SrcRoot
 		{
 			get	{ return textBoxSrcPath.Text; }
@@ -96,6 +107,67 @@ namespace HiddenObjectsXMLBuilder
 				MessageBox.Show("EleFun Tool не установлены!", "Ошипко", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 			}
+
+            if (File.Exists(Environment.CurrentDirectory + "\\Parametres.xml"))
+            {
+                XmlDocument Parametres = new XmlDocument();
+                XmlElement ParametersRoot;
+                Parametres.Load(Environment.CurrentDirectory + "\\Parametres.xml");
+
+                ParametersRoot = (XmlElement)Parametres.FirstChild;
+
+                for (int i = 0; i < ParametersRoot.ChildNodes.Count; i++ )
+                {
+                    Parameters _parameters;
+                    _parameters.ItemName = ParametersRoot.ChildNodes[i].Name;
+                    _parameters.hintPath = "";
+                    _parameters.pngPath = "";
+                    _parameters.textsPath = "";
+                    _parameters.LevelsFilePath = "";
+                    _parameters.scenesPath = "";
+
+                    for (int j = 0; j < ParametersRoot.ChildNodes[i].ChildNodes.Count; j++ )
+                    {
+                        switch (ParametersRoot.ChildNodes[i].ChildNodes[j].Name)
+                        {
+                            case "NavigationSystemPath":
+                                _parameters.hintPath = ParametersRoot.ChildNodes[i].ChildNodes[j].Attributes["value"].Value;
+                                break;
+                            case "SrcRoot":
+                                _parameters.pngPath = ParametersRoot.ChildNodes[i].ChildNodes[j].Attributes["value"].Value;
+                                break;
+                            case "TextsXmlFileName":
+                                _parameters.textsPath = ParametersRoot.ChildNodes[i].ChildNodes[j].Attributes["value"].Value;
+                                break;
+                            case "LevelsXmlFileName":
+                                _parameters.LevelsFilePath = ParametersRoot.ChildNodes[i].ChildNodes[j].Attributes["value"].Value;
+                                break;
+                            case "DstRoot":
+                                _parameters.scenesPath = ParametersRoot.ChildNodes[i].ChildNodes[j].Attributes["value"].Value;
+                                break;
+                        }
+                    }
+
+                    ToolStripMenuItem _Item = new ToolStripMenuItem();
+
+                    BuilderParametresPath.Add(_parameters);
+
+                    int _index = BuilderParametresPath.IndexOf(_parameters);
+
+                    _Item.Text = BuilderParametresPath[_index].ItemName;
+
+                    _Item.Click += new EventHandler(delegate(Object o, EventArgs a)
+                    {
+                        SrcRoot = BuilderParametresPath[_index].pngPath;
+                        DstRoot = BuilderParametresPath[_index].scenesPath;
+                        TextsXmlFileName = BuilderParametresPath[_index].textsPath;
+                        NavigationSystemPath = BuilderParametresPath[_index].hintPath;
+                        LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
+                    });
+
+                    toolStripMenuItemProjects.DropDownItems.Add(_Item);
+                }
+            }
         }
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -124,6 +196,12 @@ namespace HiddenObjectsXMLBuilder
             SettingsAndConstants.LevelsFilePath = LevelsXmlFileName;
             SettingsAndConstants.NavigationFilePath = NavigationSystemPath;
             SettingsAndConstants.UserName = UserName;
+
+            if (BuilderParametresPath.Count != 0)
+            {
+                Options tOptions = new Options(BuilderParametresPath);
+                tOptions.Save();
+            }
 		}
 
 		private void FillScenesList()
@@ -555,6 +633,65 @@ namespace HiddenObjectsXMLBuilder
             FillScenesList();
         }
 
+        private void toolStripMenuItemAdd_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem _Item = new ToolStripMenuItem();
+
+            string[] split = textBoxSrcPath.Text.Split(new Char[] { '\\' });
+
+            for(int i=0; i<split.Length; i++)
+            {
+                if (split[i] == "png")
+                {
+                    _Item.Text = split[i - 1];
+                    break;
+                }
+            }
+
+            bool _flag = false;
+
+            if (BuilderParametresPath.Count != 0)
+            {
+                for (int i = 0; i < BuilderParametresPath.Count; i++ )
+                {
+                    if (BuilderParametresPath[i].ItemName == _Item.Text)
+                    {
+                        _flag = true;
+                    }
+                
+                }
+            }
+
+            if (!_flag)
+            {
+                Parameters _t_Parametres;
+                _t_Parametres.ItemName = _Item.Text;
+                _t_Parametres.pngPath = textBoxSrcPath.Text;
+                _t_Parametres.hintPath = textBoxNavigation.Text;
+                _t_Parametres.LevelsFilePath = textBoxLevelsXmlLocation.Text;
+                _t_Parametres.textsPath = textBoxTextsXmlLocation.Text;
+                _t_Parametres.scenesPath = textBoxDstPath.Text;
+
+                BuilderParametresPath.Add(_t_Parametres);
+                int _index = BuilderParametresPath.IndexOf(_t_Parametres);
+
+                _Item.Click += new EventHandler(delegate(Object o, EventArgs a)
+                {
+                    SrcRoot = BuilderParametresPath[_index].pngPath;
+                    DstRoot = BuilderParametresPath[_index].scenesPath;
+                    TextsXmlFileName = BuilderParametresPath[_index].textsPath;
+                    NavigationSystemPath = BuilderParametresPath[_index].hintPath;
+                    LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
+                });
+
+                toolStripMenuItemProjects.DropDownItems.Add(_Item);
+            } 
+        }
+
+        private void toolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 	}
 
     class SceneBuildInfo

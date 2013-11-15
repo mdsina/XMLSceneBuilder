@@ -84,6 +84,7 @@
     <Compile Include="Classes\Items.cs" />
     <Compile Include="Classes\Levels.cs" />
     <Compile Include="Classes\Navigation.cs" />
+    <Compile Include="Classes\Options.cs" />
     <Compile Include="Classes\Scene.cs" />
     <Compile Include="Classes\SettingsAndConstants.cs" />
     <Compile Include="Classes\Texts.cs" />

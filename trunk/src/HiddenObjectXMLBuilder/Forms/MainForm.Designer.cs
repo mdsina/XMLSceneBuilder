@@ -73,8 +73,8 @@
             this.textBoxNavigation = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemProjects = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemProjects = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -603,6 +603,14 @@
             this.toolStripMenuItemFile.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItemFile.Text = "Файл";
             // 
+            // toolStripMenuItemExit
+            // 
+            this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemExit.Text = "Выход";
+            this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
+            // 
             // toolStripMenuItemProjects
             // 
             this.toolStripMenuItemProjects.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -611,18 +619,12 @@
             this.toolStripMenuItemProjects.Size = new System.Drawing.Size(68, 20);
             this.toolStripMenuItemProjects.Text = "Проекты";
             // 
-            // toolStripMenuItemExit
-            // 
-            this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(108, 22);
-            this.toolStripMenuItemExit.Text = "Выход";
-            this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // toolStripMenuItemAdd
             // 
             this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
             this.toolStripMenuItemAdd.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItemAdd.Text = "Добавить проект";
+            this.toolStripMenuItemAdd.Click += new System.EventHandler(this.toolStripMenuItemAdd_Click);
             // 
             // MainForm
             // 
