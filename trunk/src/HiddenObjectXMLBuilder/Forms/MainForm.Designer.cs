@@ -75,7 +75,8 @@
             this.toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProjects = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSaveParametres = new System.Windows.Forms.Button();
+            this.buttonEditparameters = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -90,7 +91,7 @@
             this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonStart.ImageKey = "(none)";
-            this.buttonStart.Location = new System.Drawing.Point(372, 688);
+            this.buttonStart.Location = new System.Drawing.Point(378, 764);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(115, 32);
             this.buttonStart.TabIndex = 1;
@@ -105,7 +106,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSrcPath.Location = new System.Drawing.Point(173, 36);
             this.textBoxSrcPath.Name = "textBoxSrcPath";
-            this.textBoxSrcPath.Size = new System.Drawing.Size(278, 20);
+            this.textBoxSrcPath.Size = new System.Drawing.Size(284, 20);
             this.textBoxSrcPath.TabIndex = 4;
             this.textBoxSrcPath.TextChanged += new System.EventHandler(this.textBoxSrcPath_TextChanged);
             // 
@@ -124,7 +125,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDstPath.Location = new System.Drawing.Point(173, 71);
             this.textBoxDstPath.Name = "textBoxDstPath";
-            this.textBoxDstPath.Size = new System.Drawing.Size(278, 20);
+            this.textBoxDstPath.Size = new System.Drawing.Size(284, 20);
             this.textBoxDstPath.TabIndex = 5;
             this.textBoxDstPath.TextChanged += new System.EventHandler(this.textBoxDstPath_TextChanged);
             // 
@@ -147,7 +148,7 @@
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.Size = new System.Drawing.Size(473, 35);
+            this.textBoxLog.Size = new System.Drawing.Size(479, 45);
             this.textBoxLog.TabIndex = 7;
             this.textBoxLog.Text = "Log";
             this.textBoxLog.WordWrap = false;
@@ -157,7 +158,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(8, 258);
+            this.splitContainer1.Location = new System.Drawing.Point(8, 289);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -170,14 +171,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLog);
-            this.splitContainer1.Size = new System.Drawing.Size(479, 213);
-            this.splitContainer1.SplitterDistance = 168;
+            this.splitContainer1.Size = new System.Drawing.Size(485, 258);
+            this.splitContainer1.SplitterDistance = 203;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonClearAll
             // 
             this.buttonClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonClearAll.Location = new System.Drawing.Point(88, 141);
+            this.buttonClearAll.Location = new System.Drawing.Point(88, 176);
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
             this.buttonClearAll.TabIndex = 2;
@@ -188,7 +189,7 @@
             // buttonSelectAll
             // 
             this.buttonSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSelectAll.Location = new System.Drawing.Point(7, 141);
+            this.buttonSelectAll.Location = new System.Drawing.Point(7, 176);
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectAll.TabIndex = 1;
@@ -207,7 +208,7 @@
             this.listViewScenes.GridLines = true;
             this.listViewScenes.Location = new System.Drawing.Point(3, 3);
             this.listViewScenes.Name = "listViewScenes";
-            this.listViewScenes.Size = new System.Drawing.Size(473, 132);
+            this.listViewScenes.Size = new System.Drawing.Size(479, 167);
             this.listViewScenes.TabIndex = 0;
             this.listViewScenes.UseCompatibleStateImageBehavior = false;
             this.listViewScenes.View = System.Windows.Forms.View.Details;
@@ -221,7 +222,7 @@
             // buttonBrowseSourcePath
             // 
             this.buttonBrowseSourcePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseSourcePath.Location = new System.Drawing.Point(457, 34);
+            this.buttonBrowseSourcePath.Location = new System.Drawing.Point(463, 34);
             this.buttonBrowseSourcePath.Name = "buttonBrowseSourcePath";
             this.buttonBrowseSourcePath.Size = new System.Drawing.Size(30, 23);
             this.buttonBrowseSourcePath.TabIndex = 10;
@@ -232,7 +233,7 @@
             // buttonBrowseDstPath
             // 
             this.buttonBrowseDstPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowseDstPath.Location = new System.Drawing.Point(457, 69);
+            this.buttonBrowseDstPath.Location = new System.Drawing.Point(463, 69);
             this.buttonBrowseDstPath.Name = "buttonBrowseDstPath";
             this.buttonBrowseDstPath.Size = new System.Drawing.Size(30, 23);
             this.buttonBrowseDstPath.TabIndex = 11;
@@ -246,7 +247,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTextsXmlLocation.Location = new System.Drawing.Point(173, 108);
             this.textBoxTextsXmlLocation.Name = "textBoxTextsXmlLocation";
-            this.textBoxTextsXmlLocation.Size = new System.Drawing.Size(278, 20);
+            this.textBoxTextsXmlLocation.Size = new System.Drawing.Size(284, 20);
             this.textBoxTextsXmlLocation.TabIndex = 6;
             this.textBoxTextsXmlLocation.TextChanged += new System.EventHandler(this.textBoxTextsXmlLocation_TextChanged);
             // 
@@ -262,7 +263,7 @@
             // buttonTextsXmlBrowse
             // 
             this.buttonTextsXmlBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTextsXmlBrowse.Location = new System.Drawing.Point(457, 106);
+            this.buttonTextsXmlBrowse.Location = new System.Drawing.Point(463, 106);
             this.buttonTextsXmlBrowse.Name = "buttonTextsXmlBrowse";
             this.buttonTextsXmlBrowse.Size = new System.Drawing.Size(30, 23);
             this.buttonTextsXmlBrowse.TabIndex = 14;
@@ -276,7 +277,7 @@
             this.checkBoxRebuildTexts.AutoSize = true;
             this.checkBoxRebuildTexts.Checked = true;
             this.checkBoxRebuildTexts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 697);
+            this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 773);
             this.checkBoxRebuildTexts.Name = "checkBoxRebuildTexts";
             this.checkBoxRebuildTexts.Size = new System.Drawing.Size(130, 17);
             this.checkBoxRebuildTexts.TabIndex = 3;
@@ -335,9 +336,9 @@
             this.groupBox1.Controls.Add(this.checkBoxRebuildTP);
             this.groupBox1.Controls.Add(this.checkBoxBuildAlphaSelection);
             this.groupBox1.Controls.Add(this.checkBoxActiveZonesVisible);
-            this.groupBox1.Location = new System.Drawing.Point(8, 477);
+            this.groupBox1.Location = new System.Drawing.Point(8, 553);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(269, 110);
+            this.groupBox1.Size = new System.Drawing.Size(275, 110);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ресурсы";
@@ -364,9 +365,9 @@
             this.groupBox2.Controls.Add(this.checkBoxRebuildHints);
             this.groupBox2.Controls.Add(this.checkBoxRebuildScene);
             this.groupBox2.Controls.Add(this.checkBoxRebuildItems);
-            this.groupBox2.Location = new System.Drawing.Point(8, 593);
+            this.groupBox2.Location = new System.Drawing.Point(8, 669);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(479, 89);
+            this.groupBox2.Size = new System.Drawing.Size(485, 89);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Сцена";
@@ -379,7 +380,7 @@
             this.checkBoxNavigation.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxNavigation.Location = new System.Drawing.Point(283, 65);
             this.checkBoxNavigation.Name = "checkBoxNavigation";
-            this.checkBoxNavigation.Size = new System.Drawing.Size(143, 17);
+            this.checkBoxNavigation.Size = new System.Drawing.Size(149, 17);
             this.checkBoxNavigation.TabIndex = 8;
             this.checkBoxNavigation.Text = "Добавить в навигацию";
             this.checkBoxNavigation.UseVisualStyleBackColor = true;
@@ -393,7 +394,7 @@
             this.checkBoxRebuildLevels.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRebuildLevels.Location = new System.Drawing.Point(283, 42);
             this.checkBoxRebuildLevels.Name = "checkBoxRebuildLevels";
-            this.checkBoxRebuildLevels.Size = new System.Drawing.Size(133, 17);
+            this.checkBoxRebuildLevels.Size = new System.Drawing.Size(139, 17);
             this.checkBoxRebuildLevels.TabIndex = 7;
             this.checkBoxRebuildLevels.Text = "Добавить в levels.xml";
             this.checkBoxRebuildLevels.UseVisualStyleBackColor = true;
@@ -407,7 +408,7 @@
             this.checkBoxGlints.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxGlints.Location = new System.Drawing.Point(283, 19);
             this.checkBoxGlints.Name = "checkBoxGlints";
-            this.checkBoxGlints.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxGlints.Size = new System.Drawing.Size(74, 17);
             this.checkBoxGlints.TabIndex = 6;
             this.checkBoxGlints.Text = "glints.xml";
             this.checkBoxGlints.UseVisualStyleBackColor = true;
@@ -442,7 +443,7 @@
             this.groupBox3.Controls.Add(this.checkBoxHummingBirds);
             this.groupBox3.Controls.Add(this.checkBoxSomeFuncs);
             this.groupBox3.Controls.Add(this.checkBoxEE);
-            this.groupBox3.Location = new System.Drawing.Point(283, 477);
+            this.groupBox3.Location = new System.Drawing.Point(289, 553);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(203, 110);
             this.groupBox3.TabIndex = 15;
@@ -508,7 +509,7 @@
             // buttonLevelsXmlBrowse
             // 
             this.buttonLevelsXmlBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLevelsXmlBrowse.Location = new System.Drawing.Point(457, 179);
+            this.buttonLevelsXmlBrowse.Location = new System.Drawing.Point(463, 179);
             this.buttonLevelsXmlBrowse.Name = "buttonLevelsXmlBrowse";
             this.buttonLevelsXmlBrowse.Size = new System.Drawing.Size(30, 23);
             this.buttonLevelsXmlBrowse.TabIndex = 21;
@@ -531,7 +532,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxLevelsXmlLocation.Location = new System.Drawing.Point(173, 181);
             this.textBoxLevelsXmlLocation.Name = "textBoxLevelsXmlLocation";
-            this.textBoxLevelsXmlLocation.Size = new System.Drawing.Size(278, 20);
+            this.textBoxLevelsXmlLocation.Size = new System.Drawing.Size(284, 20);
             this.textBoxLevelsXmlLocation.TabIndex = 19;
             this.textBoxLevelsXmlLocation.TextChanged += new System.EventHandler(this.textBoxLevelsXmlLocation_TextChanged);
             // 
@@ -550,14 +551,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(305, 216);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(182, 20);
+            this.textBoxName.Size = new System.Drawing.Size(188, 20);
             this.textBoxName.TabIndex = 23;
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonNavigation
             // 
             this.buttonNavigation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNavigation.Location = new System.Drawing.Point(457, 143);
+            this.buttonNavigation.Location = new System.Drawing.Point(463, 143);
             this.buttonNavigation.Name = "buttonNavigation";
             this.buttonNavigation.Size = new System.Drawing.Size(30, 23);
             this.buttonNavigation.TabIndex = 26;
@@ -580,7 +581,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNavigation.Location = new System.Drawing.Point(173, 145);
             this.textBoxNavigation.Name = "textBoxNavigation";
-            this.textBoxNavigation.Size = new System.Drawing.Size(278, 20);
+            this.textBoxNavigation.Size = new System.Drawing.Size(284, 20);
             this.textBoxNavigation.TabIndex = 24;
             this.textBoxNavigation.TextChanged += new System.EventHandler(this.textBoxNavigation_TextChanged);
             // 
@@ -591,7 +592,7 @@
             this.toolStripMenuItemProjects});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(499, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(505, 24);
             this.menuStrip1.TabIndex = 27;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -606,32 +607,44 @@
             // toolStripMenuItemExit
             // 
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(108, 22);
             this.toolStripMenuItemExit.Text = "Выход";
             this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
             // 
             // toolStripMenuItemProjects
             // 
-            this.toolStripMenuItemProjects.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemAdd});
             this.toolStripMenuItemProjects.Name = "toolStripMenuItemProjects";
             this.toolStripMenuItemProjects.Size = new System.Drawing.Size(68, 20);
             this.toolStripMenuItemProjects.Text = "Проекты";
             // 
-            // toolStripMenuItemAdd
+            // buttonSaveParametres
             // 
-            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
-            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(167, 22);
-            this.toolStripMenuItemAdd.Text = "Добавить проект";
-            this.toolStripMenuItemAdd.Click += new System.EventHandler(this.toolStripMenuItemAdd_Click);
+            this.buttonSaveParametres.Location = new System.Drawing.Point(12, 250);
+            this.buttonSaveParametres.Name = "buttonSaveParametres";
+            this.buttonSaveParametres.Size = new System.Drawing.Size(155, 23);
+            this.buttonSaveParametres.TabIndex = 28;
+            this.buttonSaveParametres.Text = "Сохранить параметры";
+            this.buttonSaveParametres.UseVisualStyleBackColor = true;
+            this.buttonSaveParametres.Click += new System.EventHandler(this.buttonSaveParametres_Click);
+            // 
+            // buttonEditparameters
+            // 
+            this.buttonEditparameters.Location = new System.Drawing.Point(173, 250);
+            this.buttonEditparameters.Name = "buttonEditparameters";
+            this.buttonEditparameters.Size = new System.Drawing.Size(172, 23);
+            this.buttonEditparameters.TabIndex = 29;
+            this.buttonEditparameters.Text = "Редактирование параметров";
+            this.buttonEditparameters.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 732);
+            this.ClientSize = new System.Drawing.Size(505, 808);
+            this.Controls.Add(this.buttonEditparameters);
+            this.Controls.Add(this.buttonSaveParametres);
             this.Controls.Add(this.buttonNavigation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxNavigation);
@@ -729,6 +742,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFile;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjects;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAdd;
+        private System.Windows.Forms.Button buttonSaveParametres;
+        private System.Windows.Forms.Button buttonEditparameters;
     }
 }

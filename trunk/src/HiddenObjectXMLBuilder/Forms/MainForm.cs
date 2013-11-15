@@ -635,11 +635,21 @@ namespace HiddenObjectsXMLBuilder
 
         private void toolStripMenuItemAdd_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void toolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonSaveParametres_Click(object sender, EventArgs e)
+        {
             ToolStripMenuItem _Item = new ToolStripMenuItem();
 
             string[] split = textBoxSrcPath.Text.Split(new Char[] { '\\' });
 
-            for(int i=0; i<split.Length; i++)
+            for (int i = 0; i < split.Length; i++)
             {
                 if (split[i] == "png")
                 {
@@ -652,13 +662,13 @@ namespace HiddenObjectsXMLBuilder
 
             if (BuilderParametresPath.Count != 0)
             {
-                for (int i = 0; i < BuilderParametresPath.Count; i++ )
+                for (int i = 0; i < BuilderParametresPath.Count; i++)
                 {
                     if (BuilderParametresPath[i].ItemName == _Item.Text)
                     {
                         _flag = true;
                     }
-                
+
                 }
             }
 
@@ -684,13 +694,17 @@ namespace HiddenObjectsXMLBuilder
                     LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
                 });
 
+                ContextMenuStrip docMenu = new ContextMenuStrip();
+
+                ToolStripMenuItem deleteLabel = new ToolStripMenuItem();
+                deleteLabel.Text = "Удалить";
+
+                docMenu.Items.AddRange(new ToolStripMenuItem[] { deleteLabel });
+
+                // _Item.DropDownItems.Add(docMenu);
+
                 toolStripMenuItemProjects.DropDownItems.Add(_Item);
             } 
-        }
-
-        private void toolStripMenuItemExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 	}
 

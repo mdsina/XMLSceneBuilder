@@ -88,6 +88,12 @@
     <Compile Include="Classes\Scene.cs" />
     <Compile Include="Classes\SettingsAndConstants.cs" />
     <Compile Include="Classes\Texts.cs" />
+    <Compile Include="Forms\EditPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditPreferences.Designer.cs">
+      <DependentUpon>EditPreferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\EditPreferences.resx">
+      <DependentUpon>EditPreferences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
