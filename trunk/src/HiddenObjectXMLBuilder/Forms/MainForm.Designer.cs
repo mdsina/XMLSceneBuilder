@@ -180,7 +180,7 @@
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
             this.buttonClearAll.TabIndex = 2;
-            this.buttonClearAll.Text = "Detach all";
+            this.buttonClearAll.Text = "Uncheck All";
             this.buttonClearAll.UseVisualStyleBackColor = true;
             this.buttonClearAll.Click += new System.EventHandler(this.buttonClearAll_Click);
             // 
@@ -191,7 +191,7 @@
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectAll.TabIndex = 1;
-            this.buttonSelectAll.Text = "All";
+            this.buttonSelectAll.Text = "Check All";
             this.buttonSelectAll.UseVisualStyleBackColor = true;
             this.buttonSelectAll.Click += new System.EventHandler(this.buttonSelectAll_Click);
             // 
@@ -606,7 +606,7 @@
             // toolStripMenuItemExit
             // 
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(92, 22);
             this.toolStripMenuItemExit.Text = "Exit";
             this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
