@@ -165,6 +165,43 @@ namespace HiddenObjectsXMLBuilder
                         LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
                     });
 
+                    ToolStripMenuItem _DeleteItem = new ToolStripMenuItem();
+                    _DeleteItem.Text = "Delete";
+                    _DeleteItem.Name = "Delete";
+                    _DeleteItem.Click += new EventHandler(delegate(Object o, EventArgs a)
+                    {
+                        if (File.Exists(Environment.CurrentDirectory + "\\Parametres.xml"))
+                        {
+                            XmlDocument _ParametresXmlDoc;
+                            XmlElement _ParametresRoot;
+                            string _ParametresFileName;
+
+                            _ParametresFileName = Environment.CurrentDirectory + "\\Parametres.xml";
+
+                            _ParametresXmlDoc = new XmlDocument();
+                            _ParametresXmlDoc.Load(_ParametresFileName);
+
+                            _ParametresRoot = (XmlElement)_ParametresXmlDoc.FirstChild;
+
+                            for (int j = 0; j < _ParametresRoot.ChildNodes.Count; j++)
+                            {
+                                if (_ParametresRoot.ChildNodes[j].Name == _Item.Text)
+                                {
+                                    _ParametresRoot.RemoveChild(_ParametresRoot.ChildNodes[j]);
+                                    break;
+                                }
+                            }
+
+                            _ParametresXmlDoc.Save(_ParametresFileName);
+                        }
+
+                        BuilderParametresPath.Remove(_parameters);
+                        toolStripMenuItemProjects.DropDownItems.Remove(_Item);
+
+                    });
+
+                    _Item.DropDownItems.Add(_DeleteItem);
+
                     toolStripMenuItemProjects.DropDownItems.Add(_Item);
                 }
             }
@@ -697,27 +734,62 @@ namespace HiddenObjectsXMLBuilder
                 BuilderParametresPath.Add(_t_Parametres);
                 int _index = BuilderParametresPath.IndexOf(_t_Parametres);
 
-                _Item.MouseDown += new MouseEventHandler(delegate(Object o, MouseEventArgs a)
-                {
-                    SrcRoot = BuilderParametresPath[_index].pngPath;
-                    DstRoot = BuilderParametresPath[_index].scenesPath;
-                    TextsXmlFileName = BuilderParametresPath[_index].textsPath;
-                    NavigationSystemPath = BuilderParametresPath[_index].hintPath;
-                    LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
-
-                    if (a.Button == MouseButtons.Right)
+                _Item.Click += new EventHandler(delegate(Object o, EventArgs a)
                     {
-                        ContextMenuStrip docMenu = new ContextMenuStrip();
+                        SrcRoot = BuilderParametresPath[_index].pngPath;
+                        DstRoot = BuilderParametresPath[_index].scenesPath;
+                        TextsXmlFileName = BuilderParametresPath[_index].textsPath;
+                        NavigationSystemPath = BuilderParametresPath[_index].hintPath;
+                        LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
 
-                        ToolStripMenuItem deleteLabel = new ToolStripMenuItem();
-                        deleteLabel.Text = "Delete";
+                        /*if (a.Button == MouseButtons.Right)
+                        {
+                            ContextMenuStrip docMenu = new ContextMenuStrip();
 
-                        docMenu.Items.AddRange(new ToolStripMenuItem[] { deleteLabel });
-                        docMenu.Show(MousePosition);
-                    }
-                });
+                            ToolStripMenuItem deleteLabel = new ToolStripMenuItem();
+                            deleteLabel.Text = "Delete";
 
-                // _Item.DropDownItems.Add(docMenu);
+                            docMenu.Items.AddRange(new ToolStripMenuItem[] { deleteLabel });
+                            docMenu.Show(MousePosition);
+                        }*/
+                    });
+
+                ToolStripMenuItem _DeleteItem = new ToolStripMenuItem();
+                _DeleteItem.Text = "Delete";
+                _DeleteItem.Name = "Delete";
+                _DeleteItem.Click += new EventHandler(delegate(Object o, EventArgs a)
+                    {
+                        if (File.Exists(Environment.CurrentDirectory + "\\Parametres.xml"))
+                        {
+                            XmlDocument _ParametresXmlDoc;
+		                    XmlElement _ParametresRoot;
+		                    string _ParametresFileName;
+
+                            _ParametresFileName = Environment.CurrentDirectory + "\\Parametres.xml";
+
+                            _ParametresXmlDoc = new XmlDocument();
+                            _ParametresXmlDoc.Load(_ParametresFileName);
+
+                            _ParametresRoot = (XmlElement)_ParametresXmlDoc.FirstChild;
+
+                            for (int i = 0; i < _ParametresRoot.ChildNodes.Count; i++ )
+                            {
+                                if (_ParametresRoot.ChildNodes[i].Name == _Item.Text)
+                                {
+                                    _ParametresRoot.RemoveChild(_ParametresRoot.ChildNodes[i]);
+                                    break;
+                                }
+                            }
+
+                            _ParametresXmlDoc.Save(_ParametresFileName);
+                        }
+
+                        BuilderParametresPath.Remove(_t_Parametres);
+                        toolStripMenuItemProjects.DropDownItems.Remove(_Item);
+                    
+                    });
+
+                _Item.DropDownItems.Add(_DeleteItem);
 
                 toolStripMenuItemProjects.DropDownItems.Add(_Item);
             }

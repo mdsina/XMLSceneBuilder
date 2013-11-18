@@ -368,7 +368,7 @@
             this.groupBox2.Size = new System.Drawing.Size(485, 89);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Сцена";
+            this.groupBox2.Text = "Scene";
             // 
             // checkBoxNavigation
             // 
