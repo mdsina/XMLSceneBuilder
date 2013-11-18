@@ -31,10 +31,16 @@ namespace HiddenObjectsXMLBuilder
 				{
                     string textureName;
 					textureName = Tools.CutDigitsFromHead(Tools.FilterString(TranslitName()));
+
+                    if (textureName.LastIndexOf("_g")!=-1)
+                    {
+                       textureName = textureName.Remove(textureName.LastIndexOf("_g"));
+                    }
                     if (DisableAlphaSelection)
                     {
                        return textureName.Replace("_das_", null);
                     }
+
                     return textureName;
 				}
 				else
@@ -67,9 +73,9 @@ namespace HiddenObjectsXMLBuilder
 		{
 			switch (widePart)
 			{
-				case WidePart.LeftPart: { return NodeName + "_left"; } break;
-				case WidePart.CenterPart: { return NodeName + "_center"; } break;
-				case WidePart.RightPart: { return NodeName + "_right"; } break;
+                case WidePart.LeftPart: { return NodeName + "_left"; break; }
+                case WidePart.CenterPart: { return NodeName + "_center"; break; }
+                case WidePart.RightPart: { return NodeName + "_right"; break; } 
 			}
 
 			return NodeName;
@@ -97,7 +103,7 @@ namespace HiddenObjectsXMLBuilder
 
 				if (!tmp[1].ToLower().Contains("pick_"))
 				{
-					throw new Exception("Не могу добыть номер сцены, на которой встречется предмет '" + _fileName + "'. \nНаверное, что то не так с pick_XXX.");
+                    throw new Exception("I can not get the scene number in which the object is found '" + _fileName + "'. \nMaybe there's something wrong with pick_XXX.");
 				}
 
 				string[] tmp1 = tmp[1].Split('_');
@@ -120,7 +126,7 @@ namespace HiddenObjectsXMLBuilder
 				string nameWithoutExtension = fi.Name.Substring(0, fi.Name.LastIndexOf('.'));
 				if (nameWithoutExtension.Length == 0)
 				{
-					throw new Exception("Не могу отбросить расширение от имени файла: " + _fileName);
+                    throw new Exception("I can not reject the extension of the file name: " + _fileName);
 				}
 
 				return nameWithoutExtension;
@@ -217,12 +223,12 @@ namespace HiddenObjectsXMLBuilder
 
 				if (!tmp[1].Contains("pick_"))
 				{
-					throw new Exception("Не могу добыть русское называние из файла: " + _fileName + ".  Потому что это не собираемый предмет (отсутствует pick) ");
+                    throw new Exception("I can not get Russian name of the file: " + _fileName + ".  Because it does not collect items (no pick) ");
 				}
 
 				if (tmp.Length < 3)
 				{
-					throw new Exception("Не могу добыть русское называние из файла: " + _fileName);
+					throw new Exception("I can not get Russian name of the file: " + _fileName);
 				}
 
 				return HiddenObjectStudio.Core.Tools.FilterString(tmp[2].ToLower());
@@ -238,12 +244,12 @@ namespace HiddenObjectsXMLBuilder
 
 				if (!tmp[1].Contains("pick_"))
 				{
-					throw new Exception("Не могу добыть английское называние из файла: " + _fileName + ".  Потому что это не собираемый предмет (отсутствует pick) ");
+                    throw new Exception("I can not get the English name of the file: " + _fileName + ".  Because it does not collect items (no pick) ");
 				}
 
 				if (tmp.Length < 3)
 				{
-					throw new Exception("Не могу добыть английское название из файла: " + _fileName);
+                    throw new Exception("I can not get the English name of the file: " + _fileName);
 				}
 
 				return HiddenObjectStudio.Core.Tools.FilterString(tmp[3].ToLower());
@@ -352,7 +358,7 @@ namespace HiddenObjectsXMLBuilder
 			}
 			else
 			{
-				throw new Exception("Не могу добыть номер сцены, на которую осуществляется переход (place) из файла: " + _fileName);
+                throw new Exception("I can not get the scene number to which a transition (place) from the file: " + _fileName);
 			}
 
 		}

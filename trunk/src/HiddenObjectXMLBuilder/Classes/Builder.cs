@@ -37,6 +37,11 @@ namespace HiddenObjectsXMLBuilder
 
 		public bool isSubscreen;
         public bool isMinigame;
+        public bool isHO;
+        public bool isHo01;
+        public List<string> HO01;
+        public bool isHo02;
+        public List<string> HO02;
 
 		public bool rebuildTexts;
 
@@ -81,6 +86,7 @@ namespace HiddenObjectsXMLBuilder
         private Items _items;
         private Levels _levels;
         private Navigation _navigation;
+        
  
 
 		public Builder()
@@ -103,11 +109,17 @@ namespace HiddenObjectsXMLBuilder
 			_items = null;
             _levels = null;
             _navigation = null;
+            
 		}
 	
 		public bool Build2(BuildOptions options)
 		{
 			//_config.sceneName = options.sceneName;
+            options.isHO = false;
+            options.isHo01 = false;
+            options.isHo02 = false;
+            options.HO01 = new List<string>();
+            options.HO02 = new List<string>();
 			try
 			{
 				List<string> textureNames = new List<string>();
@@ -118,6 +130,34 @@ namespace HiddenObjectsXMLBuilder
 				{
 					throw new Exception("Not found *.png in folder.");
 				}
+
+                foreach (string fileName in files)
+                {
+                    if (fileName.Contains("pick_"))
+                    {
+                        if (fileName.Contains("pick_01"))
+                        {
+                            if (!options.isHo01)
+                                options.isHo01 = true;
+
+                            options.HO01.Add(fileName);
+                        }
+
+                        if (fileName.Contains("pick_02"))
+                        {
+                            if (!options.isHo02)
+                                options.isHo02 = true;
+
+                            options.HO02.Add(fileName);
+                        }
+
+                        if (!options.isHO)
+                        {
+                            options.isHO = true;
+                        }
+                    }
+                    
+                }
 
 				//////////////////////////////////////////////////////////////////////////
 				/// Create texture pack header
@@ -170,11 +210,26 @@ namespace HiddenObjectsXMLBuilder
                 {
                     _levels = new Levels(_config, options);
                 }
+                //////////////////////////////////////////////////////////////////////////
+                /// Save glints xml
+                if (options.rebuildGlintsFile)
+                {
+                    _glints = new Glints(_config, options);
 
+                }
 				//////////////////////////////////////////////////////////////////////////
+                
 				foreach (string fileName in files)
 				{
-					FileName fn = new FileName(fileName);
+                    FileName fn = new FileName(fileName);
+
+                    if ((options.rebuildGlintsFile))
+                    {
+                        if (fileName.LastIndexOf("_g") != -1)
+                        {
+                            _glints.AddGlint(fn.TextureName);
+                        }
+                    }
 
 					if (fn.IsCollectableItem && _texts != null)
 					{
@@ -189,17 +244,12 @@ namespace HiddenObjectsXMLBuilder
 					{
 						textureNames.Add(fn.TextureName);
 					}
-
+                    //////////////////////////////////////////////////////////////////////////
+                    /// Create scene node
 					if (options.rebuildScene)
 					{
-						//////////////////////////////////////////////////////////////////////////
-						/// Create scene node
-
 						_scene.ProcessNode(fn);
 					}
-
-                    
-
 					//////////////////////////////////////////////////////////////////////////
 					/// Create item node
 
@@ -213,13 +263,6 @@ namespace HiddenObjectsXMLBuilder
 					if (options.rebuildTP)
 					{
 						_texturePack.ProcessNode(fn);
-
-						//////////////////////////////////////////////////////////////////////////
-						/// Create resources node
-	//                     if (options.rebuildResourcesFile && fn.IsBackground)
-	//                     {
-	// 						_resources.AddNode(fn);
-	//                     }
 					}
 
 				} // main loop
@@ -315,7 +358,6 @@ namespace HiddenObjectsXMLBuilder
                     /// Save glints xml
                     if (options.rebuildGlintsFile)
                     {
-                        _glints = new Glints(_config, options);
                         _glints.Save();
                     }
             

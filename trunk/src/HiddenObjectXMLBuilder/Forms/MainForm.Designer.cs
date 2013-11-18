@@ -608,7 +608,7 @@
             // 
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
             this.toolStripMenuItemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(129, 22);
             this.toolStripMenuItemExit.Text = "E&xit";
             this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);

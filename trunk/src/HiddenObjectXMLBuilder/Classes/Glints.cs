@@ -14,7 +14,6 @@ namespace HiddenObjectsXMLBuilder
         private XmlDocument _glintsXmlDoc;
 		private XmlElement _glintsRoot;
 		private string _glintsFileName;
-        XmlComment newComment;
 
 		private BuilderConfig _builderConfig;
 		private BuildOptions _buildOptions;
@@ -26,18 +25,51 @@ namespace HiddenObjectsXMLBuilder
             _buildOptions = buildOptions;
 			_glintsFileName = _buildOptions.dstFolder + "\\glints.xml";
 
-			_glintsXmlDoc = new XmlDocument();
-            
+            if (!File.Exists(_glintsFileName))
+            {
+                _glintsXmlDoc = new XmlDocument();
+                _glintsRoot = _glintsXmlDoc.CreateElement("glints");
+            }
+            else
+            {
+                _glintsXmlDoc = new XmlDocument();
+                _glintsXmlDoc.Load(_glintsFileName);
 
-            _glintsRoot = _glintsXmlDoc.CreateElement("glints");
-            newComment = _glintsXmlDoc.CreateComment("Add your glints here");
-
-
+                for (int i = 0; i < _glintsXmlDoc.ChildNodes.Count; i++ )
+                {
+                    if (_glintsXmlDoc.ChildNodes[i].Name == "glints")
+                    {
+                        _glintsRoot = (XmlElement)_glintsXmlDoc.ChildNodes[i];
+                        break;
+                    }
+                }
+            }
 		}
+
+        public void AddGlint(string LayerName)
+        {
+            bool _ok = false;
+            for (int i = 0; i < _glintsRoot.ChildNodes.Count; i++  )
+            {
+                if (_glintsRoot.ChildNodes[i].Name == LayerName)
+                {
+                    _ok = true;
+                    break;
+                }
+            }
+
+            if (!_ok)
+            {
+                XmlElement _LayerName = _glintsXmlDoc.CreateElement(LayerName);
+                _LayerName.SetAttribute("layer", LayerName);
+                _glintsRoot.AppendChild(_LayerName);
+            }
+            
+        }
 
 		public void Save()
 		{
-            _glintsRoot.AppendChild(newComment);
+            
 			_glintsXmlDoc.AppendChild(_glintsRoot);
 			_glintsXmlDoc.Save(_glintsFileName);
 		}

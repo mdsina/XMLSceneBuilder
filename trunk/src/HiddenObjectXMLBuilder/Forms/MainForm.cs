@@ -715,7 +715,6 @@ namespace HiddenObjectsXMLBuilder
                     {
                         _flag = true;
                     }
-
                 }
             }
 
@@ -814,6 +813,7 @@ namespace HiddenObjectsXMLBuilder
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
 	}
 
     class SceneBuildInfo

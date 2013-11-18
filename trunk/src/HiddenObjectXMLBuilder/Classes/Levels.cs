@@ -29,7 +29,7 @@ namespace HiddenObjectsXMLBuilder
         private const string LevelNodeResource_common = "data\\scenes\\common\\resources.xml";
         private const string LevelNodeResource_morfing = "data\\scenes\\common\\resources_morfing.xml";
         private const string LevelNodeResource_sub = "data\\scenes\\common\\resources_subscreens.xml";
-        private const string GlintsFile = "glints.xml";
+        private const string GlintsFile = "glints";
         private const string DefaultPlaylist = "game_playlist_default";
         private const string DefaultGamePos = "dm";
         private const string DefaultGDDNumber = "99. ";
@@ -139,14 +139,65 @@ namespace HiddenObjectsXMLBuilder
                     Node.AppendChild(levelMG_node);
                 }
             }
+        }//end add minigame
+
+        private void CreateLevelsNode(string _itemNumber)
+        {
+            XmlElement tLevel;
+
+            if (_buildOptions.sceneName.Contains("ce_"))
+            {
+                tLevel = _layersNode_CE;
+            }
+            else
+            {
+                tLevel = _layersNode_SE;
+            }
+
+            XmlElement layerNode;
+
+            layerNode = _sceneXmlDoc.CreateElement(LevelNodeName);
+
+            layerNode.SetAttribute("place", _buildOptions.sceneName + _itemNumber);
+            layerNode.SetAttribute("scene_folder", _buildOptions.sceneName);
+            layerNode.SetAttribute("scene_file", _buildOptions.sceneName + _itemNumber + ".xml");
+            layerNode.SetAttribute("glints_file", GlintsFile + _itemNumber + ".xml");
+            layerNode.SetAttribute("playlist", DefaultPlaylist);
+            layerNode.SetAttribute("game_pos", DefaultGamePos);
+
+            if (_buildOptions.isHO)
+            {
+                layerNode.SetAttribute("items_file", "items" + _itemNumber + ".xml");
+                layerNode.SetAttribute("hints_file", "hints" + _itemNumber + ".xml");
+                layerNode.SetAttribute("mahjong_layout_file_name", "2.xml");
+            }
+            layerNode.SetAttribute("gdd_name", DefaultGDDNumber + _buildOptions.sceneName + _itemNumber + " (" + _buildOptions.UserName + ")");
+
+            XmlElement levelResources;
+            levelResources = _sceneXmlDoc.CreateElement(LevelNodeResource);
+
+            levelResources.AppendChild(AddResource(LevelNodeResource_common));
+            levelResources.AppendChild(AddResource(LevelNodeResource_sub));
+            levelResources.AppendChild(AddResource("data\\scenes\\" + _buildOptions.sceneName + "\\resources.xml"));
+
+            if (_buildOptions.morfing)
+            {
+                levelResources.AppendChild(AddResource(LevelNodeResource_morfing));
+            }
+
+            layerNode.AppendChild(levelResources);
+            AddMinigame(_buildOptions.sceneName + _itemNumber, layerNode);
+
+            if (!FoundParentAttribute("place", _buildOptions.sceneName + _itemNumber, tLevel))
+            {
+                tLevel.AppendChild(layerNode);
+            }
         }
 
         public void ProcessNormalTextureNode()
         {
             try
             {
-                if (!_buildOptions.sceneName.Contains("_ho"))
-                {
                     if (_buildOptions.isSubscreen)
                     {
                         XmlElement counter = _layersNode_SE;
@@ -232,56 +283,28 @@ namespace HiddenObjectsXMLBuilder
                     }
                     else
                     {
-                        XmlElement tLevel;
-
-                        if (_buildOptions.sceneName.Contains("ce_")) 
+                        if (_buildOptions.isHO)
                         {
-                            tLevel = _layersNode_CE;
+                            if (_buildOptions.isHo01)
+                            {
+                                CreateLevelsNode("_01");
+                            }
+                            if (_buildOptions.isHo02)
+                            {
+                                CreateLevelsNode("_02");
+                            }
                         }
                         else
                         {
-                            tLevel = _layersNode_SE;
-                        }
-
-                        
-                        XmlElement layerNode;
-
-                        layerNode = _sceneXmlDoc.CreateElement(LevelNodeName);
-
-                        layerNode.SetAttribute("place", _buildOptions.sceneName);
-                        layerNode.SetAttribute("scene_folder", _buildOptions.sceneName);
-                        layerNode.SetAttribute("scene_file", _buildOptions.sceneName + ".xml");
-                        layerNode.SetAttribute("glints_file", GlintsFile);
-                        layerNode.SetAttribute("playlist", DefaultPlaylist);
-                        layerNode.SetAttribute("game_pos", DefaultGamePos);
-                        layerNode.SetAttribute("gdd_name", DefaultGDDNumber + _buildOptions.sceneName + " (" + _buildOptions.UserName + ")");
-
-                        XmlElement levelResources;
-                        levelResources = _sceneXmlDoc.CreateElement(LevelNodeResource);
-
-                        levelResources.AppendChild(AddResource(LevelNodeResource_common));
-                        levelResources.AppendChild(AddResource(LevelNodeResource_sub));
-                        levelResources.AppendChild(AddResource("data\\scenes\\" + _buildOptions.sceneName + "\\resources.xml"));
-
-                        if (_buildOptions.morfing)
-                        {
-                            levelResources.AppendChild(AddResource(LevelNodeResource_morfing));
-                        }
-
-                        layerNode.AppendChild(levelResources);
-                        AddMinigame(_buildOptions.sceneName, layerNode);
-
-                        if (!FoundParentAttribute("place", _buildOptions.sceneName, tLevel))
-                        {
-                            tLevel.AppendChild(layerNode);
+                            CreateLevelsNode("");
                         }
                     }
-                }
+                
             }
             
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка на " + _buildOptions.sceneName);
+                MessageBox.Show(ex.Message, "Error on " + _buildOptions.sceneName);
 
                 throw ex;
             }
