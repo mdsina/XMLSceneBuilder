@@ -484,33 +484,37 @@ namespace HiddenObjectsXMLBuilder
 
 #region Event Handlers
 
+        private void StartBuild()
+        {
+            string finalMessage = "Success.";
+
+            try
+            {
+                foreach (ListViewItem item in listViewScenes.Items)
+                {
+                    if (item.Checked)
+                    {
+                        Build((SceneBuildInfo)item.Tag);
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //Close();
+
+                return;
+            }
+
+            MessageBox.Show(finalMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //Close();
+        }
+
 		private void btnStart_Click(object sender, EventArgs e)
 		{
-			string finalMessage = "Успешно выполнено.";
-
-			try
-			{
-				foreach (ListViewItem item in listViewScenes.Items)
-				{
-					if (item.Checked)
-					{
-						Build((SceneBuildInfo)item.Tag);
-					}
-				}
-			}
-			catch (System.Exception ex)
-			{
-				MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-				//Close();
-
-				return;
-			}
-
-			MessageBox.Show(finalMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-			//Close();
-
+            StartBuild();
 		}
 
 		private void buttonBrowseSourcePath_Click(object sender, EventArgs e)
@@ -613,11 +617,6 @@ namespace HiddenObjectsXMLBuilder
             checkBoxMorfing.Enabled = checkBoxSomeFuncs.Checked;
         }
 
-        private void buttonLevelsXmlBrowse_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonLevelsXmlBrowse_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -668,8 +667,7 @@ namespace HiddenObjectsXMLBuilder
 
         private void checkBoxRebuildLevels_CheckedChanged(object sender, EventArgs e)
         {
-            
-                FillScenesList();
+            FillScenesList();
         }
 
         private void checkBoxRebuildTexts_CheckedChanged(object sender, EventArgs e)
@@ -692,7 +690,7 @@ namespace HiddenObjectsXMLBuilder
             Application.Exit();
         }
 
-        private void buttonSaveParametres_Click(object sender, MouseEventArgs e)
+        private void ProcessMenuitems()
         {
             ToolStripMenuItem _Item = new ToolStripMenuItem();
 
@@ -735,65 +733,86 @@ namespace HiddenObjectsXMLBuilder
                 int _index = BuilderParametresPath.IndexOf(_t_Parametres);
 
                 _Item.Click += new EventHandler(delegate(Object o, EventArgs a)
+                {
+                    SrcRoot = BuilderParametresPath[_index].pngPath;
+                    DstRoot = BuilderParametresPath[_index].scenesPath;
+                    TextsXmlFileName = BuilderParametresPath[_index].textsPath;
+                    NavigationSystemPath = BuilderParametresPath[_index].hintPath;
+                    LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
+
+                    /*if (a.Button == MouseButtons.Right)
                     {
-                        SrcRoot = BuilderParametresPath[_index].pngPath;
-                        DstRoot = BuilderParametresPath[_index].scenesPath;
-                        TextsXmlFileName = BuilderParametresPath[_index].textsPath;
-                        NavigationSystemPath = BuilderParametresPath[_index].hintPath;
-                        LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
+                        ContextMenuStrip docMenu = new ContextMenuStrip();
 
-                        /*if (a.Button == MouseButtons.Right)
-                        {
-                            ContextMenuStrip docMenu = new ContextMenuStrip();
+                        ToolStripMenuItem deleteLabel = new ToolStripMenuItem();
+                        deleteLabel.Text = "Delete";
 
-                            ToolStripMenuItem deleteLabel = new ToolStripMenuItem();
-                            deleteLabel.Text = "Delete";
-
-                            docMenu.Items.AddRange(new ToolStripMenuItem[] { deleteLabel });
-                            docMenu.Show(MousePosition);
-                        }*/
-                    });
+                        docMenu.Items.AddRange(new ToolStripMenuItem[] { deleteLabel });
+                        docMenu.Show(MousePosition);
+                    }*/
+                });
 
                 ToolStripMenuItem _DeleteItem = new ToolStripMenuItem();
                 _DeleteItem.Text = "Delete";
                 _DeleteItem.Name = "Delete";
                 _DeleteItem.Click += new EventHandler(delegate(Object o, EventArgs a)
+                {
+                    if (File.Exists(Environment.CurrentDirectory + "\\Parametres.xml"))
                     {
-                        if (File.Exists(Environment.CurrentDirectory + "\\Parametres.xml"))
+                        XmlDocument _ParametresXmlDoc;
+                        XmlElement _ParametresRoot;
+                        string _ParametresFileName;
+
+                        _ParametresFileName = Environment.CurrentDirectory + "\\Parametres.xml";
+
+                        _ParametresXmlDoc = new XmlDocument();
+                        _ParametresXmlDoc.Load(_ParametresFileName);
+
+                        _ParametresRoot = (XmlElement)_ParametresXmlDoc.FirstChild;
+
+                        for (int i = 0; i < _ParametresRoot.ChildNodes.Count; i++)
                         {
-                            XmlDocument _ParametresXmlDoc;
-		                    XmlElement _ParametresRoot;
-		                    string _ParametresFileName;
-
-                            _ParametresFileName = Environment.CurrentDirectory + "\\Parametres.xml";
-
-                            _ParametresXmlDoc = new XmlDocument();
-                            _ParametresXmlDoc.Load(_ParametresFileName);
-
-                            _ParametresRoot = (XmlElement)_ParametresXmlDoc.FirstChild;
-
-                            for (int i = 0; i < _ParametresRoot.ChildNodes.Count; i++ )
+                            if (_ParametresRoot.ChildNodes[i].Name == _Item.Text)
                             {
-                                if (_ParametresRoot.ChildNodes[i].Name == _Item.Text)
-                                {
-                                    _ParametresRoot.RemoveChild(_ParametresRoot.ChildNodes[i]);
-                                    break;
-                                }
+                                _ParametresRoot.RemoveChild(_ParametresRoot.ChildNodes[i]);
+                                break;
                             }
-
-                            _ParametresXmlDoc.Save(_ParametresFileName);
                         }
 
-                        BuilderParametresPath.Remove(_t_Parametres);
-                        toolStripMenuItemProjects.DropDownItems.Remove(_Item);
-                    
-                    });
+                        _ParametresXmlDoc.Save(_ParametresFileName);
+                    }
+
+                    BuilderParametresPath.Remove(_t_Parametres);
+                    toolStripMenuItemProjects.DropDownItems.Remove(_Item);
+
+                });
 
                 _Item.DropDownItems.Add(_DeleteItem);
 
                 toolStripMenuItemProjects.DropDownItems.Add(_Item);
+
+                MessageBox.Show(_Item.Text + " added to Projects");
             }
-            
+        }
+
+        private void buttonSaveParametres_Click(object sender, MouseEventArgs e)
+        {
+            ProcessMenuitems();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                ProcessMenuitems();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.B))
+            {
+                StartBuild();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 	}
 

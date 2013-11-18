@@ -93,7 +93,7 @@
             this.buttonStart.Location = new System.Drawing.Point(378, 764);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(115, 32);
-            this.buttonStart.TabIndex = 1;
+            this.buttonStart.TabIndex = 33;
             this.buttonStart.Text = "Build";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -105,7 +105,7 @@
             this.textBoxSrcPath.Location = new System.Drawing.Point(173, 36);
             this.textBoxSrcPath.Name = "textBoxSrcPath";
             this.textBoxSrcPath.Size = new System.Drawing.Size(284, 20);
-            this.textBoxSrcPath.TabIndex = 4;
+            this.textBoxSrcPath.TabIndex = 1;
             this.textBoxSrcPath.TextChanged += new System.EventHandler(this.textBoxSrcPath_TextChanged);
             // 
             // label2
@@ -114,7 +114,7 @@
             this.label2.Location = new System.Drawing.Point(12, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Path to \"png\"";
             // 
             // textBoxDstPath
@@ -124,7 +124,7 @@
             this.textBoxDstPath.Location = new System.Drawing.Point(173, 71);
             this.textBoxDstPath.Name = "textBoxDstPath";
             this.textBoxDstPath.Size = new System.Drawing.Size(284, 20);
-            this.textBoxDstPath.TabIndex = 5;
+            this.textBoxDstPath.TabIndex = 3;
             this.textBoxDstPath.TextChanged += new System.EventHandler(this.textBoxDstPath_TextChanged);
             // 
             // label3
@@ -133,7 +133,7 @@
             this.label3.Location = new System.Drawing.Point(12, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 13);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 3;
             this.label3.Text = "Path to \"scenes\"";
             // 
             // textBoxLog
@@ -147,7 +147,7 @@
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
             this.textBoxLog.Size = new System.Drawing.Size(479, 45);
-            this.textBoxLog.TabIndex = 7;
+            this.textBoxLog.TabIndex = 33;
             this.textBoxLog.Text = "Log";
             this.textBoxLog.WordWrap = false;
             // 
@@ -171,7 +171,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLog);
             this.splitContainer1.Size = new System.Drawing.Size(485, 258);
             this.splitContainer1.SplitterDistance = 203;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabIndex = 14;
             // 
             // buttonClearAll
             // 
@@ -179,7 +179,7 @@
             this.buttonClearAll.Location = new System.Drawing.Point(88, 176);
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
-            this.buttonClearAll.TabIndex = 2;
+            this.buttonClearAll.TabIndex = 16;
             this.buttonClearAll.Text = "Uncheck All";
             this.buttonClearAll.UseVisualStyleBackColor = true;
             this.buttonClearAll.Click += new System.EventHandler(this.buttonClearAll_Click);
@@ -190,7 +190,7 @@
             this.buttonSelectAll.Location = new System.Drawing.Point(7, 176);
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
-            this.buttonSelectAll.TabIndex = 1;
+            this.buttonSelectAll.TabIndex = 15;
             this.buttonSelectAll.Text = "Check All";
             this.buttonSelectAll.UseVisualStyleBackColor = true;
             this.buttonSelectAll.Click += new System.EventHandler(this.buttonSelectAll_Click);
@@ -207,7 +207,7 @@
             this.listViewScenes.Location = new System.Drawing.Point(3, 3);
             this.listViewScenes.Name = "listViewScenes";
             this.listViewScenes.Size = new System.Drawing.Size(479, 167);
-            this.listViewScenes.TabIndex = 0;
+            this.listViewScenes.TabIndex = 14;
             this.listViewScenes.UseCompatibleStateImageBehavior = false;
             this.listViewScenes.View = System.Windows.Forms.View.Details;
             this.listViewScenes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listViewScenes_ItemChecked);
@@ -223,7 +223,7 @@
             this.buttonBrowseSourcePath.Location = new System.Drawing.Point(463, 34);
             this.buttonBrowseSourcePath.Name = "buttonBrowseSourcePath";
             this.buttonBrowseSourcePath.Size = new System.Drawing.Size(30, 23);
-            this.buttonBrowseSourcePath.TabIndex = 10;
+            this.buttonBrowseSourcePath.TabIndex = 2;
             this.buttonBrowseSourcePath.Text = "...";
             this.buttonBrowseSourcePath.UseVisualStyleBackColor = true;
             this.buttonBrowseSourcePath.Click += new System.EventHandler(this.buttonBrowseSourcePath_Click);
@@ -234,7 +234,7 @@
             this.buttonBrowseDstPath.Location = new System.Drawing.Point(463, 69);
             this.buttonBrowseDstPath.Name = "buttonBrowseDstPath";
             this.buttonBrowseDstPath.Size = new System.Drawing.Size(30, 23);
-            this.buttonBrowseDstPath.TabIndex = 11;
+            this.buttonBrowseDstPath.TabIndex = 4;
             this.buttonBrowseDstPath.Text = "...";
             this.buttonBrowseDstPath.UseVisualStyleBackColor = true;
             this.buttonBrowseDstPath.Click += new System.EventHandler(this.buttonBrowseDstPath_Click);
@@ -246,7 +246,7 @@
             this.textBoxTextsXmlLocation.Location = new System.Drawing.Point(173, 108);
             this.textBoxTextsXmlLocation.Name = "textBoxTextsXmlLocation";
             this.textBoxTextsXmlLocation.Size = new System.Drawing.Size(284, 20);
-            this.textBoxTextsXmlLocation.TabIndex = 6;
+            this.textBoxTextsXmlLocation.TabIndex = 5;
             this.textBoxTextsXmlLocation.TextChanged += new System.EventHandler(this.textBoxTextsXmlLocation_TextChanged);
             // 
             // label1
@@ -255,7 +255,7 @@
             this.label1.Location = new System.Drawing.Point(12, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 13;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Path to \"texts\"";
             // 
             // buttonTextsXmlBrowse
@@ -264,7 +264,7 @@
             this.buttonTextsXmlBrowse.Location = new System.Drawing.Point(463, 106);
             this.buttonTextsXmlBrowse.Name = "buttonTextsXmlBrowse";
             this.buttonTextsXmlBrowse.Size = new System.Drawing.Size(30, 23);
-            this.buttonTextsXmlBrowse.TabIndex = 14;
+            this.buttonTextsXmlBrowse.TabIndex = 6;
             this.buttonTextsXmlBrowse.Text = "...";
             this.buttonTextsXmlBrowse.UseVisualStyleBackColor = true;
             this.buttonTextsXmlBrowse.Click += new System.EventHandler(this.buttonTextsXmlBrowse_Click);
@@ -278,7 +278,7 @@
             this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 773);
             this.checkBoxRebuildTexts.Name = "checkBoxRebuildTexts";
             this.checkBoxRebuildTexts.Size = new System.Drawing.Size(82, 17);
-            this.checkBoxRebuildTexts.TabIndex = 3;
+            this.checkBoxRebuildTexts.TabIndex = 32;
             this.checkBoxRebuildTexts.Text = "rebuild texts";
             this.checkBoxRebuildTexts.UseVisualStyleBackColor = true;
             this.checkBoxRebuildTexts.CheckedChanged += new System.EventHandler(this.checkBoxRebuildTexts_CheckedChanged);
@@ -291,7 +291,7 @@
             this.checkBoxRebuildTP.Location = new System.Drawing.Point(10, 40);
             this.checkBoxRebuildTP.Name = "checkBoxRebuildTP";
             this.checkBoxRebuildTP.Size = new System.Drawing.Size(124, 17);
-            this.checkBoxRebuildTP.TabIndex = 1;
+            this.checkBoxRebuildTP.TabIndex = 18;
             this.checkBoxRebuildTP.Text = "rebuild Texture Pack";
             this.checkBoxRebuildTP.UseVisualStyleBackColor = true;
             this.checkBoxRebuildTP.CheckedChanged += new System.EventHandler(this.checkBoxRebuildTP_CheckedChanged);
@@ -302,7 +302,7 @@
             this.checkBoxBuildAlphaSelection.Location = new System.Drawing.Point(22, 81);
             this.checkBoxBuildAlphaSelection.Name = "checkBoxBuildAlphaSelection";
             this.checkBoxBuildAlphaSelection.Size = new System.Drawing.Size(147, 17);
-            this.checkBoxBuildAlphaSelection.TabIndex = 3;
+            this.checkBoxBuildAlphaSelection.TabIndex = 20;
             this.checkBoxBuildAlphaSelection.Text = "Generate Alpha Selection";
             this.checkBoxBuildAlphaSelection.UseVisualStyleBackColor = true;
             // 
@@ -312,7 +312,7 @@
             this.checkBoxActiveZonesVisible.Location = new System.Drawing.Point(22, 63);
             this.checkBoxActiveZonesVisible.Name = "checkBoxActiveZonesVisible";
             this.checkBoxActiveZonesVisible.Size = new System.Drawing.Size(167, 17);
-            this.checkBoxActiveZonesVisible.TabIndex = 2;
+            this.checkBoxActiveZonesVisible.TabIndex = 19;
             this.checkBoxActiveZonesVisible.Text = "Save the Active Zones visible";
             this.checkBoxActiveZonesVisible.UseVisualStyleBackColor = true;
             // 
@@ -322,7 +322,7 @@
             this.checkBoxRebuildItems.Location = new System.Drawing.Point(22, 42);
             this.checkBoxRebuildItems.Name = "checkBoxRebuildItems";
             this.checkBoxRebuildItems.Size = new System.Drawing.Size(102, 17);
-            this.checkBoxRebuildItems.TabIndex = 1;
+            this.checkBoxRebuildItems.TabIndex = 27;
             this.checkBoxRebuildItems.Text = "rebuild items.xml";
             this.checkBoxRebuildItems.UseVisualStyleBackColor = true;
             // 
@@ -337,7 +337,7 @@
             this.groupBox1.Location = new System.Drawing.Point(8, 553);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(275, 110);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resources";
             // 
@@ -349,7 +349,7 @@
             this.checkBoxRebuildResources.Location = new System.Drawing.Point(10, 17);
             this.checkBoxRebuildResources.Name = "checkBoxRebuildResources";
             this.checkBoxRebuildResources.Size = new System.Drawing.Size(124, 17);
-            this.checkBoxRebuildResources.TabIndex = 0;
+            this.checkBoxRebuildResources.TabIndex = 17;
             this.checkBoxRebuildResources.Text = "rebuild resources.xml";
             this.checkBoxRebuildResources.UseVisualStyleBackColor = true;
             // 
@@ -366,7 +366,7 @@
             this.groupBox2.Location = new System.Drawing.Point(8, 669);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(485, 89);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Scene";
             // 
@@ -379,7 +379,7 @@
             this.checkBoxNavigation.Location = new System.Drawing.Point(283, 65);
             this.checkBoxNavigation.Name = "checkBoxNavigation";
             this.checkBoxNavigation.Size = new System.Drawing.Size(166, 17);
-            this.checkBoxNavigation.TabIndex = 8;
+            this.checkBoxNavigation.TabIndex = 31;
             this.checkBoxNavigation.Text = "Add to navigation and quest";
             this.checkBoxNavigation.UseVisualStyleBackColor = true;
             this.checkBoxNavigation.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -393,7 +393,7 @@
             this.checkBoxRebuildLevels.Location = new System.Drawing.Point(283, 42);
             this.checkBoxRebuildLevels.Name = "checkBoxRebuildLevels";
             this.checkBoxRebuildLevels.Size = new System.Drawing.Size(139, 17);
-            this.checkBoxRebuildLevels.TabIndex = 7;
+            this.checkBoxRebuildLevels.TabIndex = 30;
             this.checkBoxRebuildLevels.Text = "Add to levels.xml";
             this.checkBoxRebuildLevels.UseVisualStyleBackColor = true;
             this.checkBoxRebuildLevels.CheckedChanged += new System.EventHandler(this.checkBoxRebuildLevels_CheckedChanged);
@@ -407,7 +407,7 @@
             this.checkBoxGlints.Location = new System.Drawing.Point(283, 19);
             this.checkBoxGlints.Name = "checkBoxGlints";
             this.checkBoxGlints.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxGlints.TabIndex = 6;
+            this.checkBoxGlints.TabIndex = 29;
             this.checkBoxGlints.Text = "glints.xml";
             this.checkBoxGlints.UseVisualStyleBackColor = true;
             // 
@@ -417,7 +417,7 @@
             this.checkBoxRebuildHints.Location = new System.Drawing.Point(22, 65);
             this.checkBoxRebuildHints.Name = "checkBoxRebuildHints";
             this.checkBoxRebuildHints.Size = new System.Drawing.Size(100, 17);
-            this.checkBoxRebuildHints.TabIndex = 2;
+            this.checkBoxRebuildHints.TabIndex = 28;
             this.checkBoxRebuildHints.Text = "rebuild hints.xml";
             this.checkBoxRebuildHints.UseVisualStyleBackColor = true;
             // 
@@ -429,7 +429,7 @@
             this.checkBoxRebuildScene.Location = new System.Drawing.Point(10, 19);
             this.checkBoxRebuildScene.Name = "checkBoxRebuildScene";
             this.checkBoxRebuildScene.Size = new System.Drawing.Size(89, 17);
-            this.checkBoxRebuildScene.TabIndex = 0;
+            this.checkBoxRebuildScene.TabIndex = 26;
             this.checkBoxRebuildScene.Text = "rebuild scene\r\n";
             this.checkBoxRebuildScene.UseVisualStyleBackColor = true;
             // 
@@ -444,7 +444,7 @@
             this.groupBox3.Location = new System.Drawing.Point(289, 553);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(203, 110);
-            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Scripts";
             // 
@@ -457,7 +457,7 @@
             this.checkBoxMorfing.Location = new System.Drawing.Point(137, 40);
             this.checkBoxMorfing.Name = "checkBoxMorfing";
             this.checkBoxMorfing.Size = new System.Drawing.Size(60, 17);
-            this.checkBoxMorfing.TabIndex = 8;
+            this.checkBoxMorfing.TabIndex = 23;
             this.checkBoxMorfing.Text = "morfing";
             this.checkBoxMorfing.UseVisualStyleBackColor = true;
             // 
@@ -467,7 +467,7 @@
             this.checkBoxFadeAnimations.Location = new System.Drawing.Point(14, 86);
             this.checkBoxFadeAnimations.Name = "checkBoxFadeAnimations";
             this.checkBoxFadeAnimations.Size = new System.Drawing.Size(144, 17);
-            this.checkBoxFadeAnimations.TabIndex = 3;
+            this.checkBoxFadeAnimations.TabIndex = 25;
             this.checkBoxFadeAnimations.Text = "ncux_fade_animation.lua";
             this.checkBoxFadeAnimations.UseVisualStyleBackColor = true;
             // 
@@ -477,7 +477,7 @@
             this.checkBoxHummingBirds.Location = new System.Drawing.Point(14, 63);
             this.checkBoxHummingBirds.Name = "checkBoxHummingBirds";
             this.checkBoxHummingBirds.Size = new System.Drawing.Size(113, 17);
-            this.checkBoxHummingBirds.TabIndex = 2;
+            this.checkBoxHummingBirds.TabIndex = 24;
             this.checkBoxHummingBirds.Text = "humming_birds.lua";
             this.checkBoxHummingBirds.UseVisualStyleBackColor = true;
             // 
@@ -487,7 +487,7 @@
             this.checkBoxSomeFuncs.Location = new System.Drawing.Point(14, 40);
             this.checkBoxSomeFuncs.Name = "checkBoxSomeFuncs";
             this.checkBoxSomeFuncs.Size = new System.Drawing.Size(100, 17);
-            this.checkBoxSomeFuncs.TabIndex = 1;
+            this.checkBoxSomeFuncs.TabIndex = 22;
             this.checkBoxSomeFuncs.Text = "some_funcs.lua";
             this.checkBoxSomeFuncs.UseVisualStyleBackColor = true;
             this.checkBoxSomeFuncs.CheckedChanged += new System.EventHandler(this.checkBoxSomeFuncs_CheckedChanged);
@@ -500,7 +500,7 @@
             this.checkBoxEE.Location = new System.Drawing.Point(14, 17);
             this.checkBoxEE.Name = "checkBoxEE";
             this.checkBoxEE.Size = new System.Drawing.Size(55, 17);
-            this.checkBoxEE.TabIndex = 0;
+            this.checkBoxEE.TabIndex = 21;
             this.checkBoxEE.Text = "ee.lua";
             this.checkBoxEE.UseVisualStyleBackColor = true;
             // 
@@ -510,7 +510,7 @@
             this.buttonLevelsXmlBrowse.Location = new System.Drawing.Point(463, 179);
             this.buttonLevelsXmlBrowse.Name = "buttonLevelsXmlBrowse";
             this.buttonLevelsXmlBrowse.Size = new System.Drawing.Size(30, 23);
-            this.buttonLevelsXmlBrowse.TabIndex = 21;
+            this.buttonLevelsXmlBrowse.TabIndex = 10;
             this.buttonLevelsXmlBrowse.Text = "...";
             this.buttonLevelsXmlBrowse.UseVisualStyleBackColor = true;
             this.buttonLevelsXmlBrowse.Click += new System.EventHandler(this.buttonLevelsXmlBrowse_Click_1);
@@ -521,7 +521,7 @@
             this.label4.Location = new System.Drawing.Point(12, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 13);
-            this.label4.TabIndex = 20;
+            this.label4.TabIndex = 9;
             this.label4.Text = "Path to \"levels.xml\"";
             // 
             // textBoxLevelsXmlLocation
@@ -531,7 +531,7 @@
             this.textBoxLevelsXmlLocation.Location = new System.Drawing.Point(173, 181);
             this.textBoxLevelsXmlLocation.Name = "textBoxLevelsXmlLocation";
             this.textBoxLevelsXmlLocation.Size = new System.Drawing.Size(284, 20);
-            this.textBoxLevelsXmlLocation.TabIndex = 19;
+            this.textBoxLevelsXmlLocation.TabIndex = 9;
             this.textBoxLevelsXmlLocation.TextChanged += new System.EventHandler(this.textBoxLevelsXmlLocation_TextChanged);
             // 
             // label5
@@ -540,7 +540,7 @@
             this.label5.Location = new System.Drawing.Point(12, 219);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(255, 13);
-            this.label5.TabIndex = 22;
+            this.label5.TabIndex = 11;
             this.label5.Text = "First or last name (to be spelled out in the gdd_name)";
             // 
             // textBoxName
@@ -550,7 +550,7 @@
             this.textBoxName.Location = new System.Drawing.Point(273, 216);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(220, 20);
-            this.textBoxName.TabIndex = 23;
+            this.textBoxName.TabIndex = 11;
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonNavigation
@@ -559,7 +559,7 @@
             this.buttonNavigation.Location = new System.Drawing.Point(463, 143);
             this.buttonNavigation.Name = "buttonNavigation";
             this.buttonNavigation.Size = new System.Drawing.Size(30, 23);
-            this.buttonNavigation.TabIndex = 26;
+            this.buttonNavigation.TabIndex = 8;
             this.buttonNavigation.Text = "...";
             this.buttonNavigation.UseVisualStyleBackColor = true;
             this.buttonNavigation.Click += new System.EventHandler(this.button1_Click);
@@ -570,7 +570,7 @@
             this.label6.Location = new System.Drawing.Point(12, 148);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 13);
-            this.label6.TabIndex = 25;
+            this.label6.TabIndex = 7;
             this.label6.Text = "Path to \"hint_system\"";
             // 
             // textBoxNavigation
@@ -580,7 +580,7 @@
             this.textBoxNavigation.Location = new System.Drawing.Point(173, 145);
             this.textBoxNavigation.Name = "textBoxNavigation";
             this.textBoxNavigation.Size = new System.Drawing.Size(284, 20);
-            this.textBoxNavigation.TabIndex = 24;
+            this.textBoxNavigation.TabIndex = 7;
             this.textBoxNavigation.TextChanged += new System.EventHandler(this.textBoxNavigation_TextChanged);
             // 
             // menuStrip1
@@ -600,30 +600,33 @@
             this.toolStripMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemExit});
             this.toolStripMenuItemFile.Name = "toolStripMenuItemFile";
+            this.toolStripMenuItemFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
             this.toolStripMenuItemFile.Size = new System.Drawing.Size(37, 20);
-            this.toolStripMenuItemFile.Text = "File";
+            this.toolStripMenuItemFile.Text = "&File";
             // 
             // toolStripMenuItemExit
             // 
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(92, 22);
-            this.toolStripMenuItemExit.Text = "Exit";
+            this.toolStripMenuItemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemExit.Text = "E&xit";
             this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
             // 
             // toolStripMenuItemProjects
             // 
             this.toolStripMenuItemProjects.Name = "toolStripMenuItemProjects";
+            this.toolStripMenuItemProjects.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.toolStripMenuItemProjects.Size = new System.Drawing.Size(61, 20);
-            this.toolStripMenuItemProjects.Text = "Projects";
+            this.toolStripMenuItemProjects.Text = "&Projects";
             // 
             // buttonSaveParametres
             // 
             this.buttonSaveParametres.Location = new System.Drawing.Point(12, 250);
             this.buttonSaveParametres.Name = "buttonSaveParametres";
             this.buttonSaveParametres.Size = new System.Drawing.Size(155, 23);
-            this.buttonSaveParametres.TabIndex = 28;
-            this.buttonSaveParametres.Text = "Save Settings";
+            this.buttonSaveParametres.TabIndex = 12;
+            this.buttonSaveParametres.Text = "&Save Settings";
             this.buttonSaveParametres.UseVisualStyleBackColor = true;
             this.buttonSaveParametres.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSaveParametres_Click);
             // 
