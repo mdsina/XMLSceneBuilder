@@ -206,7 +206,7 @@ namespace HiddenObjectsXMLBuilder
             }
             else
             {
-                throw new Exception("Не могу найти файл с текстами '" + _buildOptions.textXmlFileName + "texts.xml" + "'");
+                throw new Exception("Texts file not found '" + _buildOptions.textXmlFileName +_pDocName + "'");
             }
 		}
 

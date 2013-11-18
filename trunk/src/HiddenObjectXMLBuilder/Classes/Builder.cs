@@ -116,7 +116,7 @@ namespace HiddenObjectsXMLBuilder
 
 				if (files.Length == 0)
 				{
-					throw new Exception("В папке нет *.png файлов.");
+					throw new Exception("Not found *.png in folder.");
 				}
 
 				//////////////////////////////////////////////////////////////////////////
@@ -183,7 +183,7 @@ namespace HiddenObjectsXMLBuilder
 					
 					if (textureNames.Contains(fn.TextureName))
 					{
-						throw new Exception("Оппа, найдено повторяющееся имя текстуры: '" + fn.TextureName + "'\nFile:'" + fn.GetOnlyFileName() + "'");
+                        throw new Exception("Error. Found duplicate the texture name: '" + fn.TextureName + "'\nFile:'" + fn.GetOnlyFileName() + "'");
 					}
 					else
 					{
@@ -324,7 +324,7 @@ namespace HiddenObjectsXMLBuilder
 			}
 			catch (Exception ex)
 			{
-				throw new Exception("Ошибка на сцене '" + options.sceneName + "': " + ex.Message);
+				throw new Exception("Error on scene '" + options.sceneName + "': " + ex.Message);
 			}
 
 			return true;

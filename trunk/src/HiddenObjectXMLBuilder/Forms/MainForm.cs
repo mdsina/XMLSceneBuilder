@@ -104,7 +104,7 @@ namespace HiddenObjectsXMLBuilder
 
 			if (regKey == null)
 			{
-				MessageBox.Show("EleFun Tool не установлены!", "Ошипко", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("EleFun Tool not installed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 			}
 
@@ -212,18 +212,29 @@ namespace HiddenObjectsXMLBuilder
 
 			if (!Directory.Exists(SrcRoot))
 			{
+                if (k == 0) listViewScenes.Items.Clear();
 				listViewScenes.Items.Clear();
 				listViewScenes.CheckBoxes = false;
-				listViewScenes.Items.Add(new ListViewItem("Не найдена исходная папка data: " + SrcRoot));
+                listViewScenes.Items.Add(new ListViewItem("Folder not found 'png': " + SrcRoot));
 				buttonStart.Enabled = false;
                 k++;
 			}
+
+            if (!Directory.Exists(DstRoot))
+            {
+                if (k == 0) listViewScenes.Items.Clear();
+                listViewScenes.Items.Clear();
+                listViewScenes.CheckBoxes = false;
+                listViewScenes.Items.Add(new ListViewItem("Folder not found 'scenes': " + DstRoot));
+                buttonStart.Enabled = false;
+                k++;
+            }
 
             if (!Directory.Exists(TextsXmlFileName) && checkBoxRebuildTexts.Checked)
             {
                 if (k == 0) listViewScenes.Items.Clear();
                 listViewScenes.CheckBoxes = false;
-                listViewScenes.Items.Add(new ListViewItem("Не найдена исходная папка texts: " + TextsXmlFileName));
+                listViewScenes.Items.Add(new ListViewItem("Folder not found 'texts': " + TextsXmlFileName));
                 buttonStart.Enabled = false;
                 k++;
             }
@@ -232,7 +243,7 @@ namespace HiddenObjectsXMLBuilder
             {
                 if (k == 0) listViewScenes.Items.Clear();
                 listViewScenes.CheckBoxes = false;
-                listViewScenes.Items.Add(new ListViewItem("Не найдена папка hint_system: " + NavigationSystemPath));
+                listViewScenes.Items.Add(new ListViewItem("Folder not found 'hint_system': " + NavigationSystemPath));
                 buttonStart.Enabled = false;
                 k++;
             }
@@ -241,7 +252,7 @@ namespace HiddenObjectsXMLBuilder
             {
                 if (k == 0)  listViewScenes.Items.Clear();
                 listViewScenes.CheckBoxes = false;
-                listViewScenes.Items.Add(new ListViewItem("Не найден исходный файл levels.xml: " + LevelsXmlFileName));
+                listViewScenes.Items.Add(new ListViewItem("File not found 'levels.xml': " + LevelsXmlFileName));
                 buttonStart.Enabled = false;
                 k++;
             }
@@ -257,7 +268,7 @@ namespace HiddenObjectsXMLBuilder
 			{
 				listViewScenes.Items.Clear();
 				listViewScenes.CheckBoxes = false;
-				listViewScenes.Items.Add(new ListViewItem("Исходная папка пуста"));
+				listViewScenes.Items.Add(new ListViewItem("Folder is empty"));
 			}
 			else
 			{
@@ -281,7 +292,7 @@ namespace HiddenObjectsXMLBuilder
 
 					if (di.Name.Contains(" "))
 					{
-						item.Text = di.Name + " - в имени папки содержится пробел!";
+                        item.Text = di.Name + " - space in the folder name!";
 
 						item.Checked = false; //!Directory.Exists(dstPath);
 						item.ForeColor = Color.Red;
@@ -294,13 +305,13 @@ namespace HiddenObjectsXMLBuilder
 							{
 								sceneBuildInfo.IsSubscreen = true;
 
-								item.Text = di.Name + " - сабскрин";
+								item.Text = di.Name + " - subscreen";
 								//item.Checked = !Directory.Exists(dstPath);
 
                                 if (IsMinigameScene(di.Name))
                                 {
                                     sceneBuildInfo.isMinigame = true;
-                                    item.Text += "-мини-игра";
+                                    item.Text += "-minigame";
                                     item.ForeColor = Color.DarkRed;
                                 }
                                 else
@@ -312,7 +323,7 @@ namespace HiddenObjectsXMLBuilder
                             else if (IsMinigameScene(di.Name))
 							{
                                 sceneBuildInfo.isMinigame = true;
-                                item.Text = di.Name + " - мини-игра"; ;
+                                item.Text = di.Name + " - minigame"; ;
                                 item.ForeColor = Color.DarkGoldenrod;
                                 //item.Checked = !Directory.Exists(dstPath);
                             }
@@ -323,7 +334,7 @@ namespace HiddenObjectsXMLBuilder
 						}
 						else
 						{
-							item.Text = di.Name + " - обнаружен файл final.txt, исключаем, по умолчанию, из сборки";
+							item.Text = di.Name + " - File 'final.txt' was found, remove from build";
 							item.Checked = false;
 							item.ForeColor = Color.LightGray;
 						}
@@ -363,7 +374,7 @@ namespace HiddenObjectsXMLBuilder
 				Directory.CreateDirectory(dstFolder);
 			}
 
-			Log("Делаю сцену '" + item.SceneName + "' из папки '" + srcFolder + "'");
+			Log("Build Scene '" + item.SceneName + "' from '" + srcFolder + "'");
 
 			Builder builder = new Builder();
 
@@ -509,12 +520,13 @@ namespace HiddenObjectsXMLBuilder
 
 		private void textBoxSrcPath_TextChanged(object sender, EventArgs e)
 		{
-			FillScenesList();
+
+			    FillScenesList();
 		}
 
 		private void textBoxDstPath_TextChanged(object sender, EventArgs e)
 		{
-			FillScenesList();
+			    FillScenesList();
 		}
 
 		private void buttonSelectAll_Click(object sender, EventArgs e)
@@ -613,7 +625,7 @@ namespace HiddenObjectsXMLBuilder
 
         private void textBoxNavigation_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxRebuildTexts.Checked)
+            if (checkBoxNavigation.Checked)
                 FillScenesList();
         }
 
@@ -643,7 +655,7 @@ namespace HiddenObjectsXMLBuilder
             Application.Exit();
         }
 
-        private void buttonSaveParametres_Click(object sender, EventArgs e)
+        private void buttonSaveParametres_Click(object sender, MouseEventArgs e)
         {
             ToolStripMenuItem _Item = new ToolStripMenuItem();
 
@@ -685,26 +697,31 @@ namespace HiddenObjectsXMLBuilder
                 BuilderParametresPath.Add(_t_Parametres);
                 int _index = BuilderParametresPath.IndexOf(_t_Parametres);
 
-                _Item.Click += new EventHandler(delegate(Object o, EventArgs a)
+                _Item.MouseDown += new MouseEventHandler(delegate(Object o, MouseEventArgs a)
                 {
                     SrcRoot = BuilderParametresPath[_index].pngPath;
                     DstRoot = BuilderParametresPath[_index].scenesPath;
                     TextsXmlFileName = BuilderParametresPath[_index].textsPath;
                     NavigationSystemPath = BuilderParametresPath[_index].hintPath;
                     LevelsXmlFileName = BuilderParametresPath[_index].LevelsFilePath;
+
+                    if (a.Button == MouseButtons.Right)
+                    {
+                        ContextMenuStrip docMenu = new ContextMenuStrip();
+
+                        ToolStripMenuItem deleteLabel = new ToolStripMenuItem();
+                        deleteLabel.Text = "Delete";
+
+                        docMenu.Items.AddRange(new ToolStripMenuItem[] { deleteLabel });
+                        docMenu.Show(MousePosition);
+                    }
                 });
-
-                ContextMenuStrip docMenu = new ContextMenuStrip();
-
-                ToolStripMenuItem deleteLabel = new ToolStripMenuItem();
-                deleteLabel.Text = "Удалить";
-
-                docMenu.Items.AddRange(new ToolStripMenuItem[] { deleteLabel });
 
                 // _Item.DropDownItems.Add(docMenu);
 
                 toolStripMenuItemProjects.DropDownItems.Add(_Item);
-            } 
+            }
+            
         }
 	}
 

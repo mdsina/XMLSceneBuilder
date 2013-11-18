@@ -76,7 +76,6 @@
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProjects = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSaveParametres = new System.Windows.Forms.Button();
-            this.buttonEditparameters = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -95,8 +94,7 @@
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(115, 32);
             this.buttonStart.TabIndex = 1;
-            this.buttonStart.Text = "Колбась!!!";
-            this.buttonStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonStart.Text = "Build";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -115,9 +113,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 13);
+            this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Путь к исходным картинкам:";
+            this.label2.Text = "Path to \"png\"";
             // 
             // textBoxDstPath
             // 
@@ -134,9 +132,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 13);
+            this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Где лежат сцены в игре:";
+            this.label3.Text = "Path to \"scenes\"";
             // 
             // textBoxLog
             // 
@@ -182,7 +180,7 @@
             this.buttonClearAll.Name = "buttonClearAll";
             this.buttonClearAll.Size = new System.Drawing.Size(75, 23);
             this.buttonClearAll.TabIndex = 2;
-            this.buttonClearAll.Text = "Снять все";
+            this.buttonClearAll.Text = "Detach all";
             this.buttonClearAll.UseVisualStyleBackColor = true;
             this.buttonClearAll.Click += new System.EventHandler(this.buttonClearAll_Click);
             // 
@@ -193,7 +191,7 @@
             this.buttonSelectAll.Name = "buttonSelectAll";
             this.buttonSelectAll.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectAll.TabIndex = 1;
-            this.buttonSelectAll.Text = "Все";
+            this.buttonSelectAll.Text = "All";
             this.buttonSelectAll.UseVisualStyleBackColor = true;
             this.buttonSelectAll.Click += new System.EventHandler(this.buttonSelectAll_Click);
             // 
@@ -256,9 +254,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 111);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 13);
+            this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Путь до папки с текстами";
+            this.label1.Text = "Path to \"texts\"";
             // 
             // buttonTextsXmlBrowse
             // 
@@ -279,9 +277,9 @@
             this.checkBoxRebuildTexts.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRebuildTexts.Location = new System.Drawing.Point(14, 773);
             this.checkBoxRebuildTexts.Name = "checkBoxRebuildTexts";
-            this.checkBoxRebuildTexts.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxRebuildTexts.Size = new System.Drawing.Size(82, 17);
             this.checkBoxRebuildTexts.TabIndex = 3;
-            this.checkBoxRebuildTexts.Text = "пересобрать тексты";
+            this.checkBoxRebuildTexts.Text = "rebuild texts";
             this.checkBoxRebuildTexts.UseVisualStyleBackColor = true;
             this.checkBoxRebuildTexts.CheckedChanged += new System.EventHandler(this.checkBoxRebuildTexts_CheckedChanged);
             // 
@@ -292,9 +290,9 @@
             this.checkBoxRebuildTP.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRebuildTP.Location = new System.Drawing.Point(10, 40);
             this.checkBoxRebuildTP.Name = "checkBoxRebuildTP";
-            this.checkBoxRebuildTP.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxRebuildTP.Size = new System.Drawing.Size(124, 17);
             this.checkBoxRebuildTP.TabIndex = 1;
-            this.checkBoxRebuildTP.Text = "пересобрать Texture Pack";
+            this.checkBoxRebuildTP.Text = "rebuild Texture Pack";
             this.checkBoxRebuildTP.UseVisualStyleBackColor = true;
             this.checkBoxRebuildTP.CheckedChanged += new System.EventHandler(this.checkBoxRebuildTP_CheckedChanged);
             // 
@@ -303,9 +301,9 @@
             this.checkBoxBuildAlphaSelection.AutoSize = true;
             this.checkBoxBuildAlphaSelection.Location = new System.Drawing.Point(22, 81);
             this.checkBoxBuildAlphaSelection.Name = "checkBoxBuildAlphaSelection";
-            this.checkBoxBuildAlphaSelection.Size = new System.Drawing.Size(188, 17);
+            this.checkBoxBuildAlphaSelection.Size = new System.Drawing.Size(147, 17);
             this.checkBoxBuildAlphaSelection.TabIndex = 3;
-            this.checkBoxBuildAlphaSelection.Text = "сгенерить ещё и Alpha Selection";
+            this.checkBoxBuildAlphaSelection.Text = "Generate Alpha Selection";
             this.checkBoxBuildAlphaSelection.UseVisualStyleBackColor = true;
             // 
             // checkBoxActiveZonesVisible
@@ -313,9 +311,9 @@
             this.checkBoxActiveZonesVisible.AutoSize = true;
             this.checkBoxActiveZonesVisible.Location = new System.Drawing.Point(22, 63);
             this.checkBoxActiveZonesVisible.Name = "checkBoxActiveZonesVisible";
-            this.checkBoxActiveZonesVisible.Size = new System.Drawing.Size(240, 17);
+            this.checkBoxActiveZonesVisible.Size = new System.Drawing.Size(167, 17);
             this.checkBoxActiveZonesVisible.TabIndex = 2;
-            this.checkBoxActiveZonesVisible.Text = "сохранить области Active Zone видимыми";
+            this.checkBoxActiveZonesVisible.Text = "Save the Active Zones visible";
             this.checkBoxActiveZonesVisible.UseVisualStyleBackColor = true;
             // 
             // checkBoxRebuildItems
@@ -323,9 +321,9 @@
             this.checkBoxRebuildItems.AutoSize = true;
             this.checkBoxRebuildItems.Location = new System.Drawing.Point(22, 42);
             this.checkBoxRebuildItems.Name = "checkBoxRebuildItems";
-            this.checkBoxRebuildItems.Size = new System.Drawing.Size(136, 17);
+            this.checkBoxRebuildItems.Size = new System.Drawing.Size(102, 17);
             this.checkBoxRebuildItems.TabIndex = 1;
-            this.checkBoxRebuildItems.Text = "пересобрать items.xml";
+            this.checkBoxRebuildItems.Text = "rebuild items.xml";
             this.checkBoxRebuildItems.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -341,7 +339,7 @@
             this.groupBox1.Size = new System.Drawing.Size(275, 110);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ресурсы";
+            this.groupBox1.Text = "Resources";
             // 
             // checkBoxRebuildResources
             // 
@@ -350,9 +348,9 @@
             this.checkBoxRebuildResources.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRebuildResources.Location = new System.Drawing.Point(10, 17);
             this.checkBoxRebuildResources.Name = "checkBoxRebuildResources";
-            this.checkBoxRebuildResources.Size = new System.Drawing.Size(170, 17);
+            this.checkBoxRebuildResources.Size = new System.Drawing.Size(124, 17);
             this.checkBoxRebuildResources.TabIndex = 0;
-            this.checkBoxRebuildResources.Text = "пересобрать файл ресурсов";
+            this.checkBoxRebuildResources.Text = "rebuild resources.xml";
             this.checkBoxRebuildResources.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -380,9 +378,9 @@
             this.checkBoxNavigation.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxNavigation.Location = new System.Drawing.Point(283, 65);
             this.checkBoxNavigation.Name = "checkBoxNavigation";
-            this.checkBoxNavigation.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxNavigation.Size = new System.Drawing.Size(166, 17);
             this.checkBoxNavigation.TabIndex = 8;
-            this.checkBoxNavigation.Text = "Добавить в навигацию";
+            this.checkBoxNavigation.Text = "Add to navigation and quest";
             this.checkBoxNavigation.UseVisualStyleBackColor = true;
             this.checkBoxNavigation.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -396,7 +394,7 @@
             this.checkBoxRebuildLevels.Name = "checkBoxRebuildLevels";
             this.checkBoxRebuildLevels.Size = new System.Drawing.Size(139, 17);
             this.checkBoxRebuildLevels.TabIndex = 7;
-            this.checkBoxRebuildLevels.Text = "Добавить в levels.xml";
+            this.checkBoxRebuildLevels.Text = "Add to levels.xml";
             this.checkBoxRebuildLevels.UseVisualStyleBackColor = true;
             this.checkBoxRebuildLevels.CheckedChanged += new System.EventHandler(this.checkBoxRebuildLevels_CheckedChanged);
             // 
@@ -418,9 +416,9 @@
             this.checkBoxRebuildHints.AutoSize = true;
             this.checkBoxRebuildHints.Location = new System.Drawing.Point(22, 65);
             this.checkBoxRebuildHints.Name = "checkBoxRebuildHints";
-            this.checkBoxRebuildHints.Size = new System.Drawing.Size(134, 17);
+            this.checkBoxRebuildHints.Size = new System.Drawing.Size(100, 17);
             this.checkBoxRebuildHints.TabIndex = 2;
-            this.checkBoxRebuildHints.Text = "пересобрать hints.xml";
+            this.checkBoxRebuildHints.Text = "rebuild hints.xml";
             this.checkBoxRebuildHints.UseVisualStyleBackColor = true;
             // 
             // checkBoxRebuildScene
@@ -430,9 +428,9 @@
             this.checkBoxRebuildScene.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRebuildScene.Location = new System.Drawing.Point(10, 19);
             this.checkBoxRebuildScene.Name = "checkBoxRebuildScene";
-            this.checkBoxRebuildScene.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxRebuildScene.Size = new System.Drawing.Size(89, 17);
             this.checkBoxRebuildScene.TabIndex = 0;
-            this.checkBoxRebuildScene.Text = "Пересобрать сцену";
+            this.checkBoxRebuildScene.Text = "rebuild scene\r\n";
             this.checkBoxRebuildScene.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -448,7 +446,7 @@
             this.groupBox3.Size = new System.Drawing.Size(203, 110);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Скрипты";
+            this.groupBox3.Text = "Scripts";
             // 
             // checkBoxMorfing
             // 
@@ -522,9 +520,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 184);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 13);
+            this.label4.Size = new System.Drawing.Size(99, 13);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Где лежит levels.xml:";
+            this.label4.Text = "Path to \"levels.xml\"";
             // 
             // textBoxLevelsXmlLocation
             // 
@@ -541,17 +539,17 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 219);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(287, 13);
+            this.label5.Size = new System.Drawing.Size(255, 13);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Имя или фамилия ( будет прописано напротив уровня )";
+            this.label5.Text = "First or last name (to be spelled out in the gdd_name)";
             // 
             // textBoxName
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Location = new System.Drawing.Point(305, 216);
+            this.textBoxName.Location = new System.Drawing.Point(273, 216);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(188, 20);
+            this.textBoxName.Size = new System.Drawing.Size(220, 20);
             this.textBoxName.TabIndex = 23;
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -571,9 +569,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 148);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 13);
+            this.label6.Size = new System.Drawing.Size(109, 13);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Путь до папки hint_system";
+            this.label6.Text = "Path to \"hint_system\"";
             // 
             // textBoxNavigation
             // 
@@ -587,6 +585,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemFile,
             this.toolStripMenuItemProjects});
@@ -601,22 +600,22 @@
             this.toolStripMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemExit});
             this.toolStripMenuItemFile.Name = "toolStripMenuItemFile";
-            this.toolStripMenuItemFile.Size = new System.Drawing.Size(48, 20);
-            this.toolStripMenuItemFile.Text = "Файл";
+            this.toolStripMenuItemFile.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItemFile.Text = "File";
             // 
             // toolStripMenuItemExit
             // 
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(108, 22);
-            this.toolStripMenuItemExit.Text = "Выход";
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemExit.Text = "Exit";
             this.toolStripMenuItemExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
             // 
             // toolStripMenuItemProjects
             // 
             this.toolStripMenuItemProjects.Name = "toolStripMenuItemProjects";
-            this.toolStripMenuItemProjects.Size = new System.Drawing.Size(68, 20);
-            this.toolStripMenuItemProjects.Text = "Проекты";
+            this.toolStripMenuItemProjects.Size = new System.Drawing.Size(61, 20);
+            this.toolStripMenuItemProjects.Text = "Projects";
             // 
             // buttonSaveParametres
             // 
@@ -624,26 +623,17 @@
             this.buttonSaveParametres.Name = "buttonSaveParametres";
             this.buttonSaveParametres.Size = new System.Drawing.Size(155, 23);
             this.buttonSaveParametres.TabIndex = 28;
-            this.buttonSaveParametres.Text = "Сохранить параметры";
+            this.buttonSaveParametres.Text = "Save Settings";
             this.buttonSaveParametres.UseVisualStyleBackColor = true;
-            this.buttonSaveParametres.Click += new System.EventHandler(this.buttonSaveParametres_Click);
-            // 
-            // buttonEditparameters
-            // 
-            this.buttonEditparameters.Location = new System.Drawing.Point(173, 250);
-            this.buttonEditparameters.Name = "buttonEditparameters";
-            this.buttonEditparameters.Size = new System.Drawing.Size(172, 23);
-            this.buttonEditparameters.TabIndex = 29;
-            this.buttonEditparameters.Text = "Редактирование параметров";
-            this.buttonEditparameters.UseVisualStyleBackColor = true;
+            this.buttonSaveParametres.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSaveParametres_Click);
             // 
             // MainForm
             // 
             this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(505, 808);
-            this.Controls.Add(this.buttonEditparameters);
             this.Controls.Add(this.buttonSaveParametres);
             this.Controls.Add(this.buttonNavigation);
             this.Controls.Add(this.label6);
@@ -743,6 +733,5 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjects;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
         private System.Windows.Forms.Button buttonSaveParametres;
-        private System.Windows.Forms.Button buttonEditparameters;
     }
 }

@@ -131,7 +131,7 @@ namespace HiddenObjectsXMLBuilder
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Ошибка на " + fn.FullFileName);
+				MessageBox.Show(ex.Message, "Error on " + fn.FullFileName);
 
 				throw ex;
 			}
@@ -161,7 +161,7 @@ namespace HiddenObjectsXMLBuilder
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Ошибка на " + fn.FullFileName);
+				MessageBox.Show(ex.Message, "Error on " + fn.FullFileName);
 
 				throw ex;
 			}
