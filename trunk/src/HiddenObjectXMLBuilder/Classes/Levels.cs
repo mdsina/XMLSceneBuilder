@@ -206,16 +206,25 @@ namespace HiddenObjectsXMLBuilder
                         if (_buildOptions.sceneName.Contains("ce_"))
                             counter = _layersNode_CE;
 
-                        for (int i = 0; i < counter.ChildNodes.Count; i++)
-                        {
-                            XmlNode curr = counter.ChildNodes[i];
-                            if (_buildOptions.sceneName.Contains(curr.Attributes["place"].Value))
-                            {
-                                FoundedLevel = curr;
-                                break;
-                            }
-                        }
 
+                        if (counter.ChildNodes.Count != 0)
+                        {
+                            for (int i = 0; i < counter.ChildNodes.Count; i++)
+                            {
+                                XmlNode curr = counter.ChildNodes[i];
+                                if (curr.Attributes != null)
+                                {
+                                    if (_buildOptions.sceneName.Contains(curr.Attributes["place"].Value))
+                                    {
+                                        FoundedLevel = curr;
+                                        break;
+                                    }
+                                }
+                                
+                            }
+
+                        }
+                        
                         if (FoundedLevel != null)
                         {
                             XmlElement layerNode;
