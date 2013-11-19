@@ -22,6 +22,16 @@ namespace HiddenObjectsXMLBuilder
 		{
 			_fileName = fileName;
 		}
+        private void ContainsGlint(ref string texture)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (texture.Contains("_g" + i))
+                {
+                    texture = texture.Replace("_g" + i, "");
+                }
+            }
+        }
 
 		public string TextureName
 		{
@@ -32,10 +42,8 @@ namespace HiddenObjectsXMLBuilder
                     string textureName;
 					textureName = Tools.CutDigitsFromHead(Tools.FilterString(TranslitName()));
 
-                    if (textureName.LastIndexOf("_g")!=-1)
-                    {
-                       textureName = textureName.Remove(textureName.LastIndexOf("_g"));
-                    }
+                    ContainsGlint(ref textureName);
+                       
                     if (DisableAlphaSelection)
                     {
                        return textureName.Replace("_das_", null);
@@ -45,7 +53,9 @@ namespace HiddenObjectsXMLBuilder
 				}
 				else
 				{
-					return EnglishName;
+                    string textureName = EnglishName;
+                    ContainsGlint(ref textureName);
+					return textureName;
 				}
 			}
 		}

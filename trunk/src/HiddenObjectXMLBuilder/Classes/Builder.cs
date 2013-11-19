@@ -81,6 +81,8 @@ namespace HiddenObjectsXMLBuilder
 		private TexturePack _texturePack;
 		private Resources _resources;
         private Glints _glints;
+        private Glints _glintsHO1;
+        private Glints _glintsHO2;
 		private Scene _scene;
 		private Texts _texts;
         private Items _items;
@@ -104,6 +106,8 @@ namespace HiddenObjectsXMLBuilder
 			_texturePack = null;
 			_resources = null;
             _glints = null;
+            _glintsHO1 = null;
+            _glintsHO2 = null;
 			_scene = null;
 			_texts = null;
 			_items = null;
@@ -211,10 +215,12 @@ namespace HiddenObjectsXMLBuilder
                     _levels = new Levels(_config, options);
                 }
                 //////////////////////////////////////////////////////////////////////////
-                /// Save glints xml
+                /// Create glints xml
                 if (options.rebuildGlintsFile)
                 {
-                    _glints = new Glints(_config, options);
+                    _glints = new Glints(_config, options, "");
+                    _glintsHO1 = new Glints(_config, options, "_01");
+                    _glintsHO2 = new Glints(_config, options, "_02");
 
                 }
 				//////////////////////////////////////////////////////////////////////////
@@ -227,7 +233,28 @@ namespace HiddenObjectsXMLBuilder
                     {
                         if (fileName.LastIndexOf("_g") != -1)
                         {
-                            _glints.AddGlint(fn.TextureName);
+                            if (options.isHO)
+                            {
+                                if (options.isHo01)
+                                {
+                                    if (fileName.Contains("_g1"))
+                                    {
+                                        _glintsHO1.AddGlint(fn.TextureName);
+                                    }
+                                    
+                                }
+                                if (options.isHo02)
+                                {
+                                    if (fileName.Contains("_g2"))
+                                        _glintsHO2.AddGlint(fn.TextureName);
+                                }
+                            }
+                            else
+                            {
+                                if (fileName.Contains("_g0"))
+                                    _glints.AddGlint(fn.TextureName);
+                            }
+
                         }
                     }
 
@@ -352,16 +379,29 @@ namespace HiddenObjectsXMLBuilder
 					if (options.rebuildResourcesFile)
 					{
 						_resources.Save();
-					}
+					}            
+				}
 
-                    //////////////////////////////////////////////////////////////////////////
-                    /// Save glints xml
-                    if (options.rebuildGlintsFile)
+                //////////////////////////////////////////////////////////////////////////
+                /// Save glints xml
+                if (options.rebuildGlintsFile)
+                {
+                    if (options.isHO)
+                    {
+                        if (options.isHo01)
+                        {
+                            _glintsHO1.Save();
+                        }
+                        if (options.isHo02)
+                        {
+                            _glintsHO2.Save();
+                        }
+                    }
+                    else
                     {
                         _glints.Save();
                     }
-            
-				}
+                }
 
 			}
 			catch (Exception ex)

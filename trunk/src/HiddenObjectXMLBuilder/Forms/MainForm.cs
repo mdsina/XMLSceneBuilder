@@ -411,7 +411,7 @@ namespace HiddenObjectsXMLBuilder
 				Directory.CreateDirectory(dstFolder);
 			}
 
-			Log("Build Scene '" + item.SceneName + "' from '" + srcFolder + "'");
+			Log("Build scene '" + item.SceneName + "' from '" + srcFolder + "'");
 
 			Builder builder = new Builder();
 

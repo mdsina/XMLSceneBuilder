@@ -19,11 +19,11 @@ namespace HiddenObjectsXMLBuilder
 		private BuildOptions _buildOptions;
 
 
-		public Glints(BuilderConfig builderConfig, BuildOptions buildOptions)
+		public Glints(BuilderConfig builderConfig, BuildOptions buildOptions, string glintNumber)
 		{
             _builderConfig = builderConfig;
             _buildOptions = buildOptions;
-			_glintsFileName = _buildOptions.dstFolder + "\\glints.xml";
+            _glintsFileName = _buildOptions.dstFolder + "\\glints" + glintNumber + ".xml";
 
             if (!File.Exists(_glintsFileName))
             {
