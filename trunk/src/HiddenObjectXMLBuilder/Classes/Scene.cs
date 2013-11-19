@@ -42,18 +42,18 @@ namespace HiddenObjectsXMLBuilder
             return false;
         }
 
-		public Scene(BuilderConfig builderConfig, BuildOptions buildOptions)
+		public Scene(BuilderConfig builderConfig, BuildOptions buildOptions, string sceneName)
 		{
 			_builderConfig = builderConfig;
 			_buildOptions = buildOptions;
 
-			_scriptFileName = _buildOptions.sceneName + ".lua";
+            _scriptFileName = _buildOptions.sceneName + sceneName + ".lua";
 
-			_xmlFileName = buildOptions.dstFolder + "\\" + buildOptions.sceneName + ".xml";
+            _xmlFileName = buildOptions.dstFolder + "\\" + buildOptions.sceneName + sceneName + ".xml";
 
 			_sceneXmlDoc = new XmlDocument();
 
-			SceneRootNodeName = buildOptions.sceneName;
+            SceneRootNodeName = buildOptions.sceneName + sceneName;
 
 			if (_buildOptions.rebuildScene)
 			{
@@ -100,16 +100,16 @@ namespace HiddenObjectsXMLBuilder
 
 		public void ProcessNode(FileName fn)
 		{
-			if (fn.IsWideTexture)
-			{
-				ProcessWideTextureNode(fn, WidePart.LeftPart);
-				ProcessWideTextureNode(fn, WidePart.CenterPart);
-				ProcessWideTextureNode(fn, WidePart.RightPart);
-			}
-			else
-			{
-				ProcessNormalTextureNode(fn);
-			}
+            if (fn.IsWideTexture)
+            {
+                ProcessWideTextureNode(fn, WidePart.LeftPart);
+                ProcessWideTextureNode(fn, WidePart.CenterPart);
+                ProcessWideTextureNode(fn, WidePart.RightPart);
+            }
+            else
+            {
+                ProcessNormalTextureNode(fn);
+            }
 		}
 
 		public void ProcessWideTextureNode(FileName fn, WidePart widePart)

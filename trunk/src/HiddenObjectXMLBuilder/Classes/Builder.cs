@@ -84,6 +84,8 @@ namespace HiddenObjectsXMLBuilder
         private Glints _glintsHO1;
         private Glints _glintsHO2;
 		private Scene _scene;
+        private Scene _sceneHO1;
+        private Scene _sceneHO2;
 		private Texts _texts;
         private Items _items;
         private Levels _levels;
@@ -109,6 +111,8 @@ namespace HiddenObjectsXMLBuilder
             _glintsHO1 = null;
             _glintsHO2 = null;
 			_scene = null;
+            _sceneHO1 = null;
+            _sceneHO2 = null;
 			_texts = null;
 			_items = null;
             _levels = null;
@@ -183,7 +187,10 @@ namespace HiddenObjectsXMLBuilder
 
 				if (options.rebuildScene)
 				{
-					_scene = new Scene(_config, options);
+					_scene = new Scene(_config, options, "");
+                    _sceneHO1 = new Scene(_config, options, "_01");
+                    _sceneHO2 = new Scene(_config, options, "_02");
+
 				}
 
 				if (options.rebuildItemsFile || options.rebuildHintsFile)
@@ -273,10 +280,44 @@ namespace HiddenObjectsXMLBuilder
 					}
                     //////////////////////////////////////////////////////////////////////////
                     /// Create scene node
-					if (options.rebuildScene)
-					{
-						_scene.ProcessNode(fn);
-					}
+                    /// 
+
+                    if (!options.isHO)
+                    {
+                        if (options.rebuildScene)
+                        {
+                            _scene.ProcessNode(fn);
+                        }
+                    }
+                    else
+                    {
+                        if (options.rebuildScene)
+                        {
+                            if (options.isHo01)
+                            {
+                                _sceneHO1.ProcessNode(fn);
+                            }
+
+                            if (options.isHo02)
+                            {
+                                bool _notfoundHO1item = false;
+                                for (int i = 0; i < options.HO01.Count; i++)
+                                {
+                                    FileName fn2 = new FileName(options.HO01[i]);
+                                    if (fn2.TextureName == fn.TextureName)
+                                    {
+                                        _notfoundHO1item = true;
+                                        break;
+                                    }
+                                }
+                                if (!_notfoundHO1item)
+                                {
+                                    _sceneHO2.ProcessNode(fn);
+                                }
+                            }
+                        }
+                    }
+					
 					//////////////////////////////////////////////////////////////////////////
 					/// Create item node
 
@@ -317,7 +358,22 @@ namespace HiddenObjectsXMLBuilder
 
 				if (options.rebuildScene)
 				{
-					_scene.Save();
+                    if (!options.isHO)
+                    {
+                        _scene.Save();
+                    }
+                    else
+                    {
+                        if (options.isHo01)
+                        {
+                            _sceneHO1.Save();
+                        }
+
+                        if (options.isHo02)
+                        {
+                            _sceneHO2.Save();
+                        }     
+                    }
 				}
 
                 //////////////////////////////////////////////////////////////////////////
