@@ -1,4 +1,4 @@
 XMLSceneBuilder
 ===============
 
-WYSWYG editor for Scenes
+Scene Builder
