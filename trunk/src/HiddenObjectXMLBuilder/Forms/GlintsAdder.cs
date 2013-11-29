@@ -10,6 +10,7 @@ using System.IO;
 using System.Diagnostics;
 using Microsoft.Win32;
 using HiddenObjectStudio.Core;
+using HiddenObjectStudio.Core.LocationManagement;
 
 namespace HiddenObjectsXMLBuilder
 {
@@ -26,6 +27,7 @@ namespace HiddenObjectsXMLBuilder
         List<GlintList> GlintFiles = new List<GlintList>();
 
         private String __str;
+        private LocationManager Levels;
         private String __strDst;
         public String _SelectedScene;
         public String _SelectedFolder;
@@ -37,6 +39,8 @@ namespace HiddenObjectsXMLBuilder
         {
             InitializeComponent();
             __str = _str;
+
+            Levels = new LocationManager(_str);
             __strDst = _str2;
         }
 
@@ -76,149 +80,33 @@ namespace HiddenObjectsXMLBuilder
             _glintsXmlDoc.Load(__str);
             scenesList.CheckBoxes = false;
 
-            XmlElement _glintsRoot = null, _layersNode_SE = null, _layersNode_CE = null;
+            List<SceneInfo> _Scenes = Levels.AllScenes;
 
-
-            for (int i = 0; i < _glintsXmlDoc.ChildNodes.Count; i++ )
+            for (int i = 0; i < _Scenes.Count; i++)
             {
-                if (_glintsXmlDoc.ChildNodes[i].Name == "levels")
+                ListViewItem item = new ListViewItem();
+
+                if (_Scenes[i].GddName != "")
                 {
-                    _glintsRoot = (XmlElement)_glintsXmlDoc.ChildNodes[i];
-                    break;
+                    item.Text = _Scenes[i].GddName;
+                    item.ForeColor = Color.DarkRed;
                 }
-            }
-            
-            if ( _glintsRoot != null)
-            {
-                _layersNode_SE = (XmlElement)_glintsRoot.FirstChild;
-                _layersNode_CE = (XmlElement)_glintsRoot.LastChild;
-            }
-
-            if (_layersNode_SE != null)
-            {
-                for (int i = 0; i < _layersNode_SE.ChildNodes.Count; i++)
+                else
                 {
-                    if (_layersNode_SE.ChildNodes[i].Attributes != null) 
-                    {
-                        ListViewItem item = new ListViewItem();
-                        item.Text = _layersNode_SE.ChildNodes[i].Attributes["gdd_name"].Value;
-
-                        GlintList _list;
-                        _list.path = __strDst + "\\" + _layersNode_SE.ChildNodes[i].Attributes["scene_folder"].Value + "\\" + _layersNode_SE.ChildNodes[i].Attributes["scene_file"].Value;
-                        _list.item = item;
-                        _list.folder = __strDst + "\\" + _layersNode_SE.ChildNodes[i].Attributes["scene_folder"].Value;
-
-                        if (_layersNode_SE.ChildNodes[i].Attributes["glints_file"] != null)
-                        {
-                            _list.glintFile = __strDst + "\\" + _layersNode_SE.ChildNodes[i].Attributes["scene_folder"].Value + "\\" + _layersNode_SE.ChildNodes[i].Attributes["glints_file"].Value;
-                        }
-                        else
-                            _list.glintFile = "";
-                        
-
-                        GlintFiles.Add(_list);
-                        scenesList.Items.Add(item);
-                    }
-
-                    if (_layersNode_SE.ChildNodes[i].HasChildNodes)
-                    {
-                            XmlElement _subs = (XmlElement)FoundChildNode("subscreens", _layersNode_SE.ChildNodes[i]);
-
-                            if (_subs != null)
-                            {
-                                if (_subs.HasChildNodes)
-                                {
-                                    for (int k = 0; k < _subs.ChildNodes.Count; k++)
-                                    {
-                                        if (_subs.ChildNodes[k].Attributes != null)
-                                        {
-                                            ListViewItem item = new ListViewItem();
-                                            item.Text = _subs.ChildNodes[k].Name;
-
-                                            GlintList _list;
-                                            _list.path = __strDst + "\\" + _subs.ChildNodes[k].Attributes["scene_folder"].Value + "\\" + _subs.ChildNodes[k].Attributes["scene_file"].Value;
-                                            _list.item = item;
-                                            _list.folder = __strDst + "\\" + _subs.ChildNodes[k].Attributes["scene_folder"].Value;
-                                            if (_subs.ChildNodes[k].Attributes["glints_file"] != null)
-                                            {
-                                                _list.glintFile = __strDst + "\\" + _subs.ChildNodes[k].Attributes["scene_folder"].Value + "\\" + _subs.ChildNodes[k].Attributes["glints_file"].Value;
-                                            }
-                                            else
-                                                _list.glintFile = "";
-                                            GlintFiles.Add(_list);
-                                            scenesList.Items.Add(item);
-                                        }
-                                    }
-                                }
-                            
-                            
-                        }
-                    }
-                        
+                    item.Text = "       " + _Scenes[i].Name;
+                    item.ForeColor = Color.Blue;
                 }
+                
+
+                GlintList _list;
+                _list.path = __strDst + "\\" + _Scenes[i].FolderName + "\\" + _Scenes[i].FileName;
+                _list.item = item;
+                _list.folder = __strDst + "\\" + _Scenes[i].FolderName;
+                _list.glintFile = _list.folder + "\\" + _Scenes[i].GlintsFileName;
+
+                GlintFiles.Add(_list);
+                scenesList.Items.Add(item);
             }
-
-            if (_layersNode_CE != null)
-            {
-                for (int i = 0; i < _layersNode_CE.ChildNodes.Count; i++)
-                {
-                    if (_layersNode_CE.ChildNodes[i].Attributes != null)
-                    {
-                        ListViewItem item = new ListViewItem();
-                        item.Text = _layersNode_CE.ChildNodes[i].Attributes["gdd_name"].Value;
-
-                        GlintList _list;
-                        _list.path = __strDst + "\\" + _layersNode_CE.ChildNodes[i].Attributes["scene_folder"].Value + "\\" + _layersNode_CE.ChildNodes[i].Attributes["scene_file"].Value;
-                        _list.item = item;
-                        _list.folder = __strDst + "\\" + _layersNode_CE.ChildNodes[i].Attributes["scene_folder"].Value;
-                        if (_layersNode_CE.ChildNodes[i].Attributes["glints_file"] != null)
-                        {
-                            _list.glintFile = __strDst + "\\" + _layersNode_CE.ChildNodes[i].Attributes["scene_folder"].Value + "\\" + _layersNode_CE.ChildNodes[i].Attributes["glints_file"].Value;
-                        }
-                        else
-                            _list.glintFile = "";
-                        GlintFiles.Add(_list);
-                        scenesList.Items.Add(item);
-                    }
-
-
-                    if (_layersNode_CE.ChildNodes[i].HasChildNodes)
-                    {
-                            XmlElement _subs = (XmlElement)FoundChildNode("subscreens", _layersNode_CE.ChildNodes[i]);
-                            
-                            if (_subs != null)
-                            {
-                                if (_subs.HasChildNodes)
-                                {
-                                    for (int k = 0; k < _subs.ChildNodes.Count; k++)
-                                    {
-                                        if (_subs.ChildNodes[k].Attributes != null)
-                                        {
-                                            ListViewItem item = new ListViewItem();
-                                            item.Text = _subs.ChildNodes[k].Name;
-
-                                            GlintList _list;
-                                            _list.path = __strDst + "\\" + _subs.ChildNodes[k].Attributes["scene_folder"].Value + "\\" + _subs.ChildNodes[k].Attributes["scene_file"].Value;
-                                            _list.item = item;
-                                            _list.folder = __strDst + "\\" + _subs.ChildNodes[k].Attributes["scene_folder"].Value;
-                                            if (_subs.ChildNodes[k].Attributes["glints_file"] != null)
-                                            {
-                                                _list.glintFile = __strDst + "\\" + _subs.ChildNodes[k].Attributes["scene_folder"].Value + "\\" + _subs.ChildNodes[k].Attributes["glints_file"].Value;
-                                            }
-                                            else
-                                                _list.glintFile = "";
-                                            GlintFiles.Add(_list);
-                                            scenesList.Items.Add(item);
-                                        }
-                                    }
-                                }
-                            }
-                        
-                    }
-
-                }
-            }
-            scenesList.Sort();
 
             scenesList.Items[0].Focused = true;
             scenesList.Items[0].Selected = true;
@@ -229,9 +117,7 @@ namespace HiddenObjectsXMLBuilder
             layersList.Items.Clear();
             layersList.CheckBoxes = false;
             _SelectedLayers = null;
-            _SelectedScene = "";
-            _SelectedFolder = "";
-            _SelectedGlint = "";
+            _SelectedScene = _SelectedFolder = _SelectedGlint = "";
 
             XmlDocument _glintsXmlDoc;
 		    XmlElement _glintsRoot;
@@ -264,15 +150,22 @@ namespace HiddenObjectsXMLBuilder
                     {
                         ListViewItem item = new ListViewItem();
                         item.Text = _layersNode.ChildNodes[j].Name;
+                        if (item.Text.Contains("active_zone"))
+                        {
+                            item.ForeColor = Color.Blue;
+                        }
+                        else if (item.Text.Contains("drop_zone"))
+                        {
+                            item.ForeColor = Color.Brown;
+                        }
+
                         layersList.Items.Add(item);
                     }
 
             }
             else
             {
-                _SelectedScene = "";
-                _SelectedFolder = "";
-                _SelectedGlint = "";
+                _SelectedScene = _SelectedFolder = _SelectedGlint = "";
             }
         }
 
