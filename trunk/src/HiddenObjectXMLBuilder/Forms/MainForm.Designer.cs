@@ -75,7 +75,10 @@
             this.toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProjects = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.glintsAdderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSaveParametres = new System.Windows.Forms.Button();
+            this.mapsAndAnimationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -588,7 +591,8 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemFile,
-            this.toolStripMenuItemProjects});
+            this.toolStripMenuItemProjects,
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(505, 24);
@@ -620,6 +624,22 @@
             this.toolStripMenuItemProjects.Size = new System.Drawing.Size(61, 20);
             this.toolStripMenuItemProjects.Text = "&Projects";
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.glintsAdderToolStripMenuItem,
+            this.mapsAndAnimationsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // glintsAdderToolStripMenuItem
+            // 
+            this.glintsAdderToolStripMenuItem.Name = "glintsAdderToolStripMenuItem";
+            this.glintsAdderToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.glintsAdderToolStripMenuItem.Text = "Glints Adder";
+            this.glintsAdderToolStripMenuItem.Click += new System.EventHandler(this.glintsAdderToolStripMenuItem_Click);
+            // 
             // buttonSaveParametres
             // 
             this.buttonSaveParametres.Location = new System.Drawing.Point(12, 250);
@@ -628,7 +648,14 @@
             this.buttonSaveParametres.TabIndex = 12;
             this.buttonSaveParametres.Text = "&Save Settings";
             this.buttonSaveParametres.UseVisualStyleBackColor = true;
+            this.buttonSaveParametres.Click += new System.EventHandler(this.buttonSaveParametres_Click);
             this.buttonSaveParametres.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSaveParametres_Click);
+            // 
+            // mapsAndAnimationsToolStripMenuItem
+            // 
+            this.mapsAndAnimationsToolStripMenuItem.Name = "mapsAndAnimationsToolStripMenuItem";
+            this.mapsAndAnimationsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.mapsAndAnimationsToolStripMenuItem.Text = "Maps and Animations";
             // 
             // MainForm
             // 
@@ -736,5 +763,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjects;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
         private System.Windows.Forms.Button buttonSaveParametres;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem glintsAdderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mapsAndAnimationsToolStripMenuItem;
     }
 }

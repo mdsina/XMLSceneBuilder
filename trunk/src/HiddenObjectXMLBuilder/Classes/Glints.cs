@@ -15,15 +15,15 @@ namespace HiddenObjectsXMLBuilder
 		private XmlElement _glintsRoot;
 		private string _glintsFileName;
 
-		private BuilderConfig _builderConfig;
 		private BuildOptions _buildOptions;
 
-
-		public Glints(BuilderConfig builderConfig, BuildOptions buildOptions, string glintNumber)
+		public Glints(BuildOptions buildOptions, string glintNumber, string __ok = "")
 		{
-            _builderConfig = builderConfig;
             _buildOptions = buildOptions;
-            _glintsFileName = _buildOptions.dstFolder + "\\glints" + glintNumber + ".xml";
+            if(__ok == "")
+                _glintsFileName = _buildOptions.dstFolder + "\\glints" + glintNumber + ".xml";
+            else
+                _glintsFileName = __ok;
 
             if (!File.Exists(_glintsFileName))
             {

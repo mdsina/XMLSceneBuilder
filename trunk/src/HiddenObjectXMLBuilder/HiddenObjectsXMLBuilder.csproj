@@ -88,6 +88,12 @@
     <Compile Include="Classes\Scene.cs" />
     <Compile Include="Classes\SettingsAndConstants.cs" />
     <Compile Include="Classes\Texts.cs" />
+    <Compile Include="Forms\GlintsAdder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GlintsAdder.Designer.cs">
+      <DependentUpon>GlintsAdder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="Forms\MapsAnimations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MapsAnimations.Designer.cs">
+      <DependentUpon>MapsAnimations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\OptionsHO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,8 +132,14 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\GlintsAdder.resx">
+      <DependentUpon>GlintsAdder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MapsAnimations.resx">
+      <DependentUpon>MapsAnimations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OptionsHO.resx">
       <DependentUpon>OptionsHO.cs</DependentUpon>

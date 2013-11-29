@@ -27,13 +27,13 @@ namespace HiddenObjectsXMLBuilder
     {
         List<Parameters> BuilderParametresPath = new List<Parameters>();
 
-		private string SrcRoot
+		public string SrcRoot
 		{
 			get	{ return textBoxSrcPath.Text; }
 			set { textBoxSrcPath.Text = value; }
 		}
 
-		private string DstRoot
+		public string DstRoot
 		{
 			get { return textBoxDstPath.Text; }
 			set { textBoxDstPath.Text = value; }
@@ -812,6 +812,19 @@ namespace HiddenObjectsXMLBuilder
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void glintsAdderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GlintsAdder _glintsEditor = new GlintsAdder(LevelsXmlFileName, DstRoot);
+            _glintsEditor.ShowDialog();
+
+            
+        }
+
+        private void buttonSaveParametres_Click(object sender, EventArgs e)
+        {
+
         }
 
 	}

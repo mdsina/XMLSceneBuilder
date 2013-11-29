@@ -30,7 +30,7 @@ namespace HiddenObjectsXMLBuilder
 		private const string AnimationsNodeName = "animations";
 		private const string ScriptsNodeName = "scripts";
 
-        private bool FoundParentNode(string _nodeName, XmlNode _tNode)
+        public bool FoundParentNode(string _nodeName, XmlNode _tNode)
         {
             for (int i = 0; i < _tNode.ChildNodes.Count; i++)
             {
@@ -41,6 +41,8 @@ namespace HiddenObjectsXMLBuilder
             }
             return false;
         }
+
+        
 
 		public Scene(BuilderConfig builderConfig, BuildOptions buildOptions, string sceneName)
 		{

@@ -1,17 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiddenObjectStudio", "HiddenObjectStudio\HiddenObjectStudio.csproj", "{E8E58945-B8B5-4581-9088-6FD7B2857AD0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{4246AF85-ACB9-4C7B-8090-1FA59305CD81} = {4246AF85-ACB9-4C7B-8090-1FA59305CD81}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiddenObjectStudio.Core", "HiddenObjectStudio.Core\HiddenObjectStudio.Core.csproj", "{4246AF85-ACB9-4C7B-8090-1FA59305CD81}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourcesManager", "ResourcesManager\ResourcesManager.csproj", "{F69F1863-4112-4B81-87EC-BFFEA3090C2C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{4246AF85-ACB9-4C7B-8090-1FA59305CD81} = {4246AF85-ACB9-4C7B-8090-1FA59305CD81}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiddenObjectsXMLBuilder", "HiddenObjectXMLBuilder\HiddenObjectsXMLBuilder.csproj", "{F0F211B2-0000-4BEF-8795-04C111E0FC31}"
 EndProject
@@ -25,17 +15,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
-		{E8E58945-B8B5-4581-9088-6FD7B2857AD0}.Release|x86.ActiveCfg = Release|Any CPU
 		{4246AF85-ACB9-4C7B-8090-1FA59305CD81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4246AF85-ACB9-4C7B-8090-1FA59305CD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4246AF85-ACB9-4C7B-8090-1FA59305CD81}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -46,17 +25,6 @@ Global
 		{4246AF85-ACB9-4C7B-8090-1FA59305CD81}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4246AF85-ACB9-4C7B-8090-1FA59305CD81}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4246AF85-ACB9-4C7B-8090-1FA59305CD81}.Release|x86.ActiveCfg = Release|Any CPU
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Debug|x86.ActiveCfg = Debug|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Debug|x86.Build.0 = Debug|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Release|Any CPU.ActiveCfg = Release|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Release|Mixed Platforms.Build.0 = Release|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Release|Mixed Platforms.Deploy.0 = Release|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Release|x86.ActiveCfg = Release|x86
-		{F69F1863-4112-4B81-87EC-BFFEA3090C2C}.Release|x86.Build.0 = Release|x86
 		{F0F211B2-0000-4BEF-8795-04C111E0FC31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F0F211B2-0000-4BEF-8795-04C111E0FC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0F211B2-0000-4BEF-8795-04C111E0FC31}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

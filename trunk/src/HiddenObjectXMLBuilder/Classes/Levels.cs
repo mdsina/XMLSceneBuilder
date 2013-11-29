@@ -233,7 +233,7 @@ namespace HiddenObjectsXMLBuilder
 
                             layerNode.SetAttribute("scene_folder", _buildOptions.sceneName);
                             layerNode.SetAttribute("scene_file", _buildOptions.sceneName + ".xml");
-                            layerNode.SetAttribute("glints_file", GlintsFile);
+                            layerNode.SetAttribute("glints_file", GlintsFile + ".xml");
 
                             XmlElement levelSubscreens = null;
                             XmlElement levelResources_node = null;

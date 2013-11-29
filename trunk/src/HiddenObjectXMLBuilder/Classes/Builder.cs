@@ -225,9 +225,9 @@ namespace HiddenObjectsXMLBuilder
                 /// Create glints xml
                 if (options.rebuildGlintsFile)
                 {
-                    _glints = new Glints(_config, options, "");
-                    _glintsHO1 = new Glints(_config, options, "_01");
-                    _glintsHO2 = new Glints(_config, options, "_02");
+                    _glints = new Glints( options, "");
+                    _glintsHO1 = new Glints( options, "_01");
+                    _glintsHO2 = new Glints( options, "_02");
 
                 }
 				//////////////////////////////////////////////////////////////////////////

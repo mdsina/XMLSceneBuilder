@@ -261,7 +261,7 @@ namespace HiddenObjectsXMLBuilder
 				{
                     throw new Exception("I can not get the English name of the file: " + _fileName);
 				}
-                string textureName = HiddenObjectStudio.Core.Tools.FilterString(tmp[3].ToLower());
+                string textureName = HiddenObjectStudio.Core.Tools.FilterString(tmp[2].ToLower());
                 ContainsGlint(ref textureName);
                 return textureName;
 			}
