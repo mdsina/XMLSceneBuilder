@@ -342,7 +342,7 @@ namespace HiddenObjectsXMLBuilder
 							{
 								sceneBuildInfo.IsSubscreen = true;
 
-								item.Text = di.Name + " - subscreen";
+								item.Text = "    " +di.Name + " - subscreen";
 								//item.Checked = !Directory.Exists(dstPath);
 
                                 if (IsMinigameScene(di.Name))
