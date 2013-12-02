@@ -84,7 +84,12 @@ namespace HiddenObjectStudio.Core.Forms
             {
                 string filePath = fd.FileName;
                 textBoxModelFileName.Text = string.Empty;
-                textBoxModelFileName.Text = GetModelFileName(filePath);
+
+                if (textBoxModelName.Text == string.Empty)
+                {
+                    textBoxModelName.Text = Path.GetFileNameWithoutExtension(filePath);
+                }
+                textBoxModelFileName.Text = Path.GetFileName(Path.GetDirectoryName(filePath)) + "\\" + Path.GetFileName(filePath);
             }
 
         }

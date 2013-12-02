@@ -10,6 +10,7 @@ using System.IO;
 using System.Diagnostics;
 using Microsoft.Win32;
 using HiddenObjectStudio.Core;
+using HiddenObjectStudio.Core.ResourcesManager;
 
 namespace HiddenObjectsXMLBuilder
 {
@@ -817,7 +818,7 @@ namespace HiddenObjectsXMLBuilder
         private void glintsAdderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GlintsAdder _glintsEditor = new GlintsAdder(LevelsXmlFileName, DstRoot);
-            _glintsEditor.ShowDialog();
+            _glintsEditor.Show();
 
             
         }
@@ -825,6 +826,18 @@ namespace HiddenObjectsXMLBuilder
         private void buttonSaveParametres_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void resourcesManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*if (File.Exists(resourcesFullFileName))
+            {
+                ResourcesManagerMainForm resourcesManagerMainForm = new ResourcesManagerMainForm(resourcesFullFileName);
+                resourcesManagerMainForm.Show();
+            }*/
+
+            ScenesForRM _rm = new ScenesForRM(LevelsXmlFileName, DstRoot);
+            _rm.Show();
         }
 
 	}

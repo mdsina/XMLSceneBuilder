@@ -124,12 +124,23 @@ namespace HiddenObjectStudio.Core.Forms
             fd.Multiselect = false;
             fd.Title = "Select picture!";
 
-            DialogResult dr = fd.ShowDialog();
-            if (dr == System.Windows.Forms.DialogResult.OK)
+            if (fd.ShowDialog() == DialogResult.OK)
             {
-                string filePath = fd.FileName;
-                textBoxTextureName.Text = string.Empty;
-                textBoxTextureName.Text = GetTextureFileName(filePath);
+                try
+                {
+                    string filePath = fd.FileName;
+                    textBoxTextureName.Text = string.Empty;
+
+                    if (textBoxShaderName.Text == string.Empty)
+                    {
+                        textBoxShaderName.Text = Path.GetFileNameWithoutExtension(filePath);
+                    }
+                    textBoxTextureName.Text = Path.GetFileName(Path.GetDirectoryName(filePath)) + "\\" + Path.GetFileNameWithoutExtension(filePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
             }
             
         }

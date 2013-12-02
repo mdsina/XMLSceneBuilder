@@ -79,6 +79,7 @@
             this.glintsAdderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapsAndAnimationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSaveParametres = new System.Windows.Forms.Button();
+            this.resourcesManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -628,7 +629,8 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.glintsAdderToolStripMenuItem,
-            this.mapsAndAnimationsToolStripMenuItem});
+            this.mapsAndAnimationsToolStripMenuItem,
+            this.resourcesManagerToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -656,6 +658,13 @@
             this.buttonSaveParametres.UseVisualStyleBackColor = true;
             this.buttonSaveParametres.Click += new System.EventHandler(this.buttonSaveParametres_Click);
             this.buttonSaveParametres.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSaveParametres_Click);
+            // 
+            // resourcesManagerToolStripMenuItem
+            // 
+            this.resourcesManagerToolStripMenuItem.Name = "resourcesManagerToolStripMenuItem";
+            this.resourcesManagerToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.resourcesManagerToolStripMenuItem.Text = "Resources Manager";
+            this.resourcesManagerToolStripMenuItem.Click += new System.EventHandler(this.resourcesManagerToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -766,5 +775,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem glintsAdderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mapsAndAnimationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resourcesManagerToolStripMenuItem;
     }
 }

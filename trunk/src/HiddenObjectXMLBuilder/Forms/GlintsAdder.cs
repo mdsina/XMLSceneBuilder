@@ -75,10 +75,8 @@ namespace HiddenObjectsXMLBuilder
 
         private void GlintsAdder_Load(object sender, EventArgs e)
         {
-
-            XmlDocument _glintsXmlDoc = new XmlDocument();
-            _glintsXmlDoc.Load(__str);
             scenesList.CheckBoxes = false;
+            scenesList.MultiSelect = false;
 
             List<SceneInfo> _Scenes = Levels.AllScenes;
 
